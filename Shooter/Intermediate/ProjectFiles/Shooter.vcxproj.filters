@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Shooter.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{62D3F41F-164F-4703-9EA7-4D4D921697CA}</UniqueIdentifier>
+      <UniqueIdentifier>{82C2C140-FCA6-4FDC-AE44-5F1C5C3BED7F}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Shooter.Target.cs">
       <Filter>Source</Filter>
@@ -11,8 +11,10 @@
     <None Include="..\..\Source\ShooterEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.clang-format" />
+    <None Include="..\..\.gitignore" />
     <Filter Include="Config">
-      <UniqueIdentifier>{692D616D-D7CB-49DD-A427-AA6F5BB2E402}</UniqueIdentifier>
+      <UniqueIdentifier>{39B8271C-7E54-4273-BD2B-581CB89D7C01}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -24,7 +26,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Shooter">
-      <UniqueIdentifier>{E43B2570-841B-415E-927A-158A623CFF59}</UniqueIdentifier>
+      <UniqueIdentifier>{85C93BE1-13FF-4673-A7ED-C01F3A36C886}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Shooter\Shooter.Build.cs">
       <Filter>Source\Shooter</Filter>
@@ -36,13 +38,13 @@
       <Filter>Source\Shooter</Filter>
     </ClInclude>
     <Filter Include="Source\Shooter\Private">
-      <UniqueIdentifier>{31B80261-596A-4D25-BCBE-B07DDAD6121C}</UniqueIdentifier>
+      <UniqueIdentifier>{D0FF2136-881D-4B21-A071-684B22C71E8E}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Shooter\Private\ShooterGameModeBase.cpp">
       <Filter>Source\Shooter\Private</Filter>
     </ClCompile>
     <Filter Include="Source\Shooter\Public">
-      <UniqueIdentifier>{6EA9F04E-F08C-4522-B335-745778867777}</UniqueIdentifier>
+      <UniqueIdentifier>{3228FC22-A7CF-440E-ADD8-93340364921B}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\Shooter\Public\ShooterGameModeBase.h">
       <Filter>Source\Shooter\Public</Filter>
