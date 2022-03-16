@@ -1294,3 +1294,95 @@ LogConfig: Setting CVar [[r.setres:1280x720]]
 [2022.03.16-21.27.36:814][458]LogShaderCompilers: Display: Started 1 'Local' shader compile jobs with 'Normal' priority
 [2022.03.16-21.27.37:610][459]LogShaderCompilers: Display: Worker (4/9): shaders left to compile 1
 [2022.03.16-21.27.37:610][459]LogShaderCompilers: Display: Started 1 'Local' shader compile jobs with 'Normal' priority
+[2022.03.16-21.42.39:619][160]LogAudioMixer: Warning: Changing default audio render device to new device: {0.0.0.00000000}.{fa7f45f8-2686-4adf-9acd-0b2be227f450}.
+[2022.03.16-21.42.39:619][160]LogAudioMixer: Resetting audio stream to device id 
+[2022.03.16-21.42.39:626][160]LogAudioMixer: Display: 0: FrontLeft
+[2022.03.16-21.42.39:626][160]LogAudioMixer: Display: 1: FrontRight
+[2022.03.16-21.45.34:039][679]LogD3D11RHI: Timed out while waiting for GPU to catch up. (0.5 s) (ErrorCode 00000001) (00000000)
+[2022.03.16-21.45.34:322][680]LogAudioMixer: Warning: Changing default audio render device to new device: {0.0.0.00000000}.{1d139103-19f0-49c3-b3ef-00a4d60c074b}.
+[2022.03.16-21.45.34:538][680]LogAudioMixer: Resetting audio stream to device id 
+[2022.03.16-21.45.34:544][680]LogAudioMixer: Display: 0: FrontLeft
+[2022.03.16-21.45.34:544][680]LogAudioMixer: Display: 1: FrontRight
+[2022.03.16-21.45.35:949][684]LogAudioMixer: Warning: Changing default audio render device to new device: {0.0.0.00000000}.{fa7f45f8-2686-4adf-9acd-0b2be227f450}.
+[2022.03.16-21.45.35:949][684]LogAudioMixer: Resetting audio stream to device id 
+[2022.03.16-21.45.35:959][684]LogAudioMixer: Display: 0: FrontLeft
+[2022.03.16-21.45.35:960][684]LogAudioMixer: Display: 1: FrontRight
+[2022.03.16-21.45.37:917][689]LogAudioMixer: Warning: Changing default audio render device to new device: {0.0.0.00000000}.{1d139103-19f0-49c3-b3ef-00a4d60c074b}.
+[2022.03.16-21.45.37:917][689]LogAudioMixer: Resetting audio stream to device id 
+[2022.03.16-21.45.37:970][689]LogAudioMixer: Display: 0: FrontLeft
+[2022.03.16-21.45.37:971][689]LogAudioMixer: Display: 1: FrontRight
+[2022.03.16-21.46.26:794][310]LogEditorClassViewer: Warning: Class /Engine/Tutorial/InWorldBlueprintEditing/TutorialAssets/IWBE_Blutility.IWBE_Blutility_C has parent /Script/Blutility.PlacedEditorUtilityBase, but this parent is not found. The Class will not be shown in ClassViewer.
+[2022.03.16-21.46.26:837][310]LogSlate: Took 0.000244 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-BoldCondensed.ttf' (158K)
+[2022.03.16-21.46.52:416][751]Running E:/UnrealEngine/UE_4.27/Engine/Binaries/DotNET/UnrealBuildTool.exe  -projectfiles -project="E:/UnrealCPP/Shooter/Shooter.uproject" -game -rocket -progress
+[2022.03.16-21.46.52:848][751]Discovering modules, targets and source code for project...
+[2022.03.16-21.46.54:762][751]Binding IntelliSense data...
+[2022.03.16-21.46.58:296][751]Binding IntelliSense data... 100%
+[2022.03.16-21.46.58:296][751]Writing project files...
+[2022.03.16-21.47.01:224][751]Writing project files... 100%
+[2022.03.16-21.47.01:325][751]LogHotReload: Recompiling module Shooter...
+[2022.03.16-21.47.01:335][751]Candidate modules for hot reload:
+[2022.03.16-21.47.01:335][751]  Shooter
+[2022.03.16-21.47.01:335][751]Launching UnrealBuildTool... [E:/UnrealEngine/UE_4.27/Engine/Binaries/DotNET/UnrealBuildTool.exe  -ModuleWithSuffix=Shooter,7076 ShooterEditor Win64 Development -Project="E:/UnrealCPP/Shooter/Shooter.uproject" "E:/UnrealCPP/Shooter/Shooter.uproject"  -IgnoreJunk]
+[2022.03.16-21.48.17:960][751]Using 'git status' to determine working set for adaptive non-unity build (E:\UnrealCPP).
+Creating makefile for ShooterEditor (no existing makefile)
+Parsing headers for ShooterEditor
+  Running UnrealHeaderTool "E:\UnrealCPP\Shooter\Shooter.uproject" "E:\UnrealCPP\Shooter\Intermediate\Build\Win64\ShooterEditor\Development\ShooterEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\Sunkar\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
+LogInit: Display: Loading text-based GConfig....
+Reflection code generated for ShooterEditor in 10,7806084 seconds
+Building ShooterEditor...
+Using Visual Studio 2019 14.29.30141 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+Building 9 actions with 12 processes...
+  [1/9] Default.rc2
+  [2/9] SharedPCH.Engine.ShadowErrors.cpp
+  [3/9] Shooter.cpp
+  [4/9] Shooter.init.gen.cpp
+  [5/9] ShooterGameModeBase.cpp
+  [6/9] ShooterGameModeBase.gen.cpp
+  [7/9] UE4Editor-Shooter-7076.lib
+     ????????? ??????⥪? E:\UnrealCPP\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\UE4Editor-Shooter-7076.lib ? ??ꥪ? E:\UnrealCPP\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\UE4Editor-Shooter-7076.exp
+  [8/9] UE4Editor-Shooter-7076.dll
+     ????????? ??????⥪? E:\UnrealCPP\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\UE4Editor-Shooter-7076.suppressed.lib ? ??ꥪ? E:\UnrealCPP\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\UE4Editor-Shooter-7076.suppressed.exp
+  [9/9] ShooterEditor.target
+Total time in Parallel executor: 52,87 seconds
+Total execution time: 76,47 seconds
+
+[2022.03.16-21.48.17:961][751]CompilerResultsLog: New page: Compilation - 16 мар. 2022 г., 23:48:17
+[2022.03.16-21.48.17:961][751]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (E:\UnrealCPP).
+[2022.03.16-21.48.17:961][751]CompilerResultsLog: Creating makefile for ShooterEditor (no existing makefile)
+[2022.03.16-21.48.17:961][751]CompilerResultsLog: Parsing headers for ShooterEditor
+[2022.03.16-21.48.17:961][751]CompilerResultsLog:   Running UnrealHeaderTool "E:\UnrealCPP\Shooter\Shooter.uproject" "E:\UnrealCPP\Shooter\Intermediate\Build\Win64\ShooterEditor\Development\ShooterEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\Sunkar\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
+[2022.03.16-21.48.17:961][751]CompilerResultsLog: LogInit: Display: Loading text-based GConfig....
+[2022.03.16-21.48.17:961][751]CompilerResultsLog: Reflection code generated for ShooterEditor in 10,7806084 seconds
+[2022.03.16-21.48.17:961][751]CompilerResultsLog: Building ShooterEditor...
+[2022.03.16-21.48.17:961][751]CompilerResultsLog: Using Visual Studio 2019 14.29.30141 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[2022.03.16-21.48.17:961][751]CompilerResultsLog: Building 9 actions with 12 processes...
+[2022.03.16-21.48.17:961][751]CompilerResultsLog:   [1/9] Default.rc2
+[2022.03.16-21.48.17:961][751]CompilerResultsLog:   [2/9] SharedPCH.Engine.ShadowErrors.cpp
+[2022.03.16-21.48.17:961][751]CompilerResultsLog:   [3/9] Shooter.cpp
+[2022.03.16-21.48.17:961][751]CompilerResultsLog:   [4/9] Shooter.init.gen.cpp
+[2022.03.16-21.48.17:962][751]CompilerResultsLog:   [5/9] ShooterGameModeBase.cpp
+[2022.03.16-21.48.17:962][751]CompilerResultsLog:   [6/9] ShooterGameModeBase.gen.cpp
+[2022.03.16-21.48.17:962][751]CompilerResultsLog:   [7/9] UE4Editor-Shooter-7076.lib
+[2022.03.16-21.48.17:962][751]CompilerResultsLog:      ????????? ??????⥪? E:\UnrealCPP\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\UE4Editor-Shooter-7076.lib ? ??ꥪ? E:\UnrealCPP\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\UE4Editor-Shooter-7076.exp
+[2022.03.16-21.48.17:962][751]CompilerResultsLog:   [8/9] UE4Editor-Shooter-7076.dll
+[2022.03.16-21.48.17:962][751]CompilerResultsLog:      ????????? ??????⥪? E:\UnrealCPP\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\UE4Editor-Shooter-7076.suppressed.lib ? ??ꥪ? E:\UnrealCPP\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\UE4Editor-Shooter-7076.suppressed.exp
+[2022.03.16-21.48.17:962][751]CompilerResultsLog:   [9/9] ShooterEditor.target
+[2022.03.16-21.48.17:962][751]CompilerResultsLog: Total time in Parallel executor: 52,87 seconds
+[2022.03.16-21.48.17:962][751]CompilerResultsLog: Total execution time: 76,47 seconds
+[2022.03.16-21.48.17:962][751]LogMainFrame: MainFrame: Module compiling took 76.636 seconds
+[2022.03.16-21.48.17:966][751]Reloading module Shooter after successful compile.
+[2022.03.16-21.48.17:995][751]LogClass: Could not find existing package /Script/Shooter for HotReload of class ShooterGameModeBase, assuming a new package.
+[2022.03.16-21.48.18:001][751]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'Shooter' in 0.0008 seconds. Added 1 classes and 3 folders.
+[2022.03.16-21.48.18:016][751]LogUObjectHash: Compacting FUObjectHashTables data took   2.54ms
+[2022.03.16-21.48.18:048][751]LogNativeClassHierarchy: Verbose: Native class hierarchy populated in 0.0199 seconds. Added 3823 classes and 931 folders.
+[2022.03.16-21.48.18:122][751]LogSlate: Window 'Add C++ Class' being destroyed
+[2022.03.16-21.49.24:692][676]LogSlate: Prevented a slow task dialog from being summoned while a context menu was open
+[2022.03.16-21.49.24:715][676]LogEditorClassViewer: Warning: Class /Engine/Tutorial/InWorldBlueprintEditing/TutorialAssets/IWBE_Blutility.IWBE_Blutility_C has parent /Script/Blutility.PlacedEditorUtilityBase, but this parent is not found. The Class will not be shown in ClassViewer.
+[2022.03.16-21.49.45:749][252]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Levels/FirstLevel" FILE="../../../../../UnrealCPP/Shooter/Content/Levels/FirstLevel.umap" SILENT=true AUTOSAVING=false KEEPDIRTY=false
+[2022.03.16-21.49.45:756][252]LogUObjectHash: Compacting FUObjectHashTables data took   0.37ms
+[2022.03.16-21.49.45:765][252]LogSavePackage: Moving '../../../../../UnrealCPP/Shooter/Saved/FirstLevel609E0583458A8099555672A117EC6AB9.tmp' to '../../../../../UnrealCPP/Shooter/Content/Levels/FirstLevel.umap'
+[2022.03.16-21.49.45:777][252]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Levels/FirstLevel_BuiltData" FILE="../../../../../UnrealCPP/Shooter/Content/Levels/FirstLevel_BuiltData.uasset" SILENT=true
+[2022.03.16-21.49.45:793][252]LogSavePackage: Moving '../../../../../UnrealCPP/Shooter/Saved/FirstLevel_BuiltData60BAC620449A859944AA07B9010CF2B2.tmp' to '../../../../../UnrealCPP/Shooter/Content/Levels/FirstLevel_BuiltData.uasset'
+[2022.03.16-21.49.45:805][252]AssetCheck: New page: Asset Save: multiple assets
+[2022.03.16-21.49.45:805][252]LogContentValidation: Display: Validating MapBuildDataRegistry /Game/Levels/FirstLevel_BuiltData.FirstLevel_BuiltData
+[2022.03.16-21.49.45:805][252]LogContentValidation: Display: Validating World /Game/Levels/FirstLevel.FirstLevel
