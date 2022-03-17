@@ -5,3 +5,5 @@ E:\UnrealEngine\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatRe
 E:\UnrealEngine\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
 E:\UnrealEngine\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
 E:\UnrealCPP\Shooter\Intermediate\Build\Win64\UE4Editor\Inc\Shooter\ShooterGameModeBase.generated.h
+E:\UnrealCPP\Shooter\Source\Shooter\Public\Player/ShooterPlayerController.h
+E:\UnrealCPP\Shooter\Intermediate\Build\Win64\UE4Editor\Inc\Shooter\ShooterPlayerController.generated.h

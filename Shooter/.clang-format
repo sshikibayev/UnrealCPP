@@ -1,10 +1,22 @@
 ---
 Language: Cpp
 BasedOnStyle: LLVM
-IndentWidth: '4'
-UseTab: Never
 AlignOperands: true
 AllowShortIfStatementsOnASingleLine: false
+IndentWidth: '4'
+TabWidth: '4'
+UseTab: Never;
+AccessModifierOffset: '-4'
+AlignAfterOpenBracket: DontAlign
+AlignEscapedNewlines: Right
+AlignTrailingComments: true
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: InlineOnly
+BreakBeforeBraces: Allman
+BreakConstructorInitializersBeforeComma: true
+ColumnLimit: '0'
+PointerAlignment: Left
+SpacesInAngles: false
 BraceWrapping: 
   AfterCaseLabel: false
   AfterClass: false
@@ -22,7 +34,6 @@ BraceWrapping:
   SplitEmptyFunction: true
   SplitEmptyRecord: true
   SplitEmptyNamespace: true
-BreakBeforeBraces: Custom
 IncludeCategories: 
   - Regex: '^"(llvm|llvm-c|clang|clang-c)/'
     Priority: 2
