@@ -16,4 +16,3 @@ class SHOOTER_API AShooterGameModeBase : public AGameModeBase
 public:
     AShooterGameModeBase();
 };
-

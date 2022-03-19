@@ -234,6 +234,8 @@
 /I Runtime\ClothingSystemRuntimeInterface\Public
 /I E:\UnrealCPP\Shooter\Intermediate\Build\Win64\UE4Editor\Inc\Shooter
 /I E:\UnrealCPP\Shooter\Source
+/I E:\UnrealCPP\Shooter\Source\Shooter\Public\Player
+/I E:\UnrealCPP\Shooter\Source\Shooter\Public\Components
 /I E:\UnrealCPP\Shooter\Source\Shooter\Public
 /I ThirdParty\PhysX3\PxShared\include
 /I ThirdParty\PhysX3\PxShared\include\cudamanager

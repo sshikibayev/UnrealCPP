@@ -18,7 +18,7 @@ class SHOOTER_API AShooterBaseCharacter : public ACharacter
 
 public:
 	// Sets default values for this character's properties
-	AShooterBaseCharacter();
+	AShooterBaseCharacter(const FObjectInitializer& ObjInit);
         
 protected:
         UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
@@ -26,27 +26,32 @@ protected:
 
         UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
         USpringArmComponent* SpringArmComponent;
-
-        //Movement vars;
-        UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movements")
-        float SprintMultiplayer = 1.5f;
-
-        float MaxWalkSpeed;
-        
+    
         // Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+        virtual void BeginPlay() override;
 
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
+    
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+    //Movement vars;
+    UFUNCTION(BlueprintCallable, Category = "Movements")
+    bool FIsSprinting() const;
+    
+    UFUNCTION(BlueprintCallable, Category = "Movements")
+    float GetMovementDirection() const;
+
 private:
         //Movement controller
-        void MoveForward(float Scale);
-        void MoveBackward(float Scale);
-        void MoveRight(float Scale);
-        void MoveLeft(float Scale);
-        void Run(float Scale);
+        void MoveForwardBackward(float Scale);
+        bool IsMovingForward = false;
+        void MoveRightLeft(float Scale);
+    
+        //Sprint Control
+        bool IsSprinting = false;
+        void OnStartRunning();
+        void OnStopRunning();
 };

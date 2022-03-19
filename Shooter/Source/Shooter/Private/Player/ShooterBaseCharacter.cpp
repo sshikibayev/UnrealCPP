@@ -2,43 +2,24 @@
 
 
 #include "Player/ShooterBaseCharacter.h"
-
-#include "ChaosInterfaceWrapperCore.h"
 #include "GameFramework/CharacterMovementComponent.h"
-
-#include <string>
-
-DEFINE_LOG_CATEGORY_STATIC(LogShooterBaseCharacter, All, All)
+#include "Components/ShooterCharacterMovementComp.h"
 
 // Sets default values
-AShooterBaseCharacter::AShooterBaseCharacter()
+AShooterBaseCharacter::AShooterBaseCharacter(const FObjectInitializer& ObjInit)
+    : Super(ObjInit.SetDefaultSubobjectClass<UShooterCharacterMovementComp>(ACharacter::CharacterMovementComponentName))
 {
     // Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
     PrimaryActorTick.bCanEverTick = true;
 
     //Spring arm component creation
-    SpringArmComponent =
-        CreateDefaultSubobject
-        <USpringArmComponent>(
-            "SpringArmComponent");
-    SpringArmComponent->SetupAttachment(
-        GetRootComponent());
-    SpringArmComponent->
-        bUsePawnControlRotation
-        = true;
+    SpringArmComponent = CreateDefaultSubobject <USpringArmComponent>("SpringArmComponent");
+    SpringArmComponent -> SetupAttachment(GetRootComponent());
+    SpringArmComponent -> bUsePawnControlRotation = true;
 
     //Camera component creation
-    CameraComponent = CreateDefaultSubobject
-        <UCameraComponent>(
-            "CameraComponent");
-    CameraComponent->SetupAttachment(
-        SpringArmComponent);
-
-    //Sprint setup
-    MaxWalkSpeed =
-        AShooterBaseCharacter::GetCharacterMovement()
-        ->
-        MaxWalkSpeed;
+    CameraComponent = CreateDefaultSubobject <UCameraComponent>("CameraComponent");
+    CameraComponent->SetupAttachment(SpringArmComponent);
 }
 
 // Called when the game starts or when spawned
@@ -61,74 +42,57 @@ void AShooterBaseCharacter::SetupPlayerInputComponent(
         PlayerInputComponent);
 
     //Player movement mapping
-    PlayerInputComponent->BindAxis(
-        "MoveForward",
-        this,
-        &AShooterBaseCharacter::MoveForward);
-    PlayerInputComponent->BindAxis(
-        "MoveBackward",
-        this,
-        &AShooterBaseCharacter::MoveBackward);
-    PlayerInputComponent->BindAxis(
-        "MoveRight",
-        this,
-        &AShooterBaseCharacter::MoveRight);
-    PlayerInputComponent->BindAxis(
-        "MoveLeft",
-        this,
-        &AShooterBaseCharacter::MoveLeft);
-
+    PlayerInputComponent->BindAxis("MoveForwardBackward", this, &AShooterBaseCharacter::MoveForwardBackward);
+    PlayerInputComponent->BindAxis("MoveRightLeft", this, &AShooterBaseCharacter::MoveRightLeft);
+    
     //Camera movement mapping
-    PlayerInputComponent->BindAxis(
-        "LookUpDown",
-        this,
-        &AShooterBaseCharacter::AddControllerPitchInput);
-    PlayerInputComponent->BindAxis(
-        "TurnAround",
-        this,
-        &AShooterBaseCharacter::AddControllerYawInput);
+    PlayerInputComponent->BindAxis("LookUpDown", this, &AShooterBaseCharacter::AddControllerPitchInput);
+    PlayerInputComponent->BindAxis("TurnAround", this, &AShooterBaseCharacter::AddControllerYawInput);
 
     //Jump binding
-    PlayerInputComponent->BindAction("Jump", IE_Pressed,this, &AShooterBaseCharacter::Jump);
+    PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &AShooterBaseCharacter::Jump);
 
-    //Sprint mapping
-    PlayerInputComponent->BindAxis( "Sprint",this, &AShooterBaseCharacter::Run);
+    //Sprint Binding
+    PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &AShooterBaseCharacter::OnStartRunning);
+    PlayerInputComponent->BindAction("Sprint", IE_Released, this, &AShooterBaseCharacter::OnStopRunning);
 }
 
-void AShooterBaseCharacter::MoveForward(float Scale)
+void AShooterBaseCharacter::MoveForwardBackward(float Scale)
 {
-    AddMovementInput(
-        GetActorForwardVector(), Scale);
-}
-
-void AShooterBaseCharacter::MoveBackward(float Scale)
-{
+    IsMovingForward = Scale > 0.0f;
+    if(Scale == 0.0f) return;
     AddMovementInput(GetActorForwardVector(), Scale);
 }
 
-void AShooterBaseCharacter::MoveRight(float Scale)
+void AShooterBaseCharacter::MoveRightLeft(float Scale)
 {
+    if(Scale == 0.0f) return;
     AddMovementInput(GetActorRightVector(), Scale);
 }
 
-void AShooterBaseCharacter::MoveLeft(float Scale)
+void AShooterBaseCharacter::OnStartRunning()
 {
-    AddMovementInput(GetActorRightVector(), Scale);
+    IsSprinting = true;
+    GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Black, "Running");
 }
 
-void AShooterBaseCharacter::Run(float Scale)
+void AShooterBaseCharacter::OnStopRunning()
 {
-    float Velocity = 1.0f;
-    FVector VectorChar = FVector::ZeroVector;
-    AShooterBaseCharacter::GetVelocity().ToDirectionAndLength(VectorChar,  Velocity);
-    
-    if (Scale > 0)
-    {
-        AShooterBaseCharacter::GetCharacterMovement() -> MaxWalkSpeed = MaxWalkSpeed * SprintMultiplayer;
-        GEngine ->AddOnScreenDebugMessage(-1, 2.0f, FColor::Red, FString::SanitizeFloat(Velocity));
-    }
-    else
-    {
-        AShooterBaseCharacter::GetCharacterMovement()->MaxWalkSpeed = MaxWalkSpeed;
-    }
+    IsSprinting = false;
+    GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Red, "STOP Running");
+}
+
+bool AShooterBaseCharacter::FIsSprinting() const
+{
+    return IsSprinting  && IsMovingForward && !GetVelocity().IsZero();
+}
+
+float AShooterBaseCharacter::GetMovementDirection() const
+{
+    if(GetVelocity().IsZero()) return 0.0f;
+    const auto VelocityNormal = GetVelocity().GetSafeNormal();
+    const auto AngleBetween = FMath::Acos(FVector::DotProduct(GetActorForwardVector(), VelocityNormal));
+    const auto CrossProduct = FVector::CrossProduct(GetActorForwardVector(), VelocityNormal);
+    const auto Degrees = FMath::RadiansToDegrees(AngleBetween);
+    return CrossProduct.IsZero() ? Degrees : Degrees * FMath::Sign(CrossProduct.Z);
 }
