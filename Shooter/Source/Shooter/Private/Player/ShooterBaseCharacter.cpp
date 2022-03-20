@@ -18,31 +18,48 @@ AShooterBaseCharacter::AShooterBaseCharacter(const FObjectInitializer& ObjInit)
     SpringArmComponent -> bUsePawnControlRotation = true;
 
     //Camera component creation
-    CameraComponent = CreateDefaultSubobject <UCameraComponent>("CameraComponent");
+    CameraComponent = CreateDefaultSubobject<UCameraComponent>("CameraComponent");
     CameraComponent->SetupAttachment(SpringArmComponent);
+
+    //Health component creation
+    HealthTextComponent = CreateDefaultSubobject<UTextRenderComponent>("HealthTextComponent");
+    HealthTextComponent->SetupAttachment(GetRootComponent());
+
+    PlayerHealthComponent = CreateDefaultSubobject<UPlayerHealthComponent>("PlayerHealthComponent");
 }
 
 // Called when the game starts or when spawned
 void AShooterBaseCharacter::BeginPlay()
 {
     Super::BeginPlay();
+
+    //Ignoring in shipping build
+    check(HealthTextComponent);
+    check(PlayerHealthComponent);
+    check(GetCharacterMovement());
+
+    PlayerHealthComponent->OnDeath.AddUObject(this, &AShooterBaseCharacter::OnDeath);
+
+    OnHealthChanged(PlayerHealthComponent->GetHealth());
+    PlayerHealthComponent->OnHealthChanged.AddUObject(this, &AShooterBaseCharacter::OnHealthChanged);
+
+    LandedDelegate.AddDynamic(this, &AShooterBaseCharacter::OnGroundLanded);
 }
 
-// Called every frame
 void AShooterBaseCharacter::Tick(float DeltaTime)
 {
     Super::Tick(DeltaTime);
 }
 
-// Called to bind functionality to input
 void AShooterBaseCharacter::SetupPlayerInputComponent(
     UInputComponent* PlayerInputComponent)
 {
     Super::SetupPlayerInputComponent(
         PlayerInputComponent);
+    check(PlayerInputComponent);
 
     //Player movement mapping
-    PlayerInputComponent->BindAxis("MoveForwardBackward", this, &AShooterBaseCharacter::MoveForwardBackward);
+    PlayerInputComponent->BindAxis("MoveForwardBackWard", this, &AShooterBaseCharacter::MoveForwardBackward);
     PlayerInputComponent->BindAxis("MoveRightLeft", this, &AShooterBaseCharacter::MoveRightLeft);
     
     //Camera movement mapping
@@ -96,3 +113,38 @@ float AShooterBaseCharacter::GetMovementDirection() const
     const auto Degrees = FMath::RadiansToDegrees(AngleBetween);
     return CrossProduct.IsZero() ? Degrees : Degrees * FMath::Sign(CrossProduct.Z);
 }
+
+//Health text change, when Health is changing (delegate)
+void AShooterBaseCharacter::OnHealthChanged(float Health)
+{
+    HealthTextComponent->SetText(FText::FromString(FString::Printf(TEXT("%.0f"), Health)));
+}
+
+
+void AShooterBaseCharacter::OnDeath()
+{
+    PlayAnimMontage(DeathAnimMontage);
+
+    GetCharacterMovement()->DisableMovement();
+
+    SetLifeSpan(LifeSpanOnDeath);
+
+    if(Controller)
+    {
+        Controller->ChangeState(NAME_Spectating);
+    }
+}
+
+void AShooterBaseCharacter::OnGroundLanded(const FHitResult& Hit)
+{
+    const auto FallVelocityZ = -GetVelocity().Z;
+
+    if(FallVelocityZ < LandedDamageVelocity.X) return;
+
+    const auto FinalDamage = FMath::GetMappedRangeValueClamped(LandedDamageVelocity, LandedDamage, FallVelocityZ);
+    TakeDamage(FinalDamage, FDamageEvent{}, nullptr, nullptr);
+}
+
+
+
+
