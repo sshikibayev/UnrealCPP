@@ -11,11 +11,11 @@
 UCLASS()
 class SHOOTER_API AShooterDevDamageActor : public AActor
 {
-	GENERATED_BODY()
-	
-public:	
-	// Sets default values for this actor's properties
-	AShooterDevDamageActor();
+    GENERATED_BODY()
+
+public:
+    // Sets default values for this actor's properties
+    AShooterDevDamageActor();
 
     UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
     USceneComponent* SceneComponent;
@@ -28,7 +28,7 @@ public:
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
     bool DoFullDamage = false;
-    
+
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
     FColor SphereColor = FColor::Red;
 
@@ -37,9 +37,10 @@ public:
     TSubclassOf<UDamageType> DamageType;
 
 protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+    // Called when the game starts or when spawned
+    virtual void BeginPlay() override;
 
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;};
+public:
+    // Called every frame
+    virtual void Tick(float DeltaTime) override;
+};

@@ -12,7 +12,7 @@
 UCLASS()
 class SHOOTER_API UShooterCharacterMovementComp : public UCharacterMovementComponent
 {
-	GENERATED_BODY()
+    GENERATED_BODY()
 
 public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement", meta = (ClampMin = "1.2", ClampMax = "5.0"))

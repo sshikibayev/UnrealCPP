@@ -5,7 +5,6 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Components/ShooterCharacterMovementComp.h"
 
-// Sets default values
 AShooterBaseCharacter::AShooterBaseCharacter(const FObjectInitializer& ObjInit)
     : Super(ObjInit.SetDefaultSubobjectClass<UShooterCharacterMovementComp>(ACharacter::CharacterMovementComponentName))
 {
@@ -13,9 +12,9 @@ AShooterBaseCharacter::AShooterBaseCharacter(const FObjectInitializer& ObjInit)
     PrimaryActorTick.bCanEverTick = true;
 
     //Spring arm component creation
-    SpringArmComponent = CreateDefaultSubobject <USpringArmComponent>("SpringArmComponent");
-    SpringArmComponent -> SetupAttachment(GetRootComponent());
-    SpringArmComponent -> bUsePawnControlRotation = true;
+    SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>("SpringArmComponent");
+    SpringArmComponent->SetupAttachment(GetRootComponent());
+    SpringArmComponent->bUsePawnControlRotation = true;
 
     //Camera component creation
     CameraComponent = CreateDefaultSubobject<UCameraComponent>("CameraComponent");
@@ -28,7 +27,6 @@ AShooterBaseCharacter::AShooterBaseCharacter(const FObjectInitializer& ObjInit)
     PlayerHealthComponent = CreateDefaultSubobject<UPlayerHealthComponent>("PlayerHealthComponent");
 }
 
-// Called when the game starts or when spawned
 void AShooterBaseCharacter::BeginPlay()
 {
     Super::BeginPlay();
@@ -61,7 +59,7 @@ void AShooterBaseCharacter::SetupPlayerInputComponent(
     //Player movement mapping
     PlayerInputComponent->BindAxis("MoveForwardBackWard", this, &AShooterBaseCharacter::MoveForwardBackward);
     PlayerInputComponent->BindAxis("MoveRightLeft", this, &AShooterBaseCharacter::MoveRightLeft);
-    
+
     //Camera movement mapping
     PlayerInputComponent->BindAxis("LookUpDown", this, &AShooterBaseCharacter::AddControllerPitchInput);
     PlayerInputComponent->BindAxis("TurnAround", this, &AShooterBaseCharacter::AddControllerYawInput);
@@ -77,13 +75,19 @@ void AShooterBaseCharacter::SetupPlayerInputComponent(
 void AShooterBaseCharacter::MoveForwardBackward(float Scale)
 {
     IsMovingForward = Scale > 0.0f;
-    if(Scale == 0.0f) return;
+    if (Scale == 0.0f)
+    {
+        return;
+    }
     AddMovementInput(GetActorForwardVector(), Scale);
 }
 
 void AShooterBaseCharacter::MoveRightLeft(float Scale)
 {
-    if(Scale == 0.0f) return;
+    if (Scale == 0.0f)
+    {
+        return;
+    }
     AddMovementInput(GetActorRightVector(), Scale);
 }
 
@@ -101,12 +105,15 @@ void AShooterBaseCharacter::OnStopRunning()
 
 bool AShooterBaseCharacter::FIsSprinting() const
 {
-    return IsSprinting  && IsMovingForward && !GetVelocity().IsZero();
+    return IsSprinting && IsMovingForward && !GetVelocity().IsZero();
 }
 
 float AShooterBaseCharacter::GetMovementDirection() const
 {
-    if(GetVelocity().IsZero()) return 0.0f;
+    if (GetVelocity().IsZero())
+    {
+        return 0.0f;
+    }
     const auto VelocityNormal = GetVelocity().GetSafeNormal();
     const auto AngleBetween = FMath::Acos(FVector::DotProduct(GetActorForwardVector(), VelocityNormal));
     const auto CrossProduct = FVector::CrossProduct(GetActorForwardVector(), VelocityNormal);
@@ -129,7 +136,7 @@ void AShooterBaseCharacter::OnDeath()
 
     SetLifeSpan(LifeSpanOnDeath);
 
-    if(Controller)
+    if (Controller)
     {
         Controller->ChangeState(NAME_Spectating);
     }
@@ -139,12 +146,11 @@ void AShooterBaseCharacter::OnGroundLanded(const FHitResult& Hit)
 {
     const auto FallVelocityZ = -GetVelocity().Z;
 
-    if(FallVelocityZ < LandedDamageVelocity.X) return;
+    if (FallVelocityZ < LandedDamageVelocity.X)
+    {
+        return;
+    }
 
     const auto FinalDamage = FMath::GetMappedRangeValueClamped(LandedDamageVelocity, LandedDamage, FallVelocityZ);
     TakeDamage(FinalDamage, FDamageEvent{}, nullptr, nullptr);
 }
-
-
-
-

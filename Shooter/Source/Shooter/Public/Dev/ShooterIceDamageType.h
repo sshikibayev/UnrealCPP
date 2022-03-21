@@ -12,6 +12,5 @@
 UCLASS()
 class SHOOTER_API UShooterIceDamageType : public UDamageType
 {
-	GENERATED_BODY()
-	
+    GENERATED_BODY()
 };
