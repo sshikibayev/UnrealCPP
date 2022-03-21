@@ -7,11 +7,9 @@
 #include "Camera/CameraComponent.h"
 #include "Components/TextRenderComponent.h"
 #include "GameFramework/Character.h"
-#include "GameFramework/SpringArmComponent.h"
 #include "ShooterBaseCharacter.generated.h"
 
-class UCameraComponent;
-class USpringArmComponent;
+
 class UShooterHealthComponent;
 class UTextRenderComponent;
 class UPlayerHealthComponent;
@@ -22,16 +20,9 @@ class SHOOTER_API AShooterBaseCharacter : public ACharacter
     GENERATED_BODY()
 
 public:
-    // Sets default values for this character's properties
-    AShooterBaseCharacter(const FObjectInitializer& ObjInit);
-
+    explicit AShooterBaseCharacter(const FObjectInitializer& ObjInit);
+    
 protected:
-    UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
-    UCameraComponent* CameraComponent;
-
-    UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
-    USpringArmComponent* SpringArmComponent;
-
     UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
     UTextRenderComponent* HealthTextComponent;
 
@@ -53,17 +44,11 @@ protected:
     virtual void BeginPlay() override;
 
 public:
-    // Called every frame
     virtual void Tick(float DeltaTime) override;
-
-    // Called to bind functionality to input
-    virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
     //Movement vars;
     UFUNCTION(BlueprintCallable, Category = "Movements")
-    bool FIsSprinting() const;
-
-    //Using in Blueprints
+    virtual bool FIsSprinting() const;
     UFUNCTION(BlueprintCallable, Category = "Movements")
     float GetMovementDirection() const;
 
@@ -72,17 +57,7 @@ public:
     void OnGroundLanded(const FHitResult& Hit);
 
 private:
-    //Movement controller
-    void MoveForwardBackward(float Scale);
-    bool IsMovingForward = false;
-    void MoveRightLeft(float Scale);
-
-    //Sprint Control
-    bool IsSprinting = false;
-    void OnStartRunning();
-    void OnStopRunning();
-
     void OnDeath();
 
-    void OnHealthChanged(float Health);
+    void OnHealthChanged(float Health) const;
 };

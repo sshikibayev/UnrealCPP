@@ -1,8 +1,9 @@
-E:\UnrealCPP\Shooter\Source\Shooter\Public\Components\PlayerHealthComponent.h
-E:\UnrealCPP\Shooter\Source\Shooter\Public\Components\ShooterCharacterMovementComp.h
-E:\UnrealCPP\Shooter\Source\Shooter\Public\Dev\ShooterDevDamageActor.h
-E:\UnrealCPP\Shooter\Source\Shooter\Public\Player\ShooterPlayerController.h
-E:\UnrealCPP\Shooter\Source\Shooter\Public\ShooterGameModeBase.h
-E:\UnrealCPP\Shooter\Source\Shooter\Public\Player\ShooterBaseCharacter.h
-E:\UnrealCPP\Shooter\Source\Shooter\Public\Dev\ShooterFireDamageType.h
-E:\UnrealCPP\Shooter\Source\Shooter\Public\Dev\ShooterIceDamageType.h
+E:\UnrealShooterGame\Shooter\Source\Shooter\Public\Components\PlayerHealthComponent.h
+E:\UnrealShooterGame\Shooter\Source\Shooter\Public\Dev\ShooterFireDamageType.h
+E:\UnrealShooterGame\Shooter\Source\Shooter\Public\Dev\ShooterIceDamageType.h
+E:\UnrealShooterGame\Shooter\Source\Shooter\Public\Player\ShooterBaseCharacter.h
+E:\UnrealShooterGame\Shooter\Source\Shooter\Public\Player\ShooterPlayerController.h
+E:\UnrealShooterGame\Shooter\Source\Shooter\Public\ShooterGameModeBase.h
+E:\UnrealShooterGame\Shooter\Source\Shooter\Public\Components\ShooterCharacterMovementComp.h
+E:\UnrealShooterGame\Shooter\Source\Shooter\Public\Dev\ShooterDevDamageActor.h
+E:\UnrealShooterGame\Shooter\Source\Shooter\Public\Player\ShooterPlayerCharacter.h

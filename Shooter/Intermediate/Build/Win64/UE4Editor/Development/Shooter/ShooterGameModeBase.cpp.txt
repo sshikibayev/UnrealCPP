@@ -1,9 +1,9 @@
-E:\UnrealCPP\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\Definitions.Shooter.h
-E:\UnrealCPP\Shooter\Source\Shooter\Public\ShooterGameModeBase.h
+E:\UnrealShooterGame\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\Definitions.Shooter.h
+E:\UnrealShooterGame\Shooter\Source\Shooter\Public\ShooterGameModeBase.h
 E:\UnrealEngine\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
 E:\UnrealEngine\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
 E:\UnrealEngine\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
 E:\UnrealEngine\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
-E:\UnrealCPP\Shooter\Intermediate\Build\Win64\UE4Editor\Inc\Shooter\ShooterGameModeBase.generated.h
-E:\UnrealCPP\Shooter\Source\Shooter\Public\Player/ShooterPlayerController.h
-E:\UnrealCPP\Shooter\Intermediate\Build\Win64\UE4Editor\Inc\Shooter\ShooterPlayerController.generated.h
+E:\UnrealShooterGame\Shooter\Intermediate\Build\Win64\UE4Editor\Inc\Shooter\ShooterGameModeBase.generated.h
+E:\UnrealShooterGame\Shooter\Source\Shooter\Public\Player/ShooterPlayerController.h
+E:\UnrealShooterGame\Shooter\Intermediate\Build\Win64\UE4Editor\Inc\Shooter\ShooterPlayerController.generated.h

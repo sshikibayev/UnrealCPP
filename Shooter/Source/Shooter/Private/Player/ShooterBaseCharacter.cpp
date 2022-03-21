@@ -8,17 +8,7 @@
 AShooterBaseCharacter::AShooterBaseCharacter(const FObjectInitializer& ObjInit)
     : Super(ObjInit.SetDefaultSubobjectClass<UShooterCharacterMovementComp>(ACharacter::CharacterMovementComponentName))
 {
-    // Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
     PrimaryActorTick.bCanEverTick = true;
-
-    //Spring arm component creation
-    SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>("SpringArmComponent");
-    SpringArmComponent->SetupAttachment(GetRootComponent());
-    SpringArmComponent->bUsePawnControlRotation = true;
-
-    //Camera component creation
-    CameraComponent = CreateDefaultSubobject<UCameraComponent>("CameraComponent");
-    CameraComponent->SetupAttachment(SpringArmComponent);
 
     //Health component creation
     HealthTextComponent = CreateDefaultSubobject<UTextRenderComponent>("HealthTextComponent");
@@ -44,68 +34,14 @@ void AShooterBaseCharacter::BeginPlay()
     LandedDelegate.AddDynamic(this, &AShooterBaseCharacter::OnGroundLanded);
 }
 
-void AShooterBaseCharacter::Tick(float DeltaTime)
+void AShooterBaseCharacter::Tick(const float DeltaTime)
 {
     Super::Tick(DeltaTime);
 }
 
-void AShooterBaseCharacter::SetupPlayerInputComponent(
-    UInputComponent* PlayerInputComponent)
-{
-    Super::SetupPlayerInputComponent(
-        PlayerInputComponent);
-    check(PlayerInputComponent);
-
-    //Player movement mapping
-    PlayerInputComponent->BindAxis("MoveForwardBackWard", this, &AShooterBaseCharacter::MoveForwardBackward);
-    PlayerInputComponent->BindAxis("MoveRightLeft", this, &AShooterBaseCharacter::MoveRightLeft);
-
-    //Camera movement mapping
-    PlayerInputComponent->BindAxis("LookUpDown", this, &AShooterBaseCharacter::AddControllerPitchInput);
-    PlayerInputComponent->BindAxis("TurnAround", this, &AShooterBaseCharacter::AddControllerYawInput);
-
-    //Jump binding
-    PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &AShooterBaseCharacter::Jump);
-
-    //Sprint Binding
-    PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &AShooterBaseCharacter::OnStartRunning);
-    PlayerInputComponent->BindAction("Sprint", IE_Released, this, &AShooterBaseCharacter::OnStopRunning);
-}
-
-void AShooterBaseCharacter::MoveForwardBackward(float Scale)
-{
-    IsMovingForward = Scale > 0.0f;
-    if (Scale == 0.0f)
-    {
-        return;
-    }
-    AddMovementInput(GetActorForwardVector(), Scale);
-}
-
-void AShooterBaseCharacter::MoveRightLeft(float Scale)
-{
-    if (Scale == 0.0f)
-    {
-        return;
-    }
-    AddMovementInput(GetActorRightVector(), Scale);
-}
-
-void AShooterBaseCharacter::OnStartRunning()
-{
-    IsSprinting = true;
-    GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Black, "Running");
-}
-
-void AShooterBaseCharacter::OnStopRunning()
-{
-    IsSprinting = false;
-    GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Red, "STOP Running");
-}
-
 bool AShooterBaseCharacter::FIsSprinting() const
 {
-    return IsSprinting && IsMovingForward && !GetVelocity().IsZero();
+    return false;
 }
 
 float AShooterBaseCharacter::GetMovementDirection() const
@@ -122,11 +58,10 @@ float AShooterBaseCharacter::GetMovementDirection() const
 }
 
 //Health text change, when Health is changing (delegate)
-void AShooterBaseCharacter::OnHealthChanged(float Health)
+void AShooterBaseCharacter::OnHealthChanged(const float Health) const
 {
     HealthTextComponent->SetText(FText::FromString(FString::Printf(TEXT("%.0f"), Health)));
 }
-
 
 void AShooterBaseCharacter::OnDeath()
 {
