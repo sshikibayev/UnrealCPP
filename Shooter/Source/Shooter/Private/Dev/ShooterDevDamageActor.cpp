@@ -1,8 +1,6 @@
 // Shooter, All Rights Reserved
 
-
 #include "Dev/ShooterDevDamageActor.h"
-
 #include "DrawDebugHelpers.h"
 
 // Sets default values

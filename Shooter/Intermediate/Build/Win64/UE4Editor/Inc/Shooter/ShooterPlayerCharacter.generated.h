@@ -14,8 +14,16 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define SHOOTER_ShooterPlayerCharacter_generated_h
 
 #define Shooter_Source_Shooter_Public_Player_ShooterPlayerCharacter_h_15_SPARSE_DATA
-#define Shooter_Source_Shooter_Public_Player_ShooterPlayerCharacter_h_15_RPC_WRAPPERS
-#define Shooter_Source_Shooter_Public_Player_ShooterPlayerCharacter_h_15_RPC_WRAPPERS_NO_PURE_DECLS
+#define Shooter_Source_Shooter_Public_Player_ShooterPlayerCharacter_h_15_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execFIsSprinting);
+
+
+#define Shooter_Source_Shooter_Public_Player_ShooterPlayerCharacter_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execFIsSprinting);
+
+
 #define Shooter_Source_Shooter_Public_Player_ShooterPlayerCharacter_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAShooterPlayerCharacter(); \

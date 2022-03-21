@@ -29,7 +29,8 @@ public:
     virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
     //Movement vars;
-    virtual bool FIsSprinting() const override;
+    UFUNCTION(BlueprintCallable, Category = "Movements")
+    virtual bool FIsSprinting() const;
 
 private:
     //Movement controller

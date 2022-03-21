@@ -18,15 +18,13 @@ struct FHitResult;
 #define Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_20_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execOnGroundLanded); \
-	DECLARE_FUNCTION(execGetMovementDirection); \
-	DECLARE_FUNCTION(execFIsSprinting);
+	DECLARE_FUNCTION(execGetMovementDirection);
 
 
 #define Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execOnGroundLanded); \
-	DECLARE_FUNCTION(execGetMovementDirection); \
-	DECLARE_FUNCTION(execFIsSprinting);
+	DECLARE_FUNCTION(execGetMovementDirection);
 
 
 #define Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_20_INCLASS_NO_PURE_DECLS \

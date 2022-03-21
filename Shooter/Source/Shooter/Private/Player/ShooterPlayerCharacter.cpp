@@ -2,7 +2,6 @@
 
 
 #include "Player/ShooterPlayerCharacter.h"
-
 #include "GameFramework/SpringArmComponent.h"
 
 AShooterPlayerCharacter::AShooterPlayerCharacter(const FObjectInitializer& ObjInit)
@@ -37,20 +36,18 @@ void AShooterPlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerI
 void AShooterPlayerCharacter::MoveForwardBackward(const float Scale)
 {
     IsMovingForward = Scale > 0.0f;
-    if (Scale == 0.0f)
+    if (Scale != 0.0f)
     {
-        return;
+        AddMovementInput(GetActorForwardVector(), Scale);
     }
-    AddMovementInput(GetActorForwardVector(), Scale);
 }
 
 void AShooterPlayerCharacter::MoveRightLeft(const float Scale)
 {
-    if (Scale == 0.0f)
+    if (Scale != 0.0f)
     {
-        return;
+        AddMovementInput(GetActorRightVector(), Scale);
     }
-    AddMovementInput(GetActorRightVector(), Scale);
 }
 
 void AShooterPlayerCharacter::OnStartRunning()

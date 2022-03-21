@@ -39,11 +39,6 @@ void AShooterBaseCharacter::Tick(const float DeltaTime)
     Super::Tick(DeltaTime);
 }
 
-bool AShooterBaseCharacter::FIsSprinting() const
-{
-    return false;
-}
-
 float AShooterBaseCharacter::GetMovementDirection() const
 {
     if (GetVelocity().IsZero())
@@ -81,11 +76,9 @@ void AShooterBaseCharacter::OnGroundLanded(const FHitResult& Hit)
 {
     const auto FallVelocityZ = -GetVelocity().Z;
 
-    if (FallVelocityZ < LandedDamageVelocity.X)
+    if (FallVelocityZ > LandedDamageVelocity.X)
     {
-        return;
+        const auto FinalDamage = FMath::GetMappedRangeValueClamped(LandedDamageVelocity, LandedDamage, FallVelocityZ);
+        TakeDamage(FinalDamage, FDamageEvent{}, nullptr, nullptr);
     }
-
-    const auto FinalDamage = FMath::GetMappedRangeValueClamped(LandedDamageVelocity, LandedDamage, FallVelocityZ);
-    TakeDamage(FinalDamage, FDamageEvent{}, nullptr, nullptr);
 }

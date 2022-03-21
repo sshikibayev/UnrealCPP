@@ -2,7 +2,6 @@
 
 
 #include "Components/PlayerHealthComponent.h"
-
 #include "ShooterBaseCharacter.h"
 
 // Sets default values for this component's properties
@@ -29,19 +28,20 @@ void UPlayerHealthComponent::BeginPlay()
 void UPlayerHealthComponent::OnTakeAnyDamage(
     AActor* DamageActor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser)
 {
-    if (Damage <= 0.0f || isDead() || !GetWorld())
-        return;
-    SetHealth(Health - Damage);
-
-    GetWorld()->GetTimerManager().ClearTimer(HealTimerHandle);
-
-    if (isDead())
+    if (Damage >= 0.0f || !isDead() || GetWorld())
     {
-        OnDeath.Broadcast();
-    }
-    else if (AutoHeal)
-    {
-        GetWorld()->GetTimerManager().SetTimer(HealTimerHandle, this, &UPlayerHealthComponent::HealUpdate, HealUpdateTime, true, HealDelay);
+        SetHealth(Health - Damage);
+    
+        GetWorld()->GetTimerManager().ClearTimer(HealTimerHandle);
+    
+        if (isDead())
+        {
+            OnDeath.Broadcast();
+        }
+        else if (AutoHeal)
+        {
+            GetWorld()->GetTimerManager().SetTimer(HealTimerHandle, this, &UPlayerHealthComponent::HealUpdate, HealUpdateTime, true, HealDelay);
+        }
     }
 }
 

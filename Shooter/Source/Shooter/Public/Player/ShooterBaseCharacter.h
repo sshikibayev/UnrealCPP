@@ -48,8 +48,6 @@ public:
 
     //Movement vars;
     UFUNCTION(BlueprintCallable, Category = "Movements")
-    virtual bool FIsSprinting() const;
-    UFUNCTION(BlueprintCallable, Category = "Movements")
     float GetMovementDirection() const;
 
     //Using for landed damage

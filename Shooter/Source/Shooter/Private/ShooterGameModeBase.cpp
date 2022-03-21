@@ -2,7 +2,6 @@
 
 
 #include "ShooterGameModeBase.h"
-
 #include "Player/ShooterPlayerController.h"
 
 AShooterGameModeBase::AShooterGameModeBase()

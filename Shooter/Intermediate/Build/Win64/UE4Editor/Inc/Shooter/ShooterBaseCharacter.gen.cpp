@@ -38,62 +38,14 @@ void EmptyLinkFunctionForGeneratedCodeShooterBaseCharacter() {}
 		*(float*)Z_Param__Result=P_THIS->GetMovementDirection();
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(AShooterBaseCharacter::execFIsSprinting)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		*(bool*)Z_Param__Result=P_THIS->FIsSprinting();
-		P_NATIVE_END;
-	}
 	void AShooterBaseCharacter::StaticRegisterNativesAShooterBaseCharacter()
 	{
 		UClass* Class = AShooterBaseCharacter::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
-			{ "FIsSprinting", &AShooterBaseCharacter::execFIsSprinting },
 			{ "GetMovementDirection", &AShooterBaseCharacter::execGetMovementDirection },
 			{ "OnGroundLanded", &AShooterBaseCharacter::execOnGroundLanded },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
-	}
-	struct Z_Construct_UFunction_AShooterBaseCharacter_FIsSprinting_Statics
-	{
-		struct ShooterBaseCharacter_eventFIsSprinting_Parms
-		{
-			bool ReturnValue;
-		};
-		static void NewProp_ReturnValue_SetBit(void* Obj);
-		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
-		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UE4CodeGen_Private::FFunctionParams FuncParams;
-	};
-	void Z_Construct_UFunction_AShooterBaseCharacter_FIsSprinting_Statics::NewProp_ReturnValue_SetBit(void* Obj)
-	{
-		((ShooterBaseCharacter_eventFIsSprinting_Parms*)Obj)->ReturnValue = 1;
-	}
-	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AShooterBaseCharacter_FIsSprinting_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ShooterBaseCharacter_eventFIsSprinting_Parms), &Z_Construct_UFunction_AShooterBaseCharacter_FIsSprinting_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AShooterBaseCharacter_FIsSprinting_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AShooterBaseCharacter_FIsSprinting_Statics::NewProp_ReturnValue,
-	};
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AShooterBaseCharacter_FIsSprinting_Statics::Function_MetaDataParams[] = {
-		{ "Category", "Movements" },
-		{ "Comment", "//Movement vars;\n" },
-		{ "ModuleRelativePath", "Public/Player/ShooterBaseCharacter.h" },
-		{ "ToolTip", "Movement vars;" },
-	};
-#endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AShooterBaseCharacter_FIsSprinting_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AShooterBaseCharacter, nullptr, "FIsSprinting", nullptr, nullptr, sizeof(ShooterBaseCharacter_eventFIsSprinting_Parms), Z_Construct_UFunction_AShooterBaseCharacter_FIsSprinting_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AShooterBaseCharacter_FIsSprinting_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020400, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AShooterBaseCharacter_FIsSprinting_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AShooterBaseCharacter_FIsSprinting_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_AShooterBaseCharacter_FIsSprinting()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AShooterBaseCharacter_FIsSprinting_Statics::FuncParams);
-		}
-		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_AShooterBaseCharacter_GetMovementDirection_Statics
 	{
@@ -115,7 +67,9 @@ void EmptyLinkFunctionForGeneratedCodeShooterBaseCharacter() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AShooterBaseCharacter_GetMovementDirection_Statics::Function_MetaDataParams[] = {
 		{ "Category", "Movements" },
+		{ "Comment", "//Movement vars;\n" },
 		{ "ModuleRelativePath", "Public/Player/ShooterBaseCharacter.h" },
+		{ "ToolTip", "Movement vars;" },
 	};
 #endif
 	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AShooterBaseCharacter_GetMovementDirection_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AShooterBaseCharacter, nullptr, "GetMovementDirection", nullptr, nullptr, sizeof(ShooterBaseCharacter_eventGetMovementDirection_Parms), Z_Construct_UFunction_AShooterBaseCharacter_GetMovementDirection_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AShooterBaseCharacter_GetMovementDirection_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AShooterBaseCharacter_GetMovementDirection_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AShooterBaseCharacter_GetMovementDirection_Statics::Function_MetaDataParams)) };
@@ -214,8 +168,7 @@ void EmptyLinkFunctionForGeneratedCodeShooterBaseCharacter() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_Shooter,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AShooterBaseCharacter_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AShooterBaseCharacter_FIsSprinting, "FIsSprinting" }, // 481874629
-		{ &Z_Construct_UFunction_AShooterBaseCharacter_GetMovementDirection, "GetMovementDirection" }, // 2598557145
+		{ &Z_Construct_UFunction_AShooterBaseCharacter_GetMovementDirection, "GetMovementDirection" }, // 3258740622
 		{ &Z_Construct_UFunction_AShooterBaseCharacter_OnGroundLanded, "OnGroundLanded" }, // 864564299
 	};
 #if WITH_METADATA
@@ -305,7 +258,7 @@ void EmptyLinkFunctionForGeneratedCodeShooterBaseCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AShooterBaseCharacter, 899972033);
+	IMPLEMENT_CLASS(AShooterBaseCharacter, 1937757827);
 	template<> SHOOTER_API UClass* StaticClass<AShooterBaseCharacter>()
 	{
 		return AShooterBaseCharacter::StaticClass();

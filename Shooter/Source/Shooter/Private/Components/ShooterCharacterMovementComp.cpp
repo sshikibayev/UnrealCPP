@@ -2,12 +2,11 @@
 
 
 #include "Components/ShooterCharacterMovementComp.h"
-
-#include "Player/ShooterBaseCharacter.h"
+#include "ShooterPlayerCharacter.h"
 
 float UShooterCharacterMovementComp::GetMaxSpeed() const
 {
     const float MaxSpeed = Super::GetMaxSpeed();
-    const AShooterBaseCharacter* Player = Cast<AShooterBaseCharacter>(GetPawnOwner());
+    const AShooterPlayerCharacter* Player = Cast<AShooterPlayerCharacter>(GetPawnOwner());
     return Player && Player->FIsSprinting() ? MaxSpeed * SprintModifier : MaxSpeed;
 }
