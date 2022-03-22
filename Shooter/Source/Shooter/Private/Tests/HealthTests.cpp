@@ -1,27 +1,31 @@
 // Shooter, All Rights Reserved
 
+#include "ShooterBaseCharacter.h"
+#include "ShooterPlayerCharacter.h"
+#include "Tests/AutomationEditorCommon.h"
+#include "CoreMinimal.h"
+#include "Misc/AutomationTest.h"
 
-#include "Tests/HealthTests.h"
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(UPlayerHealth, "Character.Player.Health2", EAutomationTestFlags::EditorContext | EAutomationTestFlags::ProductFilter)
 
-// Sets default values
-AHealthTests::AHealthTests()
+bool UPlayerHealth::RunTest(const FString& Parameters)
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+    UWorld* World = FAutomationEditorCommonUtils::CreateNewMap();
 
+    {
+        //AShooterBaseCharacter* BaseCharacter = World->SpawnActor<AShooterBaseCharacter>();
+        float test = 20.0f;
+        if(test == 10.0f)
+        {
+            AddWarning(TEXT("New spawned character should spawn with Max health and equal to 40"));
+        }
+        else
+        {
+            AddError(TEXT("New spawned character should spawn with Max health and equal to not 100"));
+        }
+       
+        //BaseCharacter->Destroy();
+    }
+
+    return true;
 }
-
-// Called when the game starts or when spawned
-void AHealthTests::BeginPlay()
-{
-	Super::BeginPlay();
-	
-}
-
-// Called every frame
-void AHealthTests::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
-}
-

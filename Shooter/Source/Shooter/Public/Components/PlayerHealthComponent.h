@@ -24,6 +24,7 @@ public:
     bool isDead() const { return FMath::IsNearlyZero(Health); }
 
     float GetHealth() const { return Health; }
+    float GetMaxHealth() const {return MaxHealth;}
 
 protected:
     // Called when the game starts

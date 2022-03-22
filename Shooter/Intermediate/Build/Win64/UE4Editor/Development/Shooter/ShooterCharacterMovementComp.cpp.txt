@@ -1,6 +1,14 @@
 E:\UnrealShooterGame\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\Definitions.Shooter.h
 E:\UnrealShooterGame\Shooter\Source\Shooter\Public\Components/ShooterCharacterMovementComp.h
 E:\UnrealEngine\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/CharacterMovementComponent.h
+E:\UnrealEngine\UE_4.27\Engine\Source\Runtime\Engine\Classes\Animation/AnimMontage.h
+E:\UnrealEngine\UE_4.27\Engine\Source\Runtime\Engine\Public\AlphaBlend.h
+E:\UnrealEngine\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\AlphaBlend.generated.h
+E:\UnrealEngine\UE_4.27\Engine\Source\Runtime\Engine\Classes\Animation/AnimCompositeBase.h
+E:\UnrealEngine\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\AnimCompositeBase.generated.h
+E:\UnrealEngine\UE_4.27\Engine\Source\Runtime\Engine\Classes\Animation/TimeStretchCurve.h
+E:\UnrealEngine\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\TimeStretchCurve.generated.h
+E:\UnrealEngine\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\AnimMontage.generated.h
 E:\UnrealEngine\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
 E:\UnrealEngine\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
 E:\UnrealEngine\UE_4.27\Engine\Source\Runtime\Engine\Classes\AI/Navigation/NavigationAvoidanceTypes.h

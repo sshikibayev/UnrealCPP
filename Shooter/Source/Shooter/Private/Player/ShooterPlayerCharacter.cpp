@@ -2,6 +2,7 @@
 
 
 #include "Player/ShooterPlayerCharacter.h"
+#include "Components/InputComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 
 AShooterPlayerCharacter::AShooterPlayerCharacter(const FObjectInitializer& ObjInit)

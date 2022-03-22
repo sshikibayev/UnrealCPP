@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Shooter.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{63761DBE-B949-4E4A-AC06-0F3331F24397}</UniqueIdentifier>
+      <UniqueIdentifier>{EB7C3C55-CCBA-437E-9E3F-72069279B2F8}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Shooter.Target.cs">
       <Filter>Source</Filter>
@@ -13,7 +13,7 @@
     </None>
     <None Include="..\..\.clang-format" />
     <Filter Include="Config">
-      <UniqueIdentifier>{2915BC8C-E80A-4CAC-B1C2-7E9DB71D26B0}</UniqueIdentifier>
+      <UniqueIdentifier>{68A7B92D-AF2E-4305-A464-5AA6FDE17106}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -28,7 +28,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Shooter">
-      <UniqueIdentifier>{472912A4-E067-4335-8F94-FC94736F60DF}</UniqueIdentifier>
+      <UniqueIdentifier>{CDB71F57-C32C-4BEB-A8AD-1F3607043989}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Shooter\Shooter.Build.cs">
       <Filter>Source\Shooter</Filter>
@@ -40,13 +40,13 @@
       <Filter>Source\Shooter</Filter>
     </ClInclude>
     <Filter Include="Source\Shooter\Private">
-      <UniqueIdentifier>{A4FF1BFA-2F6E-4F41-B51E-285914694C15}</UniqueIdentifier>
+      <UniqueIdentifier>{998D5CE8-0755-4653-AD1E-382EA3C67B89}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Shooter\Private\ShooterGameModeBase.cpp">
       <Filter>Source\Shooter\Private</Filter>
     </ClCompile>
     <Filter Include="Source\Shooter\Private\Components">
-      <UniqueIdentifier>{646187D8-CEEF-44A7-8B86-D457F2F33A06}</UniqueIdentifier>
+      <UniqueIdentifier>{DD4F41F4-5F45-49B9-ACE5-E4C83A13C83A}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Shooter\Private\Components\PlayerHealthComponent.cpp">
       <Filter>Source\Shooter\Private\Components</Filter>
@@ -55,7 +55,7 @@
       <Filter>Source\Shooter\Private\Components</Filter>
     </ClCompile>
     <Filter Include="Source\Shooter\Private\Dev">
-      <UniqueIdentifier>{2ADDFD53-B75C-4292-B315-5530EAD31DC9}</UniqueIdentifier>
+      <UniqueIdentifier>{BF82570D-2103-4F95-903D-F63BF34BA5CE}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Shooter\Private\Dev\ShooterDevDamageActor.cpp">
       <Filter>Source\Shooter\Private\Dev</Filter>
@@ -67,7 +67,7 @@
       <Filter>Source\Shooter\Private\Dev</Filter>
     </ClCompile>
     <Filter Include="Source\Shooter\Private\Player">
-      <UniqueIdentifier>{2CC48DA7-543C-47AE-9D52-4C3EFD7F3D78}</UniqueIdentifier>
+      <UniqueIdentifier>{2BFB6228-361D-4F1A-AA96-41B17A954C01}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Shooter\Private\Player\ShooterBaseCharacter.cpp">
       <Filter>Source\Shooter\Private\Player</Filter>
@@ -78,14 +78,23 @@
     <ClCompile Include="..\..\Source\Shooter\Private\Player\ShooterPlayerController.cpp">
       <Filter>Source\Shooter\Private\Player</Filter>
     </ClCompile>
+    <Filter Include="Source\Shooter\Private\Tests">
+      <UniqueIdentifier>{A2EE814C-56CA-4943-ACB5-2E7BB8343D37}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Shooter\Private\Tests\HealthComponentTest.cpp">
+      <Filter>Source\Shooter\Private\Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Shooter\Private\Tests\HealthTests.cpp">
+      <Filter>Source\Shooter\Private\Tests</Filter>
+    </ClCompile>
     <Filter Include="Source\Shooter\Public">
-      <UniqueIdentifier>{77247579-79CF-4A8D-8F39-B0166B602221}</UniqueIdentifier>
+      <UniqueIdentifier>{0DDB4127-0C51-43EE-A2AD-98B4288A7F50}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\Shooter\Public\ShooterGameModeBase.h">
       <Filter>Source\Shooter\Public</Filter>
     </ClInclude>
     <Filter Include="Source\Shooter\Public\Components">
-      <UniqueIdentifier>{DFE26E02-77E8-4D59-9B31-4672E17DB4E7}</UniqueIdentifier>
+      <UniqueIdentifier>{00837A3F-8F23-4FEB-A5D4-662B92BE86CB}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\Shooter\Public\Components\PlayerHealthComponent.h">
       <Filter>Source\Shooter\Public\Components</Filter>
@@ -94,7 +103,7 @@
       <Filter>Source\Shooter\Public\Components</Filter>
     </ClInclude>
     <Filter Include="Source\Shooter\Public\Dev">
-      <UniqueIdentifier>{201DBE3A-C2FE-4651-A2B0-2ABCAF4D389E}</UniqueIdentifier>
+      <UniqueIdentifier>{92CBA121-459C-4F31-A546-3D842AB18823}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\Shooter\Public\Dev\ShooterDevDamageActor.h">
       <Filter>Source\Shooter\Public\Dev</Filter>
@@ -106,7 +115,7 @@
       <Filter>Source\Shooter\Public\Dev</Filter>
     </ClInclude>
     <Filter Include="Source\Shooter\Public\Player">
-      <UniqueIdentifier>{1096BD74-3532-4315-B322-DCD9C17572DB}</UniqueIdentifier>
+      <UniqueIdentifier>{9B2C0342-ACEC-4CD8-98FD-040F416D2025}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\Shooter\Public\Player\ShooterBaseCharacter.h">
       <Filter>Source\Shooter\Public\Player</Filter>
