@@ -12373,3 +12373,89 @@ Please switch to the new project and continue to Step 2.
 [2022.03.22-14.26.52:003][692]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
 [2022.03.22-14.26.52:010][692]LogUObjectHash: Compacting FUObjectHashTables data took   4.66ms
 [2022.03.22-14.26.52:038][693]LogPlayLevel: Display: Destroying online subsystem :Context_28
+[2022.03.22-14.29.59:800][206]LogAudioMixer: Display: Audio Buffer Underrun (starvation) detected.
+[2022.03.22-14.30.51:132][212]LogSlate: Window 'Add C++ Class' being destroyed
+[2022.03.22-14.32.24:753][106]LogUObjectHash: Compacting FUObjectHashTables data took   3.97ms
+[2022.03.22-14.32.24:760][106]LogFileHelpers: Editor autosave (incl. external actors) for '/Game/Levels/FirstLevel' took 0.045
+[2022.03.22-14.32.24:762][106]OBJ SavePackage: Generating thumbnails for [2] asset(s) in package [/Game/Player/BP_ShooterPlayerCharacter] ([2] browsable assets)...
+[2022.03.22-14.32.24:782][106]OBJ SavePackage:     Rendered thumbnail for [BlueprintGeneratedClass /Game/Player/BP_ShooterPlayerCharacter.BP_ShooterPlayerCharacter_C]
+[2022.03.22-14.32.24:793][106]OBJ SavePackage:     Rendered thumbnail for [Blueprint /Game/Player/BP_ShooterPlayerCharacter.BP_ShooterPlayerCharacter]
+[2022.03.22-14.32.24:793][106]OBJ SavePackage: Finished generating thumbnails for package [/Game/Player/BP_ShooterPlayerCharacter]
+[2022.03.22-14.32.24:811][106]LogSavePackage: Moving '../../../../../UnrealShooterGame/Shooter/Saved/BP_ShooterPlayerCharacter_Auto1D80DCAE64CD0B0E418CA91832F0F30C8.tmp' to '../../../../../UnrealShooterGame/Shooter/Saved/Autosaves/Game/Player/BP_ShooterPlayerCharacter_Auto1.uasset'
+[2022.03.22-14.32.24:811][106]LogFileHelpers: Auto-saving content packages took 0.051
+[2022.03.22-14.33.14:426][285]Running E:/UnrealEngine/UE_4.27/Engine/Binaries/DotNET/UnrealBuildTool.exe  -projectfiles -project="E:/UnrealShooterGame/Shooter/Shooter.uproject" -game -rocket -progress
+[2022.03.22-14.33.14:854][285]Discovering modules, targets and source code for project...
+[2022.03.22-14.33.16:767][285]Binding IntelliSense data...
+[2022.03.22-14.33.19:698][285]Binding IntelliSense data... 100%
+[2022.03.22-14.33.19:698][285]Writing project files...
+[2022.03.22-14.33.23:928][285]Writing project files... 100%
+[2022.03.22-14.33.24:134][285]Candidate modules for hot reload:
+[2022.03.22-14.33.24:134][285]  Shooter
+[2022.03.22-14.33.24:135][285]Launching UnrealBuildTool... [E:/UnrealEngine/UE_4.27/Engine/Binaries/DotNET/UnrealBuildTool.exe  -ModuleWithSuffix=Shooter,4743 ShooterEditor Win64 Development -Project="E:/UnrealShooterGame/Shooter/Shooter.uproject" "E:/UnrealShooterGame/Shooter/Shooter.uproject"  -IgnoreJunk]
+[2022.03.22-14.33.43:780][285]CompilerResultsLog: New page: Compilation - 22 мар. 2022 г., 16:33:43
+[2022.03.22-14.33.43:780][285]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (E:\UnrealShooterGame).
+[2022.03.22-14.33.43:780][285]CompilerResultsLog: Creating makefile for ShooterEditor (no existing makefile)
+[2022.03.22-14.33.43:780][285]CompilerResultsLog: Parsing headers for ShooterEditor
+[2022.03.22-14.33.43:780][285]CompilerResultsLog:   Running UnrealHeaderTool "E:\UnrealShooterGame\Shooter\Shooter.uproject" "E:\UnrealShooterGame\Shooter\Intermediate\Build\Win64\ShooterEditor\Development\ShooterEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\Sunkar\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
+[2022.03.22-14.33.43:780][285]CompilerResultsLog: LogInit: Display: Loading text-based GConfig....
+[2022.03.22-14.33.43:780][285]CompilerResultsLog: Reflection code generated for ShooterEditor in 14,474552 seconds
+[2022.03.22-14.33.43:780][285]CompilerResultsLog: Building ShooterEditor...
+[2022.03.22-14.33.43:780][285]CompilerResultsLog: Using Visual Studio 2019 14.29.30141 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[2022.03.22-14.33.43:780][285]CompilerResultsLog: Building 6 actions with 12 processes...
+[2022.03.22-14.33.43:780][285]CompilerResultsLog:   [1/6] HealthComponentTests.cpp
+[2022.03.22-14.33.43:780][285]CompilerResultsLog:   [2/6] Shooter.init.gen.cpp
+[2022.03.22-14.33.43:780][285]CompilerResultsLog:   [3/6] HealthComponentTests.gen.cpp
+[2022.03.22-14.33.43:780][285]CompilerResultsLog:   [4/6] UE4Editor-Shooter-4743.lib
+[2022.03.22-14.33.43:780][285]CompilerResultsLog:      ????????? ??????⥪? E:\UnrealShooterGame\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\UE4Editor-Shooter-4743.lib ? ??ꥪ? E:\UnrealShooterGame\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\UE4Editor-Shooter-4743.exp
+[2022.03.22-14.33.43:780][285]CompilerResultsLog:   [5/6] UE4Editor-Shooter-4743.dll
+[2022.03.22-14.33.43:780][285]CompilerResultsLog:      ????????? ??????⥪? E:\UnrealShooterGame\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\UE4Editor-Shooter-4743.suppressed.lib ? ??ꥪ? E:\UnrealShooterGame\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\UE4Editor-Shooter-4743.suppressed.exp
+[2022.03.22-14.33.43:781][285]CompilerResultsLog:   [6/6] ShooterEditor.target
+[2022.03.22-14.33.43:781][285]CompilerResultsLog: Total time in Parallel executor: 2,34 seconds
+[2022.03.22-14.33.43:781][285]CompilerResultsLog: Total execution time: 19,52 seconds
+[2022.03.22-14.33.43:781][285]LogMainFrame: MainFrame: Module compiling took 19.649 seconds
+[2022.03.22-14.33.43:828][285]LogClass: Could not find existing class HealthComponentTests in package /Script/Shooter for HotReload, assuming new class
+[2022.03.22-14.33.43:868][285]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'Shooter' in 0.0005 seconds. Added 10 classes and 7 folders.
+[2022.03.22-14.33.43:880][285]Display: HotReload successful (5 functions remapped  0 scriptstructs remapped)
+[2022.03.22-14.33.44:049][285]LogNativeClassHierarchy: Verbose: Native class hierarchy populated in 0.0144 seconds. Added 3839 classes and 948 folders.
+[2022.03.22-14.33.44:058][285]Display: HotReload took 19.9s.
+[2022.03.22-14.33.44:065][285]Warning: HotReload operation took 19.9s.
+[2022.03.22-14.33.44:093][285]LogSlate: Window 'Add C++ Class' being destroyed
+[2022.03.22-14.33.44:610][285]LogHotReload: New module detected: UE4Editor-Shooter-4743.dll
+[2022.03.22-14.33.44:673][286]LogHotReload: Starting Hot-Reload from IDE
+[2022.03.22-14.33.44:710][286]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'Shooter' in 0.0006 seconds. Added 10 classes and 7 folders.
+[2022.03.22-14.33.44:725][286]Display: HotReload successful (0 functions remapped  0 scriptstructs remapped)
+[2022.03.22-14.33.44:756][286]LogNativeClassHierarchy: Verbose: Native class hierarchy populated in 0.0295 seconds. Added 3839 classes and 948 folders.
+[2022.03.22-14.33.44:772][286]Display: HotReload took  0.1s.
+[2022.03.22-14.36.25:006][752]LogWindows: LaunchURL https://docs.unrealengine.com/4.27/ru//index.html?utm_source=editor&utm_medium=docs&utm_campaign=help_menu
+[2022.03.22-14.41.46:667][259]LogHotReload: New module detected: UE4Editor-Shooter-0001.dll
+[2022.03.22-14.41.47:686][313]LogHotReload: Starting Hot-Reload from IDE
+[2022.03.22-14.41.47:761][313]LogClass: Could not find existing class HealthTests in package /Script/Shooter for HotReload, assuming new class
+[2022.03.22-14.41.47:810][313]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'Shooter' in 0.0004 seconds. Added 11 classes and 7 folders.
+[2022.03.22-14.41.47:822][313]Display: HotReload successful (5 functions remapped  0 scriptstructs remapped)
+[2022.03.22-14.41.48:080][313]LogNativeClassHierarchy: Verbose: Native class hierarchy populated in 0.0190 seconds. Added 3840 classes and 948 folders.
+[2022.03.22-14.41.48:093][313]Display: HotReload took  0.4s.
+[2022.03.22-14.42.56:235][550]Candidate modules for hot reload:
+[2022.03.22-14.42.56:235][550]  Shooter
+[2022.03.22-14.42.56:236][550]Launching UnrealBuildTool... [E:/UnrealEngine/UE_4.27/Engine/Binaries/DotNET/UnrealBuildTool.exe  -ModuleWithSuffix=Shooter,8137 ShooterEditor Win64 Development -Project="E:/UnrealShooterGame/Shooter/Shooter.uproject" "E:/UnrealShooterGame/Shooter/Shooter.uproject"  -IgnoreJunk]
+[2022.03.22-14.42.56:261][550]Warning: Starting HotReload took  0.0s.
+[2022.03.22-14.42.59:051][773]CompilerResultsLog: New page: Compilation - 22 мар. 2022 г., 16:42:59
+[2022.03.22-14.42.59:051][773]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (E:\UnrealShooterGame).
+[2022.03.22-14.42.59:051][773]CompilerResultsLog: Building ShooterEditor...
+[2022.03.22-14.42.59:051][773]CompilerResultsLog: Using Visual Studio 2019 14.29.30141 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[2022.03.22-14.42.59:051][773]CompilerResultsLog: Building 3 actions with 12 processes...
+[2022.03.22-14.42.59:051][773]CompilerResultsLog:   [1/3] UE4Editor-Shooter-8137.lib
+[2022.03.22-14.42.59:051][773]CompilerResultsLog:      ????????? ??????⥪? E:\UnrealShooterGame\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\UE4Editor-Shooter-8137.lib ? ??ꥪ? E:\UnrealShooterGame\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\UE4Editor-Shooter-8137.exp
+[2022.03.22-14.42.59:051][773]CompilerResultsLog:   [2/3] UE4Editor-Shooter-8137.dll
+[2022.03.22-14.42.59:051][773]CompilerResultsLog:      ????????? ??????⥪? E:\UnrealShooterGame\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\UE4Editor-Shooter-8137.suppressed.lib ? ??ꥪ? E:\UnrealShooterGame\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\UE4Editor-Shooter-8137.suppressed.exp
+[2022.03.22-14.42.59:052][773]CompilerResultsLog:   [3/3] ShooterEditor.target
+[2022.03.22-14.42.59:052][773]CompilerResultsLog: Total time in Parallel executor: 1,41 seconds
+[2022.03.22-14.42.59:052][773]CompilerResultsLog: Total execution time: 2,67 seconds
+[2022.03.22-14.42.59:052][773]LogMainFrame: MainFrame: Module compiling took 2.821 seconds
+[2022.03.22-14.42.59:154][773]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'Shooter' in 0.0004 seconds. Added 11 classes and 7 folders.
+[2022.03.22-14.42.59:168][773]Display: HotReload successful (5 functions remapped  0 scriptstructs remapped)
+[2022.03.22-14.42.59:482][773]LogNativeClassHierarchy: Verbose: Native class hierarchy populated in 0.0145 seconds. Added 3840 classes and 948 folders.
+[2022.03.22-14.42.59:489][773]Display: HotReload took  3.3s.
+[2022.03.22-14.43.09:198][494]LogAnalytics: Warning: EventCache either took too long to flush (1.409 ms) or had a very large payload (0.703 KB, 3 events). Listing events in the payload for investigation:
+[2022.03.22-14.43.09:198][494]LogAnalytics: Warning:     Editor.Usage.Heartbeat,428
+[2022.03.22-14.43.09:198][494]LogAnalytics: Warning:     Editor.Usage.HotReload,169
+[2022.03.22-14.43.09:198][494]LogAnalytics: Warning:     Editor.Modules.Recompile,110
