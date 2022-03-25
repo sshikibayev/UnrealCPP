@@ -2,6 +2,7 @@
 
 
 #include "Player/ShooterPlayerCharacter.h"
+#include "Components/InputComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 
 AShooterPlayerCharacter::AShooterPlayerCharacter(const FObjectInitializer& ObjInit)
@@ -17,6 +18,12 @@ AShooterPlayerCharacter::AShooterPlayerCharacter(const FObjectInitializer& ObjIn
     //Camera component creation
     CameraComponent = CreateDefaultSubobject<UCameraComponent>("CameraComponent");
     CameraComponent->SetupAttachment(SpringArmComponent);
+}
+
+void AShooterPlayerCharacter::BeginPlay()
+{
+    Super::BeginPlay();
+    GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Red, FString::Printf(TEXT("Auto heal: %s"), GetHealthComponent()->GetAutoHeal() ? TEXT("true") : TEXT("false")));
 }
 
 void AShooterPlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)

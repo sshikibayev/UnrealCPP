@@ -28,13 +28,13 @@ void UPlayerHealthComponent::BeginPlay()
 void UPlayerHealthComponent::OnTakeAnyDamage(
     AActor* DamageActor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser)
 {
-    if (Damage >= 0.0f || !isDead() || GetWorld())
+    if (Damage >= 0.0f || !IsDead() || GetWorld())
     {
         SetHealth(Health - Damage);
-    
+
         GetWorld()->GetTimerManager().ClearTimer(HealTimerHandle);
-    
-        if (isDead())
+
+        if (IsDead())
         {
             OnDeath.Broadcast();
         }
