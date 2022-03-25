@@ -20,6 +20,12 @@ AShooterPlayerCharacter::AShooterPlayerCharacter(const FObjectInitializer& ObjIn
     CameraComponent->SetupAttachment(SpringArmComponent);
 }
 
+void AShooterPlayerCharacter::BeginPlay()
+{
+    Super::BeginPlay();
+    GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Red, FString::Printf(TEXT("Auto heal: %s"), GetHealthComponent()->GetAutoHeal() ? TEXT("true") : TEXT("false")));
+}
+
 void AShooterPlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
     Super::SetupPlayerInputComponent(PlayerInputComponent);

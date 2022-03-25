@@ -21,10 +21,15 @@ public:
     FOnHealthChanged OnHealthChanged;
 
     UFUNCTION(BlueprintCallable)
-    bool isDead() const { return FMath::IsNearlyZero(Health); }
+    bool IsDead() const { return FMath::IsNearlyZero(Health); }
+
+    bool GetAutoHeal() const { return AutoHeal; }
 
     float GetHealth() const { return Health; }
-    float GetMaxHealth() const {return MaxHealth;}
+    float GetMaxHealth() const { return MaxHealth; }
+    float GetHealDelay() const { return HealDelay; }
+
+    void SetHealth(float NewHealth);
 
 protected:
     // Called when the game starts
@@ -52,12 +57,9 @@ private:
     //Heal prop
     FTimerHandle HealTimerHandle;
 
-
     UFUNCTION()
     void OnTakeAnyDamage(AActor* DamageActor, float Damage,
         const class UDamageType* UDamageType, class AController* InstigatedBy, AActor* DamageCauser);
 
     void HealUpdate();
-
-    void SetHealth(float NewHealth);
 };

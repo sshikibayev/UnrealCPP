@@ -33,25 +33,25 @@ void EmptyLinkFunctionForGeneratedCodePlayerHealthComponent() {}
 		P_THIS->OnTakeAnyDamage(Z_Param_DamageActor,Z_Param_Damage,Z_Param_UDamageType,Z_Param_InstigatedBy,Z_Param_DamageCauser);
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(UPlayerHealthComponent::execisDead)
+	DEFINE_FUNCTION(UPlayerHealthComponent::execIsDead)
 	{
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		*(bool*)Z_Param__Result=P_THIS->isDead();
+		*(bool*)Z_Param__Result=P_THIS->IsDead();
 		P_NATIVE_END;
 	}
 	void UPlayerHealthComponent::StaticRegisterNativesUPlayerHealthComponent()
 	{
 		UClass* Class = UPlayerHealthComponent::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
-			{ "isDead", &UPlayerHealthComponent::execisDead },
+			{ "IsDead", &UPlayerHealthComponent::execIsDead },
 			{ "OnTakeAnyDamage", &UPlayerHealthComponent::execOnTakeAnyDamage },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
-	struct Z_Construct_UFunction_UPlayerHealthComponent_isDead_Statics
+	struct Z_Construct_UFunction_UPlayerHealthComponent_IsDead_Statics
 	{
-		struct PlayerHealthComponent_eventisDead_Parms
+		struct PlayerHealthComponent_eventIsDead_Parms
 		{
 			bool ReturnValue;
 		};
@@ -63,26 +63,26 @@ void EmptyLinkFunctionForGeneratedCodePlayerHealthComponent() {}
 #endif
 		static const UE4CodeGen_Private::FFunctionParams FuncParams;
 	};
-	void Z_Construct_UFunction_UPlayerHealthComponent_isDead_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	void Z_Construct_UFunction_UPlayerHealthComponent_IsDead_Statics::NewProp_ReturnValue_SetBit(void* Obj)
 	{
-		((PlayerHealthComponent_eventisDead_Parms*)Obj)->ReturnValue = 1;
+		((PlayerHealthComponent_eventIsDead_Parms*)Obj)->ReturnValue = 1;
 	}
-	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UPlayerHealthComponent_isDead_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(PlayerHealthComponent_eventisDead_Parms), &Z_Construct_UFunction_UPlayerHealthComponent_isDead_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UPlayerHealthComponent_isDead_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPlayerHealthComponent_isDead_Statics::NewProp_ReturnValue,
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UPlayerHealthComponent_IsDead_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(PlayerHealthComponent_eventIsDead_Parms), &Z_Construct_UFunction_UPlayerHealthComponent_IsDead_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UPlayerHealthComponent_IsDead_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPlayerHealthComponent_IsDead_Statics::NewProp_ReturnValue,
 	};
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPlayerHealthComponent_isDead_Statics::Function_MetaDataParams[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPlayerHealthComponent_IsDead_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Public/Components/PlayerHealthComponent.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UPlayerHealthComponent_isDead_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UPlayerHealthComponent, nullptr, "isDead", nullptr, nullptr, sizeof(PlayerHealthComponent_eventisDead_Parms), Z_Construct_UFunction_UPlayerHealthComponent_isDead_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerHealthComponent_isDead_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UPlayerHealthComponent_isDead_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerHealthComponent_isDead_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_UPlayerHealthComponent_isDead()
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UPlayerHealthComponent_IsDead_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UPlayerHealthComponent, nullptr, "IsDead", nullptr, nullptr, sizeof(PlayerHealthComponent_eventIsDead_Parms), Z_Construct_UFunction_UPlayerHealthComponent_IsDead_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerHealthComponent_IsDead_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UPlayerHealthComponent_IsDead_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerHealthComponent_IsDead_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UPlayerHealthComponent_IsDead()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UPlayerHealthComponent_isDead_Statics::FuncParams);
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UPlayerHealthComponent_IsDead_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -183,7 +183,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerHealthComponent() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_Shooter,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UPlayerHealthComponent_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UPlayerHealthComponent_isDead, "isDead" }, // 1786046678
+		{ &Z_Construct_UFunction_UPlayerHealthComponent_IsDead, "IsDead" }, // 1471351661
 		{ &Z_Construct_UFunction_UPlayerHealthComponent_OnTakeAnyDamage, "OnTakeAnyDamage" }, // 2507551925
 	};
 #if WITH_METADATA
@@ -280,7 +280,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerHealthComponent() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UPlayerHealthComponent, 2748431079);
+	IMPLEMENT_CLASS(UPlayerHealthComponent, 1311714207);
 	template<> SHOOTER_API UClass* StaticClass<UPlayerHealthComponent>()
 	{
 		return UPlayerHealthComponent::StaticClass();

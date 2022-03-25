@@ -21,10 +21,9 @@ class SHOOTER_API AShooterBaseCharacter : public ACharacter
 
 public:
     explicit AShooterBaseCharacter(const FObjectInitializer& ObjInit);
-    UPlayerHealthComponent* GetHealthComponent() const {return PlayerHealthComponent;}
 
-    float TestFloat = 10.0f;
-    
+    UPlayerHealthComponent* GetHealthComponent() const { return PlayerHealthComponent; }
+
 protected:
     UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
     UTextRenderComponent* HealthTextComponent;
