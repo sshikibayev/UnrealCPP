@@ -31,7 +31,7 @@ void FPlayerHealthComponentTest::Define()
     });
 
     //Health test section
-    It("Test created Player", [this]()
+    It("Tests connected to Player's HealthComponent", [this]()
     {
         TestEqual("Check current Health to be the same as MaxHealth", Health, MaxHealth);
         TestFalse("Check that player is not spawned with negative or 0 Health", MaxHealth <= 0);

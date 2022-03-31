@@ -3,6 +3,8 @@
 
 #include "Tests/FTestUtils.h"
 
+#include "GameFramework/InputSettings.h"
+#include "GameFramework/PlayerInput.h"
 #include "Kismet/GameplayStatics.h"
 
 
@@ -29,7 +31,7 @@ void FTestUtils::Exit()
     }
 }
 
-bool FTestUtils::PressKey(const FName& KeyName, EInputEvent InputEvent)
+void FTestUtils::PressKey(const FKey Key, EInputEvent InputEvent)
 {
     if (GEngine)
     {
@@ -39,18 +41,42 @@ bool FTestUtils::PressKey(const FName& KeyName, EInputEvent InputEvent)
             {
                 if (FViewportClient* ViewportClient = Viewport->GetClient())
                 {
-                    return ViewportClient->InputKey(FInputKeyEventArgs(Viewport, 0, KeyName, InputEvent));
+                    ViewportClient->InputKey(GEngine->GameViewport->Viewport, 0, Key, InputEvent);
                 }
             }
+        }
+    }
+}
+
+bool FTestUtils::PressActionMap(FName AxisName)
+{
+    TArray<FInputAxisKeyMapping> AxisMapping;
+    
+    UInputSettings::GetInputSettings()->GetAxisMappingByName(AxisName, AxisMapping);
+    for(const auto Axis : AxisMapping)
+    {
+        const float HoldingTime = UGameplayStatics::GetPlayerController(GetWorld(), 0)->GetInputKeyTimeDown(Axis.Key);
+        
+        if (HoldingTime > 0)
+        {
+            return true;
         }
     }
     return false;
 }
 
-FTestUtils::FTestUtils()
+AActor* FTestUtils::PlayerCreation()
 {
-}
-
-FTestUtils::~FTestUtils()
-{
+    // if(PlayerToSpawn)
+    // {
+    //     if(GetWorld())
+    //     {
+    //         const FVector PlayerLocation = FVector::ZeroVector;
+    //         const FRotator PlayerRotation = FRotator::ZeroRotator;
+    //         AActor* Player = GetWorld()->SpawnActor<AActor>(PlayerLocation, PlayerRotation);
+    //         return Player;
+    //     }
+    // }
+    
+    return nullptr;
 }

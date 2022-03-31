@@ -2,8 +2,10 @@
 
 
 #include "Player/ShooterBaseCharacter.h"
+#include "Tests/FTestUtils.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Components/ShooterCharacterMovementComp.h"
+#include "GameFramework/PlayerController.h"
 
 AShooterBaseCharacter::AShooterBaseCharacter(const FObjectInitializer& ObjInit)
     : Super(ObjInit.SetDefaultSubobjectClass<UShooterCharacterMovementComp>(ACharacter::CharacterMovementComponentName))
@@ -32,6 +34,7 @@ void AShooterBaseCharacter::BeginPlay()
     PlayerHealthComponent->OnHealthChanged.AddUObject(this, &AShooterBaseCharacter::OnHealthChanged);
 
     LandedDelegate.AddDynamic(this, &AShooterBaseCharacter::OnGroundLanded);
+
 }
 
 void AShooterBaseCharacter::Tick(const float DeltaTime)

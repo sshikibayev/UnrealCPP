@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "ShooterPlayerCharacter.h"
 #include "Misc/AutomationTest.h"
 
 /**
@@ -18,8 +19,9 @@ public:
 
     static UWorld* GetWorld();
     static void Exit();
-    static bool PressKey(const FName& KeyName, EInputEvent InputEvent);
+    static void PressKey(const FKey Key, EInputEvent InputEvent);
 
-	FTestUtils();
-	~FTestUtils();
+    static bool PressActionMap(FName AxisName);
+
+    static AActor* PlayerCreation();
 };

@@ -4,6 +4,7 @@
 #include "Player/ShooterPlayerCharacter.h"
 #include "Components/InputComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Tests/FTestUtils.h"
 
 AShooterPlayerCharacter::AShooterPlayerCharacter(const FObjectInitializer& ObjInit)
     : Super(ObjInit)
@@ -23,8 +24,13 @@ AShooterPlayerCharacter::AShooterPlayerCharacter(const FObjectInitializer& ObjIn
 void AShooterPlayerCharacter::BeginPlay()
 {
     Super::BeginPlay();
-    GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Red, FString::Printf(TEXT("Auto heal: %s"), GetHealthComponent()->GetAutoHeal() ? TEXT("true") : TEXT("false")));
 }
+
+void AShooterPlayerCharacter::Tick(float DeltaTime)
+{
+    Super::Tick(DeltaTime);
+}
+
 
 void AShooterPlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {

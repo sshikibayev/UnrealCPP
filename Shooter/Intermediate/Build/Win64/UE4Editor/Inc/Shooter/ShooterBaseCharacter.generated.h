@@ -14,20 +14,20 @@ struct FHitResult;
 #endif
 #define SHOOTER_ShooterBaseCharacter_generated_h
 
-#define Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_20_SPARSE_DATA
-#define Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_20_RPC_WRAPPERS \
+#define Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_21_SPARSE_DATA
+#define Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_21_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execOnGroundLanded); \
 	DECLARE_FUNCTION(execGetMovementDirection);
 
 
-#define Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
+#define Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execOnGroundLanded); \
 	DECLARE_FUNCTION(execGetMovementDirection);
 
 
-#define Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_20_INCLASS_NO_PURE_DECLS \
+#define Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_21_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAShooterBaseCharacter(); \
 	friend struct Z_Construct_UClass_AShooterBaseCharacter_Statics; \
@@ -36,7 +36,7 @@ public: \
 	DECLARE_SERIALIZER(AShooterBaseCharacter)
 
 
-#define Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_20_INCLASS \
+#define Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_21_INCLASS \
 private: \
 	static void StaticRegisterNativesAShooterBaseCharacter(); \
 	friend struct Z_Construct_UClass_AShooterBaseCharacter_Statics; \
@@ -45,7 +45,7 @@ public: \
 	DECLARE_SERIALIZER(AShooterBaseCharacter)
 
 
-#define Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_20_STANDARD_CONSTRUCTORS \
+#define Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_21_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AShooterBaseCharacter(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AShooterBaseCharacter) \
@@ -58,7 +58,7 @@ private: \
 public:
 
 
-#define Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_20_ENHANCED_CONSTRUCTORS \
+#define Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_21_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AShooterBaseCharacter(AShooterBaseCharacter&&); \
@@ -69,7 +69,7 @@ public: \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AShooterBaseCharacter)
 
 
-#define Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_20_PRIVATE_PROPERTY_OFFSET \
+#define Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_21_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__HealthTextComponent() { return STRUCT_OFFSET(AShooterBaseCharacter, HealthTextComponent); } \
 	FORCEINLINE static uint32 __PPO__PlayerHealthComponent() { return STRUCT_OFFSET(AShooterBaseCharacter, PlayerHealthComponent); } \
 	FORCEINLINE static uint32 __PPO__DeathAnimMontage() { return STRUCT_OFFSET(AShooterBaseCharacter, DeathAnimMontage); } \
@@ -78,27 +78,27 @@ public: \
 	FORCEINLINE static uint32 __PPO__LandedDamage() { return STRUCT_OFFSET(AShooterBaseCharacter, LandedDamage); }
 
 
-#define Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_17_PROLOG
-#define Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_20_GENERATED_BODY_LEGACY \
+#define Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_18_PROLOG
+#define Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_21_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_20_PRIVATE_PROPERTY_OFFSET \
-	Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_20_SPARSE_DATA \
-	Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_20_RPC_WRAPPERS \
-	Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_20_INCLASS \
-	Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_20_STANDARD_CONSTRUCTORS \
+	Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_21_PRIVATE_PROPERTY_OFFSET \
+	Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_21_SPARSE_DATA \
+	Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_21_RPC_WRAPPERS \
+	Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_21_INCLASS \
+	Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_21_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_20_GENERATED_BODY \
+#define Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_21_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_20_PRIVATE_PROPERTY_OFFSET \
-	Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_20_SPARSE_DATA \
-	Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
-	Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_20_INCLASS_NO_PURE_DECLS \
-	Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_20_ENHANCED_CONSTRUCTORS \
+	Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_21_PRIVATE_PROPERTY_OFFSET \
+	Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_21_SPARSE_DATA \
+	Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
+	Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_21_INCLASS_NO_PURE_DECLS \
+	Shooter_Source_Shooter_Public_Player_ShooterBaseCharacter_h_21_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

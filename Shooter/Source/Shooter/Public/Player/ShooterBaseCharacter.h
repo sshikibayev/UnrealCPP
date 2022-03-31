@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "PlayerHealthComponent.h"
+#include "ShooterPlayerController.h"
 #include "Camera/CameraComponent.h"
 #include "Components/TextRenderComponent.h"
 #include "GameFramework/Character.h"
@@ -42,7 +43,7 @@ protected:
 
     UPROPERTY(EditDefaultsOnly, Category = "Damage")
     FVector2D LandedDamage = FVector2D(10.0f, 100.0f);
-
+    
     virtual void BeginPlay() override;
 
 public:
