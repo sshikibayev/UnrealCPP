@@ -8,12 +8,14 @@
 #include "Camera/CameraComponent.h"
 #include "Components/TextRenderComponent.h"
 #include "GameFramework/Character.h"
+#include "Weapon/ShooterBaseWeapon.h"
 #include "ShooterBaseCharacter.generated.h"
 
 
 class UShooterHealthComponent;
 class UTextRenderComponent;
 class UPlayerHealthComponent;
+class AShooterBaseWeapon;
 
 UCLASS()
 class SHOOTER_API AShooterBaseCharacter : public ACharacter
@@ -44,6 +46,9 @@ protected:
     UPROPERTY(EditDefaultsOnly, Category = "Damage")
     FVector2D LandedDamage = FVector2D(10.0f, 100.0f);
     
+    UPROPERTY(EditDefaultsOnly, Category = "Weapon")
+    TSubclassOf<AShooterBaseWeapon> WeaponClass;
+    
     virtual void BeginPlay() override;
 
 public:
@@ -59,6 +64,6 @@ public:
 
 private:
     void OnDeath();
-
     void OnHealthChanged(float Health) const;
+    void SpawnWeapon();
 };

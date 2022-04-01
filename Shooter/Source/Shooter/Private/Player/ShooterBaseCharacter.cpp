@@ -15,6 +15,7 @@ AShooterBaseCharacter::AShooterBaseCharacter(const FObjectInitializer& ObjInit)
     //Health component creation
     HealthTextComponent = CreateDefaultSubobject<UTextRenderComponent>("HealthTextComponent");
     HealthTextComponent->SetupAttachment(GetRootComponent());
+    HealthTextComponent->SetOwnerNoSee(true);
 
     PlayerHealthComponent = CreateDefaultSubobject<UPlayerHealthComponent>("PlayerHealthComponent");
 }
@@ -34,6 +35,8 @@ void AShooterBaseCharacter::BeginPlay()
     PlayerHealthComponent->OnHealthChanged.AddUObject(this, &AShooterBaseCharacter::OnHealthChanged);
 
     LandedDelegate.AddDynamic(this, &AShooterBaseCharacter::OnGroundLanded);
+
+    SpawnWeapon();
 
 }
 
@@ -83,5 +86,18 @@ void AShooterBaseCharacter::OnGroundLanded(const FHitResult& Hit)
     {
         const auto FinalDamage = FMath::GetMappedRangeValueClamped(LandedDamageVelocity, LandedDamage, FallVelocityZ);
         TakeDamage(FinalDamage, FDamageEvent{}, nullptr, nullptr);
+    }
+}
+
+void AShooterBaseCharacter::SpawnWeapon()
+{
+    if(GetWorld())
+    {
+        const auto Weapon = GetWorld()->SpawnActor<AShooterBaseWeapon>(WeaponClass);
+        if(Weapon)
+        {
+            FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, false);
+            Weapon->AttachToComponent(GetMesh(), AttachmentRules, "WeaponSocket");
+        }
     }
 }

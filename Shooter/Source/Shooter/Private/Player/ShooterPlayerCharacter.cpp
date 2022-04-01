@@ -4,7 +4,6 @@
 #include "Player/ShooterPlayerCharacter.h"
 #include "Components/InputComponent.h"
 #include "GameFramework/SpringArmComponent.h"
-#include "Tests/FTestUtils.h"
 
 AShooterPlayerCharacter::AShooterPlayerCharacter(const FObjectInitializer& ObjInit)
     : Super(ObjInit)
@@ -15,6 +14,7 @@ AShooterPlayerCharacter::AShooterPlayerCharacter(const FObjectInitializer& ObjIn
     SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>("SpringArmComponent");
     SpringArmComponent->SetupAttachment(GetRootComponent());
     SpringArmComponent->bUsePawnControlRotation = true;
+    SpringArmComponent->SocketOffset = FVector(0.0f, 100.0f, 20.0f);
 
     //Camera component creation
     CameraComponent = CreateDefaultSubobject<UCameraComponent>("CameraComponent");

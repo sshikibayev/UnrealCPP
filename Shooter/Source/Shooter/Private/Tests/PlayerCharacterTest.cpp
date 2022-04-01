@@ -39,10 +39,6 @@ void FPlayerCharacterTest::Define()
             FString Mess = TEXT("Pos is: ") + PlayerPosition.ToString();
             GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Red, Mess);
             Player->MoveForwardBackward(1.0f);
-            Player->MoveForwardBackward(1.0f);
-            Player->MoveForwardBackward(1.0f);
-            Player->MoveForwardBackward(1.0f);
-            Player->MoveForwardBackward(1.0f);
         });
 
         FPlatformProcess::Sleep(3.0f);

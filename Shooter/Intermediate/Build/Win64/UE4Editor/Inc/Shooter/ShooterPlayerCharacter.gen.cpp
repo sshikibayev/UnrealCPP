@@ -160,7 +160,7 @@ void EmptyLinkFunctionForGeneratedCodeShooterPlayerCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AShooterPlayerCharacter, 2588575418);
+	IMPLEMENT_CLASS(AShooterPlayerCharacter, 256872364);
 	template<> SHOOTER_API UClass* StaticClass<AShooterPlayerCharacter>()
 	{
 		return AShooterPlayerCharacter::StaticClass();

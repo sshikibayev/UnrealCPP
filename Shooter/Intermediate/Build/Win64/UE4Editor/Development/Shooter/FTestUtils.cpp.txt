@@ -32,6 +32,8 @@ E:\UnrealEngine\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Cha
 E:\UnrealEngine\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
 E:\UnrealEngine\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
 E:\UnrealEngine\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h
+E:\UnrealShooterGame\Shooter\Source\Shooter\Public\Weapon/ShooterBaseWeapon.h
+E:\UnrealShooterGame\Shooter\Intermediate\Build\Win64\UE4Editor\Inc\Shooter\ShooterBaseWeapon.generated.h
 E:\UnrealShooterGame\Shooter\Intermediate\Build\Win64\UE4Editor\Inc\Shooter\ShooterBaseCharacter.generated.h
 E:\UnrealShooterGame\Shooter\Intermediate\Build\Win64\UE4Editor\Inc\Shooter\ShooterPlayerCharacter.generated.h
 E:\UnrealEngine\UE_4.27\Engine\Source\Runtime\Core\Public\Misc/AutomationTest.h

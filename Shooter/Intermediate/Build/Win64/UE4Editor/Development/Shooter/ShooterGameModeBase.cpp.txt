@@ -23,5 +23,12 @@ E:\UnrealEngine\UE_4.27\Engine\Source\Runtime\ApplicationCore\Public\GenericPlat
 E:\UnrealEngine\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\PlayerController.generated.h
 E:\UnrealEngine\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
 E:\UnrealShooterGame\Shooter\Intermediate\Build\Win64\UE4Editor\Inc\Shooter\ShooterGameModeBase.generated.h
+E:\UnrealShooterGame\Shooter\Source\Shooter\Public\UI\ShooterHUD.h
+E:\UnrealEngine\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/HUD.h
+E:\UnrealEngine\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/HUDHitBox.h
+E:\UnrealEngine\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/DebugTextInfo.h
+E:\UnrealEngine\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DebugTextInfo.generated.h
+E:\UnrealEngine\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\HUD.generated.h
+E:\UnrealShooterGame\Shooter\Intermediate\Build\Win64\UE4Editor\Inc\Shooter\ShooterHUD.generated.h
 E:\UnrealShooterGame\Shooter\Source\Shooter\Public\Player/ShooterPlayerController.h
 E:\UnrealShooterGame\Shooter\Intermediate\Build\Win64\UE4Editor\Inc\Shooter\ShooterPlayerController.generated.h
