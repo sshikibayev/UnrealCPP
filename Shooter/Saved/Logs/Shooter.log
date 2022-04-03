@@ -1778,3 +1778,63 @@ LogConfig: Setting CVar [[r.setres:1280x720]]
 [2022.04.03-17.20.33:409][700]AssetCheck: New page: Asset Save: multiple assets
 [2022.04.03-17.20.33:409][700]LogContentValidation: Display: Validating MapBuildDataRegistry /Game/Levels/FirstLevel_BuiltData.FirstLevel_BuiltData
 [2022.04.03-17.20.33:409][700]LogContentValidation: Display: Validating World /Game/Levels/FirstLevel.FirstLevel
+[2022.04.03-17.48.44:588][781]LogHotReload: New module detected: UE4Editor-Shooter-0004.dll
+[2022.04.03-17.48.45:273][784]LogHotReload: Starting Hot-Reload from IDE
+[2022.04.03-17.48.45:384][784]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'Shooter' in 0.0005 seconds. Added 12 classes and 8 folders.
+[2022.04.03-17.48.45:395][784]Display: HotReload successful (5 functions remapped  0 scriptstructs remapped)
+[2022.04.03-17.48.45:635][784]LogNativeClassHierarchy: Verbose: Native class hierarchy populated in 0.0146 seconds. Added 3841 classes and 949 folders.
+[2022.04.03-17.48.45:639][784]Display: HotReload took  0.4s.
+[2022.04.03-17.48.48:081][826]LogTemp: Repeating last play command: Selected Viewport
+[2022.04.03-17.48.48:091][826]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2022.04.03-17.48.48:091][826]PIE: New page: PIE session: FirstLevel (Apr 3, 2022, 9:48:48 PM)
+[2022.04.03-17.48.48:120][826]LogPlayLevel: Creating play world package: /Game/Levels/UEDPIE_0_FirstLevel
+[2022.04.03-17.48.48:133][826]LogPlayLevel: PIE: StaticDuplicateObject took: (0.013291s)
+[2022.04.03-17.48.48:135][826]LogAIModule: Creating AISystem for world FirstLevel
+[2022.04.03-17.48.48:135][826]LogPlayLevel: PIE: World Init took: (0.001667s)
+[2022.04.03-17.48.48:135][826]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Levels/FirstLevel.FirstLevel to /Game/Levels/UEDPIE_0_FirstLevel.FirstLevel (0.015241s)
+[2022.04.03-17.48.48:248][826]LogUObjectHash: Compacting FUObjectHashTables data took   8.40ms
+[2022.04.03-17.48.48:249][826]LogAudio: Display: Creating Audio Device:                 Id: 11, Scope: Unique, Realtime: True
+[2022.04.03-17.48.48:250][826]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2022.04.03-17.48.48:250][826]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2022.04.03-17.48.48:250][826]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2022.04.03-17.48.48:250][826]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2022.04.03-17.48.48:250][826]LogAudioMixer: Display: 	Number of buffers to queue:			  2
+[2022.04.03-17.48.48:250][826]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2022.04.03-17.48.48:250][826]LogAudioMixer: Display: 	Number of Async Source Workers:		  0
+[2022.04.03-17.48.48:250][826]LogAudio: Display: AudioDevice MaxSources: 32
+[2022.04.03-17.48.48:250][826]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2022.04.03-17.48.48:250][826]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2022.04.03-17.48.48:251][826]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2022.04.03-17.48.48:251][826]LogAudioMixer: Display: Initializing audio mixer.
+[2022.04.03-17.48.48:254][826]LogAudioMixer: Display: 0: FrontLeft
+[2022.04.03-17.48.48:254][826]LogAudioMixer: Display: 1: FrontRight
+[2022.04.03-17.48.48:264][826]LogAudioMixer: Display: Using Audio Device VG252Q (NVIDIA High Definition Audio)
+[2022.04.03-17.48.48:264][826]LogAudioMixer: Display: Initializing Sound Submixes...
+[2022.04.03-17.48.48:265][826]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2022.04.03-17.48.48:265][826]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2022.04.03-17.48.48:265][826]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
+[2022.04.03-17.48.48:265][826]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called
+[2022.04.03-17.48.48:265][826]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048
+[2022.04.03-17.48.48:267][826]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal()
+[2022.04.03-17.48.48:267][826]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time
+[2022.04.03-17.48.48:267][826]LogInit: FAudioDevice initialized.
+[2022.04.03-17.48.48:268][826]LogAudio: Display: Audio Device (ID: 11) registered with world 'FirstLevel'.
+[2022.04.03-17.48.48:280][826]LogLoad: Game class is 'BP_ShooterGameModeBase_C'
+[2022.04.03-17.48.48:282][826]LogWorld: Bringing World /Game/Levels/UEDPIE_0_FirstLevel.FirstLevel up for play (max tick rate 0) at 2022.04.03-19.48.48
+[2022.04.03-17.48.48:283][826]LogWorld: Bringing up level for play took: 0.001884
+[2022.04.03-17.48.48:283][826]LogOnline: OSS: Creating online subsystem instance for: :Context_38
+[2022.04.03-17.48.48:287][826]PIE: Server logged in
+[2022.04.03-17.48.48:288][826]PIE: Play in editor total start time 0.198 seconds.
+[2022.04.03-17.48.58:571][917]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2022.04.03-17.48.58:571][917]LogWorld: BeginTearingDown for /Game/Levels/UEDPIE_0_FirstLevel
+[2022.04.03-17.48.58:572][917]LogWorld: UWorld::CleanupWorld for FirstLevel, bSessionEnded=true, bCleanupResources=true
+[2022.04.03-17.48.58:572][917]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.04.03-17.48.58:582][917]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2022.04.03-17.48.58:591][917]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.04.03-17.48.58:631][917]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2022.04.03-17.48.58:631][917]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2022.04.03-17.48.58:633][917]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2022.04.03-17.48.58:635][917]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2022.04.03-17.48.58:670][917]LogUObjectHash: Compacting FUObjectHashTables data took   8.12ms
+[2022.04.03-17.48.58:707][918]LogPlayLevel: Display: Destroying online subsystem :Context_38
+[2022.04.03-17.51.47:146][543]LogAudioMixer: Display: Audio Buffer Underrun (starvation) detected.

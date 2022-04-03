@@ -17,18 +17,19 @@ class SHOOTER_API UShooterWeaponComponent : public UActorComponent
 public:
     UShooterWeaponComponent();
     void Fire();
-    
+
 protected:
     UPROPERTY(EditDefaultsOnly, Category = "Weapon")
     TSubclassOf<AShooterBaseWeapon> WeaponClass;
     UPROPERTY(EditDefaultsOnly, Category = "Weapon")
     FName WeaponAttachPointName = "WeaponSocket";
-    
+
     virtual void BeginPlay() override;
 
 private:
     UPROPERTY()
     AShooterBaseWeapon* CurrentWeapon = nullptr;
-    
+
     void SpawnWeapon();
+    void CreateWeapon(ACharacter* Character);
 };

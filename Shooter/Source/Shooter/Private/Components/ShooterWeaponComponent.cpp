@@ -17,27 +17,31 @@ void UShooterWeaponComponent::BeginPlay()
 
 void UShooterWeaponComponent::SpawnWeapon()
 {
-    if(GetWorld())
+    if (GetWorld())
     {
         ACharacter* Character = Cast<ACharacter>(GetOwner());
-        if(Character)
+        if (Character)
         {
-            CurrentWeapon = GetWorld()->SpawnActor<AShooterBaseWeapon>(WeaponClass);
-            if(CurrentWeapon)
-            {
-                FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, false);
-                CurrentWeapon->AttachToComponent(Character->GetMesh(), AttachmentRules, WeaponAttachPointName);
-                CurrentWeapon->SetOwner(Character);
-            }
+            CreateWeapon(Character);
         }
+    }
+}
+
+void UShooterWeaponComponent::CreateWeapon(ACharacter* Character)
+{
+    CurrentWeapon = GetWorld()->SpawnActor<AShooterBaseWeapon>(WeaponClass);
+    if (CurrentWeapon)
+    {
+        const FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, false);
+        CurrentWeapon->AttachToComponent(Character->GetMesh(), AttachmentRules, WeaponAttachPointName);
+        CurrentWeapon->SetOwner(Character);
     }
 }
 
 void UShooterWeaponComponent::Fire()
 {
-    if(CurrentWeapon)
+    if (CurrentWeapon)
     {
         CurrentWeapon->Fire();
     }
 }
-
