@@ -37,7 +37,7 @@ void AShooterBaseCharacter::BeginPlay()
 
     OnHealthChanged(PlayerHealthComponent->GetHealth());
     PlayerHealthComponent->OnHealthChanged.AddUObject(this, &AShooterBaseCharacter::OnHealthChanged);
-    
+
     LandedDelegate.AddDynamic(this, &AShooterBaseCharacter::OnGroundLanded);
 }
 
