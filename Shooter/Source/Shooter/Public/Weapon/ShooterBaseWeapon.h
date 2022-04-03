@@ -48,10 +48,10 @@ protected:
 
     void MakeShot();
     FTraceData TraceData;
-    void SetTraceData(FVector& TraceStart, FVector& TraceEnd);
-    void SetPlayerViewPoint(FVector& ViewLocation, FRotator& ViewRotation) const;
+    void SetTraceData();
+    void SetPlayerViewPoint();
     APlayerController* GetPlayerController() const;
-    void MakeHit(FHitResult& HitResult, const FVector& TraceStart, const FVector& TraceEnd) const;
+    void MakeHit(FHitResult& HitResult) const;
     void MakeDamage(const FHitResult& HitResult);
     FVector GetMuzzleWorldLocation() const;
 };

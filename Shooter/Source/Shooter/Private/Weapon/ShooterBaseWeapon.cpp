@@ -22,17 +22,16 @@ void AShooterBaseWeapon::BeginPlay()
 
 void AShooterBaseWeapon::Fire()
 {
-    if (GetWorld())
-    {
-        MakeShot();
-    }
+    check(GetWorld())
+    MakeShot();
 }
 
 void AShooterBaseWeapon::MakeShot()
 {
-    SetTraceData(TraceData.TraceStart, TraceData.TraceEnd);
+    SetPlayerViewPoint();
+    SetTraceData();
     FHitResult HitResult;
-    MakeHit(HitResult, TraceData.TraceStart, TraceData.TraceEnd);
+    MakeHit(HitResult);
     if (HitResult.bBlockingHit)
     {
         MakeDamage(HitResult);
@@ -42,21 +41,19 @@ void AShooterBaseWeapon::MakeShot()
     DrawDebugLine(GetWorld(), GetMuzzleWorldLocation(), TraceData.TraceEnd, FColor::Red, false, 3.0f, 0, 3.0f);
 }
 
-void AShooterBaseWeapon::SetTraceData(FVector& TraceStart, FVector& TraceEnd)
+void AShooterBaseWeapon::SetPlayerViewPoint()
 {
-    SetPlayerViewPoint(TraceData.ViewLocation, TraceData.ViewRotation);
-    TraceStart = TraceData.ViewLocation;
-    const FVector ShootDirection = TraceData.ViewRotation.Vector();
-    TraceEnd = TraceStart + ShootDirection * TraceMaxDistance;
+    if (GetPlayerController())
+    {
+        GetPlayerController()->GetPlayerViewPoint(TraceData.ViewLocation, TraceData.ViewRotation);
+    }
 }
 
-void AShooterBaseWeapon::SetPlayerViewPoint(FVector& ViewLocation, FRotator& ViewRotation) const
+void AShooterBaseWeapon::SetTraceData()
 {
-    const auto Controller = GetPlayerController();
-    if (Controller)
-    {
-        Controller->GetPlayerViewPoint(ViewLocation, ViewRotation);
-    }
+    TraceData.TraceStart = TraceData.ViewLocation;
+    const FVector ShootDirection = TraceData.ViewRotation.Vector();
+    TraceData.TraceEnd = TraceData.TraceStart + ShootDirection * TraceMaxDistance;
 }
 
 APlayerController* AShooterBaseWeapon::GetPlayerController() const
@@ -64,14 +61,12 @@ APlayerController* AShooterBaseWeapon::GetPlayerController() const
     return Cast<ACharacter>(GetOwner())->GetController<APlayerController>();
 }
 
-void AShooterBaseWeapon::MakeHit(FHitResult& HitResult, const FVector& TraceStart, const FVector& TraceEnd) const
+void AShooterBaseWeapon::MakeHit(FHitResult& HitResult) const
 {
-    if (GetWorld())
-    {
-        FCollisionQueryParams CollisionParams;
-        CollisionParams.AddIgnoredActor(GetOwner());
-        GetWorld()->LineTraceSingleByChannel(HitResult, TraceStart, TraceEnd, ECollisionChannel::ECC_Visibility);
-    }
+    check(GetWorld())
+    FCollisionQueryParams CollisionParams;
+    CollisionParams.AddIgnoredActor(GetOwner());
+    GetWorld()->LineTraceSingleByChannel(HitResult, TraceData.TraceStart, TraceData.TraceEnd, ECollisionChannel::ECC_Visibility);
 }
 
 void AShooterBaseWeapon::MakeDamage(const FHitResult& HitResult)

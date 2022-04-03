@@ -2210,3 +2210,199 @@ LogConfig: Setting CVar [[r.setres:1280x720]]
 [2022.04.03-18.55.05:678][ 24]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
 [2022.04.03-18.55.05:705][ 24]LogUObjectHash: Compacting FUObjectHashTables data took   5.90ms
 [2022.04.03-18.55.05:737][ 25]LogPlayLevel: Display: Destroying online subsystem :Context_44
+[2022.04.03-19.26.59:161][849]LogAudioMixer: Display: Audio Buffer Underrun (starvation) detected.
+[2022.04.03-19.27.05:199][866]LogHotReload: New module detected: UE4Editor-Shooter-0014.dll
+[2022.04.03-19.27.06:215][870]LogHotReload: Starting Hot-Reload from IDE
+[2022.04.03-19.27.06:316][870]LogClass: TraceData HotReload.
+[2022.04.03-19.27.06:333][870]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'Shooter' in 0.0004 seconds. Added 12 classes and 8 folders.
+[2022.04.03-19.27.06:346][870]Display: HotReload successful (5 functions remapped  1 scriptstructs remapped)
+[2022.04.03-19.27.06:592][870]LogNativeClassHierarchy: Verbose: Native class hierarchy populated in 0.0149 seconds. Added 3841 classes and 949 folders.
+[2022.04.03-19.27.06:596][870]Display: HotReload took  0.4s.
+[2022.04.03-19.27.08:709][936]LogTemp: Repeating last play command: Selected Viewport
+[2022.04.03-19.27.08:717][936]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2022.04.03-19.27.08:717][936]PIE: New page: PIE session: FirstLevel (Apr 3, 2022, 11:27:08 PM)
+[2022.04.03-19.27.08:717][936]LogPlayLevel: Creating play world package: /Game/Levels/UEDPIE_0_FirstLevel
+[2022.04.03-19.27.08:727][936]LogPlayLevel: PIE: StaticDuplicateObject took: (0.009319s)
+[2022.04.03-19.27.08:728][936]LogAIModule: Creating AISystem for world FirstLevel
+[2022.04.03-19.27.08:728][936]LogPlayLevel: PIE: World Init took: (0.001287s)
+[2022.04.03-19.27.08:728][936]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Levels/FirstLevel.FirstLevel to /Game/Levels/UEDPIE_0_FirstLevel.FirstLevel (0.010779s)
+[2022.04.03-19.27.08:830][936]LogUObjectHash: Compacting FUObjectHashTables data took   7.84ms
+[2022.04.03-19.27.08:831][936]LogAudio: Display: Creating Audio Device:                 Id: 18, Scope: Unique, Realtime: True
+[2022.04.03-19.27.08:831][936]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2022.04.03-19.27.08:831][936]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2022.04.03-19.27.08:831][936]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2022.04.03-19.27.08:831][936]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2022.04.03-19.27.08:831][936]LogAudioMixer: Display: 	Number of buffers to queue:			  2
+[2022.04.03-19.27.08:831][936]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2022.04.03-19.27.08:831][936]LogAudioMixer: Display: 	Number of Async Source Workers:		  0
+[2022.04.03-19.27.08:831][936]LogAudio: Display: AudioDevice MaxSources: 32
+[2022.04.03-19.27.08:832][936]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2022.04.03-19.27.08:832][936]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2022.04.03-19.27.08:832][936]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2022.04.03-19.27.08:832][936]LogAudioMixer: Display: Initializing audio mixer.
+[2022.04.03-19.27.08:836][936]LogAudioMixer: Display: 0: FrontLeft
+[2022.04.03-19.27.08:836][936]LogAudioMixer: Display: 1: FrontRight
+[2022.04.03-19.27.08:847][936]LogAudioMixer: Display: Using Audio Device Наушники (2- High Definition Audio Device)
+[2022.04.03-19.27.08:847][936]LogAudioMixer: Display: Initializing Sound Submixes...
+[2022.04.03-19.27.08:847][936]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2022.04.03-19.27.08:848][936]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2022.04.03-19.27.08:848][936]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
+[2022.04.03-19.27.08:848][936]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called
+[2022.04.03-19.27.08:848][936]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048
+[2022.04.03-19.27.08:849][936]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal()
+[2022.04.03-19.27.08:849][936]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time
+[2022.04.03-19.27.08:850][936]LogInit: FAudioDevice initialized.
+[2022.04.03-19.27.08:850][936]LogAudio: Display: Audio Device (ID: 18) registered with world 'FirstLevel'.
+[2022.04.03-19.27.08:857][936]LogLoad: Game class is 'BP_ShooterGameModeBase_C'
+[2022.04.03-19.27.08:860][936]LogWorld: Bringing World /Game/Levels/UEDPIE_0_FirstLevel.FirstLevel up for play (max tick rate 0) at 2022.04.03-21.27.08
+[2022.04.03-19.27.08:860][936]LogWorld: Bringing up level for play took: 0.001916
+[2022.04.03-19.27.08:860][936]LogOnline: OSS: Creating online subsystem instance for: :Context_45
+[2022.04.03-19.27.08:864][936]PIE: Server logged in
+[2022.04.03-19.27.08:865][936]PIE: Play in editor total start time 0.149 seconds.
+[2022.04.03-19.27.17:085][785]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2022.04.03-19.27.17:085][785]LogWorld: BeginTearingDown for /Game/Levels/UEDPIE_0_FirstLevel
+[2022.04.03-19.27.17:086][785]LogWorld: UWorld::CleanupWorld for FirstLevel, bSessionEnded=true, bCleanupResources=true
+[2022.04.03-19.27.17:086][785]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.04.03-19.27.17:098][785]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2022.04.03-19.27.17:106][785]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.04.03-19.27.17:146][785]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2022.04.03-19.27.17:146][785]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2022.04.03-19.27.17:147][785]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2022.04.03-19.27.17:184][785]LogUObjectHash: Compacting FUObjectHashTables data took   5.97ms
+[2022.04.03-19.27.17:212][786]LogPlayLevel: Display: Destroying online subsystem :Context_45
+[2022.04.03-19.28.10:591][ 89]LogHotReload: New module detected: UE4Editor-Shooter-0015.dll
+[2022.04.03-19.28.11:605][ 93]LogHotReload: Starting Hot-Reload from IDE
+[2022.04.03-19.28.11:710][ 93]LogClass: TraceData HotReload.
+[2022.04.03-19.28.11:726][ 93]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'Shooter' in 0.0004 seconds. Added 12 classes and 8 folders.
+[2022.04.03-19.28.11:737][ 93]Display: HotReload successful (5 functions remapped  1 scriptstructs remapped)
+[2022.04.03-19.28.11:969][ 93]LogNativeClassHierarchy: Verbose: Native class hierarchy populated in 0.0139 seconds. Added 3841 classes and 949 folders.
+[2022.04.03-19.28.11:972][ 93]Display: HotReload took  0.4s.
+[2022.04.03-19.28.13:819][165]LogTemp: Repeating last play command: Selected Viewport
+[2022.04.03-19.28.13:828][165]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2022.04.03-19.28.13:828][165]PIE: New page: PIE session: FirstLevel (Apr 3, 2022, 11:28:13 PM)
+[2022.04.03-19.28.13:854][165]LogPlayLevel: Creating play world package: /Game/Levels/UEDPIE_0_FirstLevel
+[2022.04.03-19.28.13:863][165]LogPlayLevel: PIE: StaticDuplicateObject took: (0.008909s)
+[2022.04.03-19.28.13:864][165]LogAIModule: Creating AISystem for world FirstLevel
+[2022.04.03-19.28.13:865][165]LogPlayLevel: PIE: World Init took: (0.001453s)
+[2022.04.03-19.28.13:865][165]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Levels/FirstLevel.FirstLevel to /Game/Levels/UEDPIE_0_FirstLevel.FirstLevel (0.010592s)
+[2022.04.03-19.28.13:967][165]LogUObjectHash: Compacting FUObjectHashTables data took   7.82ms
+[2022.04.03-19.28.13:968][165]LogAudio: Display: Creating Audio Device:                 Id: 19, Scope: Unique, Realtime: True
+[2022.04.03-19.28.13:968][165]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2022.04.03-19.28.13:968][165]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2022.04.03-19.28.13:968][165]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2022.04.03-19.28.13:968][165]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2022.04.03-19.28.13:968][165]LogAudioMixer: Display: 	Number of buffers to queue:			  2
+[2022.04.03-19.28.13:968][165]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2022.04.03-19.28.13:968][165]LogAudioMixer: Display: 	Number of Async Source Workers:		  0
+[2022.04.03-19.28.13:968][165]LogAudio: Display: AudioDevice MaxSources: 32
+[2022.04.03-19.28.13:968][165]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2022.04.03-19.28.13:968][165]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2022.04.03-19.28.13:968][165]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2022.04.03-19.28.13:968][165]LogAudioMixer: Display: Initializing audio mixer.
+[2022.04.03-19.28.13:971][165]LogAudioMixer: Display: 0: FrontLeft
+[2022.04.03-19.28.13:971][165]LogAudioMixer: Display: 1: FrontRight
+[2022.04.03-19.28.13:979][165]LogAudioMixer: Display: Using Audio Device Наушники (2- High Definition Audio Device)
+[2022.04.03-19.28.13:980][165]LogAudioMixer: Display: Initializing Sound Submixes...
+[2022.04.03-19.28.13:980][165]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2022.04.03-19.28.13:980][165]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2022.04.03-19.28.13:980][165]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
+[2022.04.03-19.28.13:980][165]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called
+[2022.04.03-19.28.13:980][165]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048
+[2022.04.03-19.28.13:982][165]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal()
+[2022.04.03-19.28.13:982][165]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time
+[2022.04.03-19.28.13:982][165]LogInit: FAudioDevice initialized.
+[2022.04.03-19.28.13:982][165]LogAudio: Display: Audio Device (ID: 19) registered with world 'FirstLevel'.
+[2022.04.03-19.28.13:996][165]LogLoad: Game class is 'BP_ShooterGameModeBase_C'
+[2022.04.03-19.28.13:998][165]LogWorld: Bringing World /Game/Levels/UEDPIE_0_FirstLevel.FirstLevel up for play (max tick rate 0) at 2022.04.03-21.28.13
+[2022.04.03-19.28.13:998][165]LogWorld: Bringing up level for play took: 0.001764
+[2022.04.03-19.28.13:999][165]LogOnline: OSS: Creating online subsystem instance for: :Context_46
+[2022.04.03-19.28.14:003][165]PIE: Server logged in
+[2022.04.03-19.28.14:003][165]PIE: Play in editor total start time 0.177 seconds.
+[2022.04.03-19.28.23:895][198]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2022.04.03-19.28.23:895][198]LogWorld: BeginTearingDown for /Game/Levels/UEDPIE_0_FirstLevel
+[2022.04.03-19.28.23:895][198]LogWorld: UWorld::CleanupWorld for FirstLevel, bSessionEnded=true, bCleanupResources=true
+[2022.04.03-19.28.23:895][198]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.04.03-19.28.23:907][198]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2022.04.03-19.28.23:915][198]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.04.03-19.28.23:955][198]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2022.04.03-19.28.23:961][198]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2022.04.03-19.28.23:962][198]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2022.04.03-19.28.23:965][198]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2022.04.03-19.28.23:995][198]LogUObjectHash: Compacting FUObjectHashTables data took   6.30ms
+[2022.04.03-19.28.24:023][199]LogPlayLevel: Display: Destroying online subsystem :Context_46
+[2022.04.03-19.28.25:233][312]LogUObjectHash: Compacting FUObjectHashTables data took   5.13ms
+[2022.04.03-19.28.25:741][362]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Levels/FirstLevel" FILE="../../../../../UnrealShooterGame/Shooter/Content/Levels/FirstLevel.umap" SILENT=true AUTOSAVING=false KEEPDIRTY=false
+[2022.04.03-19.28.25:788][362]LogUObjectHash: Compacting FUObjectHashTables data took   4.81ms
+[2022.04.03-19.28.25:816][362]LogSavePackage: Moving '../../../../../UnrealShooterGame/Shooter/Saved/FirstLevel94B26A104FA58F52D81F0B8C4808276C.tmp' to '../../../../../UnrealShooterGame/Shooter/Content/Levels/FirstLevel.umap'
+[2022.04.03-19.28.25:831][362]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Levels/FirstLevel_BuiltData" FILE="../../../../../UnrealShooterGame/Shooter/Content/Levels/FirstLevel_BuiltData.uasset" SILENT=true
+[2022.04.03-19.28.25:862][362]LogSavePackage: Moving '../../../../../UnrealShooterGame/Shooter/Saved/FirstLevel_BuiltData9D53CC724A97868165E966A7A06763D4.tmp' to '../../../../../UnrealShooterGame/Shooter/Content/Levels/FirstLevel_BuiltData.uasset'
+[2022.04.03-19.28.25:880][362]AssetCheck: New page: Asset Save: multiple assets
+[2022.04.03-19.28.25:880][362]LogContentValidation: Display: Validating MapBuildDataRegistry /Game/Levels/FirstLevel_BuiltData.FirstLevel_BuiltData
+[2022.04.03-19.28.25:881][362]LogContentValidation: Display: Validating World /Game/Levels/FirstLevel.FirstLevel
+[2022.04.03-19.31.34:443][  3]LogHotReload: New module detected: UE4Editor-Shooter-0016.dll
+[2022.04.03-19.31.35:456][  7]LogHotReload: Starting Hot-Reload from IDE
+[2022.04.03-19.31.35:547][  7]LogClass: TraceData HotReload.
+[2022.04.03-19.31.35:562][  7]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'Shooter' in 0.0004 seconds. Added 12 classes and 8 folders.
+[2022.04.03-19.31.35:573][  7]Display: HotReload successful (5 functions remapped  1 scriptstructs remapped)
+[2022.04.03-19.31.35:809][  7]LogNativeClassHierarchy: Verbose: Native class hierarchy populated in 0.0133 seconds. Added 3841 classes and 949 folders.
+[2022.04.03-19.31.35:813][  7]Display: HotReload took  0.4s.
+[2022.04.03-19.31.37:522][ 49]LogTemp: Repeating last play command: Selected Viewport
+[2022.04.03-19.31.37:534][ 49]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2022.04.03-19.31.37:534][ 49]PIE: New page: PIE session: FirstLevel (Apr 3, 2022, 11:31:37 PM)
+[2022.04.03-19.31.37:534][ 49]LogPlayLevel: Creating play world package: /Game/Levels/UEDPIE_0_FirstLevel
+[2022.04.03-19.31.37:550][ 49]LogPlayLevel: PIE: StaticDuplicateObject took: (0.014922s)
+[2022.04.03-19.31.37:551][ 49]LogAIModule: Creating AISystem for world FirstLevel
+[2022.04.03-19.31.37:552][ 49]LogPlayLevel: PIE: World Init took: (0.001979s)
+[2022.04.03-19.31.37:552][ 49]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Levels/FirstLevel.FirstLevel to /Game/Levels/UEDPIE_0_FirstLevel.FirstLevel (0.017138s)
+[2022.04.03-19.31.37:666][ 49]LogUObjectHash: Compacting FUObjectHashTables data took   8.01ms
+[2022.04.03-19.31.37:666][ 49]LogAudio: Display: Creating Audio Device:                 Id: 20, Scope: Unique, Realtime: True
+[2022.04.03-19.31.37:666][ 49]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2022.04.03-19.31.37:666][ 49]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2022.04.03-19.31.37:667][ 49]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2022.04.03-19.31.37:667][ 49]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2022.04.03-19.31.37:667][ 49]LogAudioMixer: Display: 	Number of buffers to queue:			  2
+[2022.04.03-19.31.37:667][ 49]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2022.04.03-19.31.37:667][ 49]LogAudioMixer: Display: 	Number of Async Source Workers:		  0
+[2022.04.03-19.31.37:667][ 49]LogAudio: Display: AudioDevice MaxSources: 32
+[2022.04.03-19.31.37:667][ 49]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2022.04.03-19.31.37:667][ 49]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2022.04.03-19.31.37:667][ 49]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2022.04.03-19.31.37:667][ 49]LogAudioMixer: Display: Initializing audio mixer.
+[2022.04.03-19.31.37:670][ 49]LogAudioMixer: Display: 0: FrontLeft
+[2022.04.03-19.31.37:670][ 49]LogAudioMixer: Display: 1: FrontRight
+[2022.04.03-19.31.37:680][ 49]LogAudioMixer: Display: Using Audio Device Наушники (2- High Definition Audio Device)
+[2022.04.03-19.31.37:680][ 49]LogAudioMixer: Display: Initializing Sound Submixes...
+[2022.04.03-19.31.37:681][ 49]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2022.04.03-19.31.37:681][ 49]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2022.04.03-19.31.37:681][ 49]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
+[2022.04.03-19.31.37:681][ 49]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called
+[2022.04.03-19.31.37:681][ 49]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048
+[2022.04.03-19.31.37:683][ 49]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal()
+[2022.04.03-19.31.37:683][ 49]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time
+[2022.04.03-19.31.37:683][ 49]LogInit: FAudioDevice initialized.
+[2022.04.03-19.31.37:683][ 49]LogAudio: Display: Audio Device (ID: 20) registered with world 'FirstLevel'.
+[2022.04.03-19.31.37:694][ 49]LogLoad: Game class is 'BP_ShooterGameModeBase_C'
+[2022.04.03-19.31.37:696][ 49]LogWorld: Bringing World /Game/Levels/UEDPIE_0_FirstLevel.FirstLevel up for play (max tick rate 0) at 2022.04.03-21.31.37
+[2022.04.03-19.31.37:697][ 49]LogWorld: Bringing up level for play took: 0.001899
+[2022.04.03-19.31.37:697][ 49]LogOnline: OSS: Creating online subsystem instance for: :Context_47
+[2022.04.03-19.31.37:701][ 49]PIE: Server logged in
+[2022.04.03-19.31.37:702][ 49]PIE: Play in editor total start time 0.169 seconds.
+[2022.04.03-19.31.47:645][ 62]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2022.04.03-19.31.47:645][ 62]LogWorld: BeginTearingDown for /Game/Levels/UEDPIE_0_FirstLevel
+[2022.04.03-19.31.47:645][ 62]LogWorld: UWorld::CleanupWorld for FirstLevel, bSessionEnded=true, bCleanupResources=true
+[2022.04.03-19.31.47:646][ 62]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.04.03-19.31.47:654][ 62]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2022.04.03-19.31.47:661][ 62]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.04.03-19.31.47:701][ 62]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2022.04.03-19.31.47:702][ 62]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2022.04.03-19.31.47:703][ 62]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2022.04.03-19.31.47:713][ 62]LogUObjectHash: Compacting FUObjectHashTables data took   6.41ms
+[2022.04.03-19.31.47:742][ 63]LogPlayLevel: Display: Destroying online subsystem :Context_47
+[2022.04.03-19.31.48:510][136]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Levels/FirstLevel" FILE="../../../../../UnrealShooterGame/Shooter/Content/Levels/FirstLevel.umap" SILENT=true AUTOSAVING=false KEEPDIRTY=false
+[2022.04.03-19.31.48:556][136]LogUObjectHash: Compacting FUObjectHashTables data took   4.73ms
+[2022.04.03-19.31.48:580][136]LogSavePackage: Moving '../../../../../UnrealShooterGame/Shooter/Saved/FirstLevelC60AC6AF423B2A5B648556B3A8399D00.tmp' to '../../../../../UnrealShooterGame/Shooter/Content/Levels/FirstLevel.umap'
+[2022.04.03-19.31.48:594][136]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Levels/FirstLevel_BuiltData" FILE="../../../../../UnrealShooterGame/Shooter/Content/Levels/FirstLevel_BuiltData.uasset" SILENT=true
+[2022.04.03-19.31.48:625][136]LogSavePackage: Moving '../../../../../UnrealShooterGame/Shooter/Saved/FirstLevel_BuiltDataD394626D47B4AC68F06645BF4D838162.tmp' to '../../../../../UnrealShooterGame/Shooter/Content/Levels/FirstLevel_BuiltData.uasset'
+[2022.04.03-19.31.48:645][136]AssetCheck: New page: Asset Save: multiple assets
+[2022.04.03-19.31.48:645][136]LogContentValidation: Display: Validating MapBuildDataRegistry /Game/Levels/FirstLevel_BuiltData.FirstLevel_BuiltData
+[2022.04.03-19.31.48:645][136]LogContentValidation: Display: Validating World /Game/Levels/FirstLevel.FirstLevel
