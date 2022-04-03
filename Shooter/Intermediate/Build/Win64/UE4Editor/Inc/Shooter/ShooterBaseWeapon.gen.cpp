@@ -13,12 +13,130 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeShooterBaseWeapon() {}
 // Cross Module References
+	SHOOTER_API UScriptStruct* Z_Construct_UScriptStruct_FTraceData();
+	UPackage* Z_Construct_UPackage__Script_Shooter();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FRotator();
 	SHOOTER_API UClass* Z_Construct_UClass_AShooterBaseWeapon_NoRegister();
 	SHOOTER_API UClass* Z_Construct_UClass_AShooterBaseWeapon();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
-	UPackage* Z_Construct_UPackage__Script_Shooter();
 	ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
 // End Cross Module References
+class UScriptStruct* FTraceData::StaticStruct()
+{
+	static class UScriptStruct* Singleton = NULL;
+	if (!Singleton)
+	{
+		extern SHOOTER_API uint32 Get_Z_Construct_UScriptStruct_FTraceData_Hash();
+		Singleton = GetStaticStruct(Z_Construct_UScriptStruct_FTraceData, Z_Construct_UPackage__Script_Shooter(), TEXT("TraceData"), sizeof(FTraceData), Get_Z_Construct_UScriptStruct_FTraceData_Hash());
+	}
+	return Singleton;
+}
+template<> SHOOTER_API UScriptStruct* StaticStruct<FTraceData>()
+{
+	return FTraceData::StaticStruct();
+}
+static FCompiledInDeferStruct Z_CompiledInDeferStruct_UScriptStruct_FTraceData(FTraceData::StaticStruct, TEXT("/Script/Shooter"), TEXT("TraceData"), false, nullptr, nullptr);
+static struct FScriptStruct_Shooter_StaticRegisterNativesFTraceData
+{
+	FScriptStruct_Shooter_StaticRegisterNativesFTraceData()
+	{
+		UScriptStruct::DeferCppStructOps<FTraceData>(FName(TEXT("TraceData")));
+	}
+} ScriptStruct_Shooter_StaticRegisterNativesFTraceData;
+	struct Z_Construct_UScriptStruct_FTraceData_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[];
+#endif
+		static void* NewStructOps();
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TraceStart_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_TraceStart;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TraceEnd_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_TraceEnd;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ViewLocation_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_ViewLocation;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ViewRotation_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_ViewRotation;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+		static const UE4CodeGen_Private::FStructParams ReturnStructParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FTraceData_Statics::Struct_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/Weapon/ShooterBaseWeapon.h" },
+	};
+#endif
+	void* Z_Construct_UScriptStruct_FTraceData_Statics::NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FTraceData>();
+	}
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FTraceData_Statics::NewProp_TraceStart_MetaData[] = {
+		{ "ModuleRelativePath", "Public/Weapon/ShooterBaseWeapon.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FTraceData_Statics::NewProp_TraceStart = { "TraceStart", nullptr, (EPropertyFlags)0x0010000000000000, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FTraceData, TraceStart), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UScriptStruct_FTraceData_Statics::NewProp_TraceStart_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FTraceData_Statics::NewProp_TraceStart_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FTraceData_Statics::NewProp_TraceEnd_MetaData[] = {
+		{ "ModuleRelativePath", "Public/Weapon/ShooterBaseWeapon.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FTraceData_Statics::NewProp_TraceEnd = { "TraceEnd", nullptr, (EPropertyFlags)0x0010000000000000, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FTraceData, TraceEnd), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UScriptStruct_FTraceData_Statics::NewProp_TraceEnd_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FTraceData_Statics::NewProp_TraceEnd_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FTraceData_Statics::NewProp_ViewLocation_MetaData[] = {
+		{ "ModuleRelativePath", "Public/Weapon/ShooterBaseWeapon.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FTraceData_Statics::NewProp_ViewLocation = { "ViewLocation", nullptr, (EPropertyFlags)0x0010000000000000, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FTraceData, ViewLocation), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UScriptStruct_FTraceData_Statics::NewProp_ViewLocation_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FTraceData_Statics::NewProp_ViewLocation_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FTraceData_Statics::NewProp_ViewRotation_MetaData[] = {
+		{ "ModuleRelativePath", "Public/Weapon/ShooterBaseWeapon.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FTraceData_Statics::NewProp_ViewRotation = { "ViewRotation", nullptr, (EPropertyFlags)0x0010000000000000, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FTraceData, ViewRotation), Z_Construct_UScriptStruct_FRotator, METADATA_PARAMS(Z_Construct_UScriptStruct_FTraceData_Statics::NewProp_ViewRotation_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FTraceData_Statics::NewProp_ViewRotation_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FTraceData_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FTraceData_Statics::NewProp_TraceStart,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FTraceData_Statics::NewProp_TraceEnd,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FTraceData_Statics::NewProp_ViewLocation,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FTraceData_Statics::NewProp_ViewRotation,
+	};
+	const UE4CodeGen_Private::FStructParams Z_Construct_UScriptStruct_FTraceData_Statics::ReturnStructParams = {
+		(UObject* (*)())Z_Construct_UPackage__Script_Shooter,
+		nullptr,
+		&NewStructOps,
+		"TraceData",
+		sizeof(FTraceData),
+		alignof(FTraceData),
+		Z_Construct_UScriptStruct_FTraceData_Statics::PropPointers,
+		UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FTraceData_Statics::PropPointers),
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EStructFlags(0x00000001),
+		METADATA_PARAMS(Z_Construct_UScriptStruct_FTraceData_Statics::Struct_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FTraceData_Statics::Struct_MetaDataParams))
+	};
+	UScriptStruct* Z_Construct_UScriptStruct_FTraceData()
+	{
+#if WITH_HOT_RELOAD
+		extern uint32 Get_Z_Construct_UScriptStruct_FTraceData_Hash();
+		UPackage* Outer = Z_Construct_UPackage__Script_Shooter();
+		static UScriptStruct* ReturnStruct = FindExistingStructIfHotReloadOrDynamic(Outer, TEXT("TraceData"), sizeof(FTraceData), Get_Z_Construct_UScriptStruct_FTraceData_Hash(), false);
+#else
+		static UScriptStruct* ReturnStruct = nullptr;
+#endif
+		if (!ReturnStruct)
+		{
+			UE4CodeGen_Private::ConstructUScriptStruct(ReturnStruct, Z_Construct_UScriptStruct_FTraceData_Statics::ReturnStructParams);
+		}
+		return ReturnStruct;
+	}
+	uint32 Get_Z_Construct_UScriptStruct_FTraceData_Hash() { return 2683110738U; }
 	void AShooterBaseWeapon::StaticRegisterNativesAShooterBaseWeapon()
 	{
 	}

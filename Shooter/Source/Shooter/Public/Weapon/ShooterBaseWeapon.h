@@ -8,6 +8,20 @@
 
 class USkeletalMeshComponent;
 
+USTRUCT()
+struct FTraceData
+{
+    GENERATED_BODY()
+    UPROPERTY()
+    FVector TraceStart;
+    UPROPERTY()
+    FVector TraceEnd;
+    UPROPERTY()
+    FVector ViewLocation;
+    UPROPERTY()
+    FRotator ViewRotation;
+};
+
 UCLASS()
 class SHOOTER_API AShooterBaseWeapon : public AActor
 {
@@ -31,12 +45,13 @@ protected:
     float DamageAmount = 10.0f;
 
     virtual void BeginPlay() override;
-    
+
     void MakeShot();
+    FTraceData TraceData;
+    void SetTraceData(FVector& TraceStart, FVector& TraceEnd);
+    void SetPlayerViewPoint(FVector& ViewLocation, FRotator& ViewRotation) const;
     APlayerController* GetPlayerController() const;
-    bool GetPlayerViewPoint(FVector& ViewLocation, FRotator& ViewRotation) const;
-    FVector GetMuzzleWorldLocation() const;
-    bool GetTraceData(FVector& TraceStart, FVector& TraceEnd) const;
     void MakeHit(FHitResult& HitResult, const FVector& TraceStart, const FVector& TraceEnd) const;
     void MakeDamage(const FHitResult& HitResult);
+    FVector GetMuzzleWorldLocation() const;
 };

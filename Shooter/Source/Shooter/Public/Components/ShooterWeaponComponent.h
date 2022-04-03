@@ -31,5 +31,5 @@ private:
     AShooterBaseWeapon* CurrentWeapon = nullptr;
 
     void SpawnWeapon();
-    void CreateWeapon(ACharacter* Character);
+    void CreateWeapon();
 };
