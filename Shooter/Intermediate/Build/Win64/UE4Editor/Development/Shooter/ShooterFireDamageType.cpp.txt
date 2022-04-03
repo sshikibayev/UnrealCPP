@@ -1,5 +1,0 @@
-E:\UnrealShooterGame\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\Definitions.Shooter.h
-E:\UnrealShooterGame\Shooter\Source\Shooter\Public\Dev/ShooterFireDamageType.h
-E:\UnrealEngine\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/DamageType.h
-E:\UnrealEngine\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DamageType.generated.h
-E:\UnrealShooterGame\Shooter\Intermediate\Build\Win64\UE4Editor\Inc\Shooter\ShooterFireDamageType.generated.h

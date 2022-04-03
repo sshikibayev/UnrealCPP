@@ -149,6 +149,7 @@ SourceArt/**/*.tga
 # Binary Files
 Binaries/*
 Plugins/*/Binaries/*
+.idea
 
 # Builds
 Build/*

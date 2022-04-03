@@ -1,2 +1,0 @@
-E:\UnrealShooterGame\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\Definitions.Shooter.h
-E:\UnrealShooterGame\Shooter\Source\Shooter\Shooter.h
