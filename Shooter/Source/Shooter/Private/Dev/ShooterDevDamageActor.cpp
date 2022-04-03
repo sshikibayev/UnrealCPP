@@ -3,7 +3,6 @@
 #include "Dev/ShooterDevDamageActor.h"
 #include "DrawDebugHelpers.h"
 
-// Sets default values
 AShooterDevDamageActor::AShooterDevDamageActor()
 {
     // Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
@@ -13,13 +12,11 @@ AShooterDevDamageActor::AShooterDevDamageActor()
     SetRootComponent(SceneComponent);
 }
 
-// Called when the game starts or when spawned
 void AShooterDevDamageActor::BeginPlay()
 {
     Super::BeginPlay();
 }
 
-// Called every frame
 void AShooterDevDamageActor::Tick(float DeltaTime)
 {
     Super::Tick(DeltaTime);

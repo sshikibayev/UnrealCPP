@@ -23,23 +23,23 @@ protected:
 
     UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
     USpringArmComponent* SpringArmComponent;
-    
+
     virtual void BeginPlay() override;
 
 public:
     virtual void Tick(float DeltaTime) override;
-    
+
     virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
     //Movement vars;
     UFUNCTION(BlueprintCallable, Category = "Movements")
     virtual bool FIsSprinting() const;
-    
+
     //Movement controller
     void MoveForwardBackward(float Scale);
     bool IsMovingForward = false;
     void MoveRightLeft(float Scale);
-    
+
     //Sprint Control
     bool IsSprinting = false;
     void OnStartRunning();

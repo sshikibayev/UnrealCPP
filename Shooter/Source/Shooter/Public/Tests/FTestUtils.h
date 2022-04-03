@@ -12,16 +12,14 @@
 class SHOOTER_API FTestUtils
 {
 public:
-    static const int32 TestsFlags =  
-    EAutomationTestFlags::EditorContext |
-    EAutomationTestFlags::ClientContext |
-    EAutomationTestFlags::ProductFilter;
+    static const int32 TestsFlags =
+        EAutomationTestFlags::EditorContext |
+        EAutomationTestFlags::ClientContext |
+        EAutomationTestFlags::ProductFilter;
 
     static UWorld* GetWorld();
     static void Exit();
     static void PressKey(const FKey Key, EInputEvent InputEvent);
 
     static bool PressActionMap(FName AxisName);
-
-    static AActor* PlayerCreation();
 };

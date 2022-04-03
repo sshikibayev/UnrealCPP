@@ -14,7 +14,6 @@ class SHOOTER_API AShooterDevDamageActor : public AActor
     GENERATED_BODY()
 
 public:
-    // Sets default values for this actor's properties
     AShooterDevDamageActor();
 
     UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
@@ -37,10 +36,8 @@ public:
     TSubclassOf<UDamageType> DamageType;
 
 protected:
-    // Called when the game starts or when spawned
     virtual void BeginPlay() override;
 
 public:
-    // Called every frame
     virtual void Tick(float DeltaTime) override;
 };

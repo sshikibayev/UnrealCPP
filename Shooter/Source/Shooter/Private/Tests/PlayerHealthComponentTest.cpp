@@ -35,7 +35,7 @@ void FPlayerHealthComponentTest::Define()
     {
         TestEqual("Check current Health to be the same as MaxHealth", Health, MaxHealth);
         TestFalse("Check that player is not spawned with negative or 0 Health", MaxHealth <= 0);
-        
+
         Player->GetHealthComponent()->SetHealth(MaxHealth * 2.0f);
         TestFalse("Check that player current Health is not higher than MaxHealth", Health > MaxHealth);
         TestFalse("Check that player is not spawned as dead", Player->GetHealthComponent()->IsDead());
@@ -46,7 +46,7 @@ void FPlayerHealthComponentTest::Define()
     {
         float Damage = 10.0f;
         bool IsHealthChanged = false;
-        
+
         const float ChangeableHealth = Player->GetHealthComponent()->GetHealth();
         Player->TakeDamage(Damage, FDamageEvent{}, nullptr, nullptr);
         if (Player->GetHealthComponent()->GetHealth() < ChangeableHealth)
@@ -54,12 +54,12 @@ void FPlayerHealthComponentTest::Define()
             IsHealthChanged = true;
         }
         TestTrue("Check that player received a damage", IsHealthChanged);
-        
+
         Damage = MaxHealth;
         Player->TakeDamage(Damage, FDamageEvent{}, nullptr, nullptr);
         TestTrue("Check that player is dead after a damage", Player->GetHealthComponent()->IsDead());
     });
-    
+
     AfterEach([this]()
     {
         // close game map.
