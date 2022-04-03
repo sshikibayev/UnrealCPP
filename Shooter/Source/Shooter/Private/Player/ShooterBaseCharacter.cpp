@@ -2,6 +2,8 @@
 
 
 #include "Player/ShooterBaseCharacter.h"
+
+#include "Components/CapsuleComponent.h"
 #include "Tests/FTestUtils.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Components/ShooterCharacterMovementComp.h"
@@ -18,6 +20,8 @@ AShooterBaseCharacter::AShooterBaseCharacter(const FObjectInitializer& ObjInit)
     HealthTextComponent->SetOwnerNoSee(true);
 
     PlayerHealthComponent = CreateDefaultSubobject<UPlayerHealthComponent>("PlayerHealthComponent");
+
+    WeaponComponent = CreateDefaultSubobject<UShooterWeaponComponent>("WeaponComponent");
 }
 
 void AShooterBaseCharacter::BeginPlay()
@@ -33,11 +37,8 @@ void AShooterBaseCharacter::BeginPlay()
 
     OnHealthChanged(PlayerHealthComponent->GetHealth());
     PlayerHealthComponent->OnHealthChanged.AddUObject(this, &AShooterBaseCharacter::OnHealthChanged);
-
+    
     LandedDelegate.AddDynamic(this, &AShooterBaseCharacter::OnGroundLanded);
-
-    SpawnWeapon();
-
 }
 
 void AShooterBaseCharacter::Tick(const float DeltaTime)
@@ -76,6 +77,8 @@ void AShooterBaseCharacter::OnDeath()
     {
         Controller->ChangeState(NAME_Spectating);
     }
+
+    GetCapsuleComponent()->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
 }
 
 void AShooterBaseCharacter::OnGroundLanded(const FHitResult& Hit)
@@ -86,18 +89,5 @@ void AShooterBaseCharacter::OnGroundLanded(const FHitResult& Hit)
     {
         const auto FinalDamage = FMath::GetMappedRangeValueClamped(LandedDamageVelocity, LandedDamage, FallVelocityZ);
         TakeDamage(FinalDamage, FDamageEvent{}, nullptr, nullptr);
-    }
-}
-
-void AShooterBaseCharacter::SpawnWeapon()
-{
-    if(GetWorld())
-    {
-        const auto Weapon = GetWorld()->SpawnActor<AShooterBaseWeapon>(WeaponClass);
-        if(Weapon)
-        {
-            FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, false);
-            Weapon->AttachToComponent(GetMesh(), AttachmentRules, "WeaponSocket");
-        }
     }
 }

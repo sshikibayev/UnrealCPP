@@ -59,7 +59,10 @@ public: \
 
 
 #define Shooter_Source_Shooter_Public_Weapon_ShooterBaseWeapon_h_14_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__WeaponMesh() { return STRUCT_OFFSET(AShooterBaseWeapon, WeaponMesh); }
+	FORCEINLINE static uint32 __PPO__WeaponMesh() { return STRUCT_OFFSET(AShooterBaseWeapon, WeaponMesh); } \
+	FORCEINLINE static uint32 __PPO__MuzzleSocketName() { return STRUCT_OFFSET(AShooterBaseWeapon, MuzzleSocketName); } \
+	FORCEINLINE static uint32 __PPO__TraceMaxDistance() { return STRUCT_OFFSET(AShooterBaseWeapon, TraceMaxDistance); } \
+	FORCEINLINE static uint32 __PPO__DamageAmount() { return STRUCT_OFFSET(AShooterBaseWeapon, DamageAmount); }
 
 
 #define Shooter_Source_Shooter_Public_Weapon_ShooterBaseWeapon_h_11_PROLOG

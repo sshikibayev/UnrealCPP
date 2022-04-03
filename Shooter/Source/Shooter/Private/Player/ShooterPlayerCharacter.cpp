@@ -36,6 +36,7 @@ void AShooterPlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerI
 {
     Super::SetupPlayerInputComponent(PlayerInputComponent);
     check(PlayerInputComponent);
+    check(WeaponComponent);
 
     PlayerInputComponent->BindAxis("MoveForwardBackWard", this, &AShooterPlayerCharacter::MoveForwardBackward);
     PlayerInputComponent->BindAxis("MoveRightLeft", this, &AShooterPlayerCharacter::MoveRightLeft);
@@ -44,6 +45,7 @@ void AShooterPlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerI
     PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &AShooterPlayerCharacter::Jump);
     PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &AShooterPlayerCharacter::OnStartRunning);
     PlayerInputComponent->BindAction("Sprint", IE_Released, this, &AShooterPlayerCharacter::OnStopRunning);
+    PlayerInputComponent->BindAction("Fire", IE_Pressed, WeaponComponent, &UShooterWeaponComponent::Fire);
 }
 
 void AShooterPlayerCharacter::MoveForwardBackward(const float Scale)
