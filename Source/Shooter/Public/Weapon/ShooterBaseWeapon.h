@@ -3,25 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "ShooterCoreTypes.h"
 #include "GameFramework/Actor.h"
 #include "ShooterBaseWeapon.generated.h"
 
 class USkeletalMeshComponent;
-
-USTRUCT(BlueprintType)
-struct FAmmoData
-{
-    GENERATED_BODY()
-
-    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
-    int32 BulletsAmountInClip;
-
-    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon", meta = (EditCondition = "!Infinite"))
-    int32 Clips;
-
-    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
-    bool Infinite;
-};
 
 USTRUCT()
 struct FTraceData
@@ -45,8 +31,13 @@ class SHOOTER_API AShooterBaseWeapon : public AActor
 public:
     AShooterBaseWeapon();
 
+    FOnClipEmptySignature OnClipEmpty;
+
     virtual void StartFire();
     virtual void StopFire();
+
+    void ChangeClip();
+    bool CanReload() const;
 
 protected:
     UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Components")
@@ -57,7 +48,7 @@ protected:
 
     UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
     float TraceMaxDistance = 1500.0f;
-    
+
     UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
     FAmmoData DefaultAmmo{15, 10, false};
 
@@ -75,7 +66,6 @@ protected:
     void DecreaseAmmo();
     bool IsAmmoEmpty() const;
     bool IsClipEmpty() const;
-    void ChangeClip();
     void LogAmmo() const;
 
 private:

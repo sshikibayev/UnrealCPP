@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "ShooterBaseWeapon.h"
+#include "ShooterCoreTypes.h"
 #include "Components/ActorComponent.h"
 #include "ShooterWeaponComponent.generated.h"
 
@@ -22,10 +23,14 @@ public:
     void StartFire();
     void StopFire();
     void SwitchWeapon();
+    void WeaponReload();
+    bool CanFire() const;
+    bool CanEquip() const;
+    bool CanReload() const;
 
 protected:
-    UPROPERTY(EditDefaultsOnly, Category = "Weapon")
-    TArray<TSubclassOf<AShooterBaseWeapon>> WeaponClasses;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
+    TArray<FWeaponData> WeaponData;
     UPROPERTY(EditDefaultsOnly, Category = "Weapon")
     FName WeaponEquipSocketName = "WeaponSocket";
     UPROPERTY(EditDefaultsOnly, Category = "Weapon")
@@ -43,9 +48,12 @@ private:
     TArray<AShooterBaseWeapon*> Weapons;
     UPROPERTY()
     ACharacter* WeaponOwner = nullptr;
+    UPROPERTY()
+    UAnimMontage* CurrentReloadAnimMontage = nullptr;
 
     int32 CurrentWeaponIndex = 0;
     bool EquipAnimInProgress = false;
+    bool ReloadAnimInProgress = false;
 
     void CreateWeapon();
     void AttachWeaponSocket(AShooterBaseWeapon* Weapon, USceneComponent* SceneComponent, const FName& SocketName);
@@ -53,8 +61,8 @@ private:
     void PlayAnimMontage(UAnimMontage* AnimMontage);
     void InitAnimations();
     void OnEquipFinished(USkeletalMeshComponent* MeshComponent);
-    bool CanFire() const;
-    bool CanEquip() const;
-    
+    void OnReloadFinished(USkeletalMeshComponent* MeshComponent);
+    void OnEmptyClip();
+    void ChangeClip();
     void WeaponDestroying();
 };

@@ -3,6 +3,7 @@
 #include "Weapon/ShooterBaseWeapon.h"
 #include "DrawDebugHelpers.h"
 #include "ShooterPlayerController.h"
+#include "ShooterWeaponComponent.h"
 #include "GameFramework/Character.h"
 
 
@@ -18,7 +19,9 @@ void AShooterBaseWeapon::BeginPlay()
 {
     Super::BeginPlay();
     check(WeaponMesh);
-    
+    checkf(DefaultAmmo.BulletsAmountInClip > 0, TEXT("Bullets count couldn't be equal or less zero"));
+    checkf(DefaultAmmo.Clips > 0, TEXT("Clips count couldn't be equal or less zero"));
+
     CurrentAmmo = DefaultAmmo;
 }
 
@@ -67,8 +70,6 @@ void AShooterBaseWeapon::StopFire()
 
 void AShooterBaseWeapon::DoShot()
 {
-    SetPlayerViewPoint();
-    SetTraceData();
 }
 
 
@@ -77,9 +78,10 @@ void AShooterBaseWeapon::DecreaseAmmo()
     CurrentAmmo.BulletsAmountInClip--;
     LogAmmo();
 
-    if(IsClipEmpty() && !IsAmmoEmpty())
+    if (IsClipEmpty() && !IsAmmoEmpty())
     {
-        ChangeClip();
+        StopFire();
+        OnClipEmpty.Broadcast();
     }
 }
 
@@ -95,17 +97,21 @@ bool AShooterBaseWeapon::IsClipEmpty() const
 
 void AShooterBaseWeapon::ChangeClip()
 {
-    CurrentAmmo.BulletsAmountInClip = DefaultAmmo.BulletsAmountInClip;
-    if(!CurrentAmmo.Infinite)
+    if (!CurrentAmmo.Infinite)
     {
         CurrentAmmo.Clips--;
     }
-    GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Orange, "Reloaded");
+    CurrentAmmo.BulletsAmountInClip = DefaultAmmo.BulletsAmountInClip;
+}
+
+bool AShooterBaseWeapon::CanReload() const
+{
+    return CurrentAmmo.BulletsAmountInClip < DefaultAmmo.BulletsAmountInClip && CurrentAmmo.Clips > 0;
 }
 
 void AShooterBaseWeapon::LogAmmo() const
 {
     FString AmmoInfo = "Ammo: " + FString::FromInt(CurrentAmmo.BulletsAmountInClip) + " / ";
     AmmoInfo += CurrentAmmo.Infinite ? "Infinite" : FString::FromInt(CurrentAmmo.Clips);
-    GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Orange, AmmoInfo);
+    //GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Orange, AmmoInfo);
 }

@@ -2,9 +2,13 @@
 
 #include "Components/ShooterWeaponComponent.h"
 
+#include "AnimUtils.h"
 #include "ShooterEquipFinishedAnimNotify.h"
+#include "ShooterReloadFinishedAnimNotify.h"
 #include "Animation/AnimMontage.h"
 #include "GameFramework/Character.h"
+
+constexpr static int32 WeaponNum = 2;
 
 UShooterWeaponComponent::UShooterWeaponComponent()
 {
@@ -15,10 +19,12 @@ void UShooterWeaponComponent::BeginPlay()
 {
     Super::BeginPlay();
 
+    checkf(WeaponData.Num() == WeaponNum, TEXT("Character can hold only %i weapons"), WeaponNum);
+
     WeaponOwner = Cast<ACharacter>(GetOwner());
     check(WeaponOwner);
     InitAnimations();
-    CreateWeapon();
+    CreateWeapon(); 
     EquipWeapon(CurrentWeaponIndex);
 }
 
@@ -30,15 +36,18 @@ void UShooterWeaponComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 
 void UShooterWeaponComponent::InitAnimations()
 {
-    check(EquipAnimMontage)
-    const auto NotifyEvents = EquipAnimMontage->Notifies;
-    for (const auto NotifyEvent : NotifyEvents)
+    const auto EquipFinishedNotify = AnimUtils::FindNotifyByClass<UShooterEquipFinishedAnimNotify>(EquipAnimMontage);
+    if (EquipFinishedNotify)
     {
-        const auto EquipFinishedNotify = Cast<UShooterEquipFinishedAnimNotify>(NotifyEvent.Notify);
-        if (EquipFinishedNotify)
+        EquipFinishedNotify->OnNotified.AddUObject(this, &UShooterWeaponComponent::OnEquipFinished);
+    }
+
+    for (auto OneWeaponData : WeaponData)
+    {
+        const auto ReloadFinishedNotify = AnimUtils::FindNotifyByClass<UShooterReloadFinishedAnimNotify>(OneWeaponData.ReloadAnimMontage);
+        if (ReloadFinishedNotify)
         {
-            EquipFinishedNotify->OnNotified.AddUObject(this, &UShooterWeaponComponent::OnEquipFinished);
-            break;
+            ReloadFinishedNotify->OnNotified.AddUObject(this, &UShooterWeaponComponent::OnReloadFinished);
         }
     }
 }
@@ -51,13 +60,22 @@ void UShooterWeaponComponent::OnEquipFinished(USkeletalMeshComponent* MeshCompon
     }
 }
 
+void UShooterWeaponComponent::OnReloadFinished(USkeletalMeshComponent* MeshComponent)
+{
+    if (WeaponOwner->GetMesh() == MeshComponent)
+    {
+        ReloadAnimInProgress = false;
+    }
+}
+
 void UShooterWeaponComponent::CreateWeapon()
 {
     if (WeaponOwner)
     {
-        for (auto WeaponClass : WeaponClasses)
+        for (auto OneWeaponData : WeaponData)
         {
-            auto Weapon = GetWorld()->SpawnActor<AShooterBaseWeapon>(WeaponClass);
+            auto Weapon = GetWorld()->SpawnActor<AShooterBaseWeapon>(OneWeaponData.WeaponClass);
+            Weapon->OnClipEmpty.AddUObject(this, &UShooterWeaponComponent::OnEmptyClip);
             Weapon->SetOwner(WeaponOwner);
             Weapons.Add(Weapon);
             AttachWeaponSocket(Weapon, WeaponOwner->GetMesh(), WeaponArmorySocketName);
@@ -74,10 +92,39 @@ void UShooterWeaponComponent::EquipWeapon(int32 WeaponIndex)
     }
 
     CurrentWeapon = Weapons[WeaponIndex];
+    const auto CurrentWeaponData = WeaponData.FindByPredicate([&](const FWeaponData& Data)
+    {
+        return Data.WeaponClass == CurrentWeapon->GetClass();
+    });
+
+    CurrentReloadAnimMontage = CurrentWeaponData ? CurrentWeaponData->ReloadAnimMontage : nullptr;
     AttachWeaponSocket(CurrentWeapon, WeaponOwner->GetMesh(), WeaponEquipSocketName);
     EquipAnimInProgress = true;
     PlayAnimMontage(EquipAnimMontage);
 }
+
+void UShooterWeaponComponent::WeaponReload()
+{
+    ChangeClip();
+}
+
+
+void UShooterWeaponComponent::OnEmptyClip()
+{
+    ChangeClip();
+}
+
+void UShooterWeaponComponent::ChangeClip()
+{
+    if (CanReload())
+    {
+        CurrentWeapon->StopFire();
+        CurrentWeapon->ChangeClip();
+        ReloadAnimInProgress = true;
+        PlayAnimMontage(CurrentReloadAnimMontage);
+    }
+}
+
 
 void UShooterWeaponComponent::AttachWeaponSocket(AShooterBaseWeapon* Weapon, USceneComponent* SceneComponent, const FName& SocketName)
 {
@@ -90,7 +137,7 @@ void UShooterWeaponComponent::AttachWeaponSocket(AShooterBaseWeapon* Weapon, USc
 
 void UShooterWeaponComponent::SwitchWeapon()
 {
-    if(CanEquip())
+    if (CanEquip())
     {
         CurrentWeaponIndex = (CurrentWeaponIndex + 1) % Weapons.Num();
         EquipWeapon(CurrentWeaponIndex);
@@ -120,14 +167,21 @@ void UShooterWeaponComponent::PlayAnimMontage(UAnimMontage* AnimMontage)
 
 bool UShooterWeaponComponent::CanFire() const
 {
-    return CurrentWeapon && !EquipAnimInProgress;
+    return CurrentWeapon && !EquipAnimInProgress && !ReloadAnimInProgress;
 }
 
 bool UShooterWeaponComponent::CanEquip() const
 {
-    return !EquipAnimInProgress; 
+    return !EquipAnimInProgress && !ReloadAnimInProgress;
 }
 
+bool UShooterWeaponComponent::CanReload() const
+{
+    return CurrentWeapon
+           && !EquipAnimInProgress
+           && !ReloadAnimInProgress
+           && CurrentWeapon->CanReload();
+}
 
 void UShooterWeaponComponent::WeaponDestroying()
 {

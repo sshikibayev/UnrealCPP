@@ -84,4 +84,5 @@ void AShooterPlayerCharacter::KeyBinding(UInputComponent* PlayerInputComponent)
     PlayerInputComponent->BindAction("Fire", IE_Pressed, WeaponComponent, &UShooterWeaponComponent::StartFire);
     PlayerInputComponent->BindAction("Fire", IE_Released, WeaponComponent, &UShooterWeaponComponent::StopFire);
     PlayerInputComponent->BindAction("WeaponSwitch", IE_Pressed, WeaponComponent, &UShooterWeaponComponent::SwitchWeapon);
+    PlayerInputComponent->BindAction("WeaponReload", IE_Pressed, WeaponComponent, &UShooterWeaponComponent::WeaponReload);
 }

@@ -5,7 +5,6 @@
 
 void AShooterLauncherWeapon::StartFire()
 {
-    Super::StartFire();
     DoShot();
 }
 
@@ -13,8 +12,8 @@ void AShooterLauncherWeapon::DoShot()
 {
     if (!IsAmmoEmpty())
     {
-        Super::DoShot();
-
+        SetPlayerViewPoint();
+        SetTraceData();
         FHitResult HitResult;
         DrawTraceHit(HitResult);
 

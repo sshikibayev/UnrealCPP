@@ -3,19 +3,18 @@
 
 #include "Weapon/ShooterRifleWeapon.h"
 #include "DrawDebugHelpers.h"
+#include "ShooterWeaponComponent.h"
 #include "GameFramework/Character.h"
 #include "GameFramework/PlayerController.h"
 
 void AShooterRifleWeapon::StartFire()
 {
-    Super::StartFire();
-    DoShot();
     GetWorldTimerManager().SetTimer(ShotTimerHandle, this, &AShooterRifleWeapon::DoShot, FireRate, true);
+    DoShot();
 }
 
 void AShooterRifleWeapon::StopFire()
 {
-    Super::StopFire();
     GetWorldTimerManager().ClearTimer(ShotTimerHandle);
 }
 
@@ -23,9 +22,9 @@ void AShooterRifleWeapon::DoShot()
 {
     if (!IsAmmoEmpty())
     {
+        SetPlayerViewPoint();
+        SetTraceData();
         Super::DoShot();
-        GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Orange, "Shooting!!!");
-
         FHitResult HitResult;
         DrawTraceHit(HitResult);
         if (HitResult.bBlockingHit)
