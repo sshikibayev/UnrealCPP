@@ -18,6 +18,8 @@ void AShooterBaseWeapon::BeginPlay()
 {
     Super::BeginPlay();
     check(WeaponMesh);
+    
+    CurrentAmmo = DefaultAmmo;
 }
 
 void AShooterBaseWeapon::SetPlayerViewPoint()
@@ -67,4 +69,43 @@ void AShooterBaseWeapon::DoShot()
 {
     SetPlayerViewPoint();
     SetTraceData();
+}
+
+
+void AShooterBaseWeapon::DecreaseAmmo()
+{
+    CurrentAmmo.BulletsAmountInClip--;
+    LogAmmo();
+
+    if(IsClipEmpty() && !IsAmmoEmpty())
+    {
+        ChangeClip();
+    }
+}
+
+bool AShooterBaseWeapon::IsAmmoEmpty() const
+{
+    return !CurrentAmmo.Infinite && CurrentAmmo.Clips == 0 && IsClipEmpty();
+}
+
+bool AShooterBaseWeapon::IsClipEmpty() const
+{
+    return CurrentAmmo.BulletsAmountInClip == 0;
+}
+
+void AShooterBaseWeapon::ChangeClip()
+{
+    CurrentAmmo.BulletsAmountInClip = DefaultAmmo.BulletsAmountInClip;
+    if(!CurrentAmmo.Infinite)
+    {
+        CurrentAmmo.Clips--;
+    }
+    GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Orange, "Reloaded");
+}
+
+void AShooterBaseWeapon::LogAmmo() const
+{
+    FString AmmoInfo = "Ammo: " + FString::FromInt(CurrentAmmo.BulletsAmountInClip) + " / ";
+    AmmoInfo += CurrentAmmo.Infinite ? "Infinite" : FString::FromInt(CurrentAmmo.Clips);
+    GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Orange, AmmoInfo);
 }

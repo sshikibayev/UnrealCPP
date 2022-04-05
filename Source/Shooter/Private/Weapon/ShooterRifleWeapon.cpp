@@ -21,17 +21,22 @@ void AShooterRifleWeapon::StopFire()
 
 void AShooterRifleWeapon::DoShot()
 {
-    Super::DoShot();
-    
-    FHitResult HitResult;
-    DrawTraceHit(HitResult);
-    if (HitResult.bBlockingHit)
+    if (!IsAmmoEmpty())
     {
-        DoDamage(HitResult);
-        DrawDebugLine(GetWorld(), GetMuzzleWorldLocation(), HitResult.ImpactPoint, FColor::Red, false, 3.0f, 0, 3.0f);
-        DrawDebugSphere(GetWorld(), HitResult.ImpactPoint, 10.0f, 24, FColor::Red, false, 5.0f);
+        Super::DoShot();
+        GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Orange, "Shooting!!!");
+
+        FHitResult HitResult;
+        DrawTraceHit(HitResult);
+        if (HitResult.bBlockingHit)
+        {
+            DoDamage(HitResult);
+            DrawDebugLine(GetWorld(), GetMuzzleWorldLocation(), HitResult.ImpactPoint, FColor::Red, false, 3.0f, 0, 3.0f);
+            DrawDebugSphere(GetWorld(), HitResult.ImpactPoint, 10.0f, 24, FColor::Red, false, 5.0f);
+        }
+        DrawDebugLine(GetWorld(), GetMuzzleWorldLocation(), TraceData.TraceEnd, FColor::Red, false, 3.0f, 0, 3.0f);
+        DecreaseAmmo();
     }
-    DrawDebugLine(GetWorld(), GetMuzzleWorldLocation(), TraceData.TraceEnd, FColor::Red, false, 3.0f, 0, 3.0f);
 }
 
 void AShooterRifleWeapon::DoDamage(const FHitResult& HitResult)

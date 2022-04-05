@@ -8,6 +8,21 @@
 
 class USkeletalMeshComponent;
 
+USTRUCT(BlueprintType)
+struct FAmmoData
+{
+    GENERATED_BODY()
+
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
+    int32 BulletsAmountInClip;
+
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon", meta = (EditCondition = "!Infinite"))
+    int32 Clips;
+
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
+    bool Infinite;
+};
+
 USTRUCT()
 struct FTraceData
 {
@@ -43,6 +58,9 @@ protected:
     UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
     float TraceMaxDistance = 1500.0f;
     
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+    FAmmoData DefaultAmmo{15, 10, false};
+
     virtual void BeginPlay() override;
     virtual void DoShot();
     virtual void SetTraceData();
@@ -52,4 +70,14 @@ protected:
     APlayerController* GetPlayerController() const;
     void DrawTraceHit(FHitResult& HitResult) const;
     FVector GetMuzzleWorldLocation() const;
+
+    //Ammo section
+    void DecreaseAmmo();
+    bool IsAmmoEmpty() const;
+    bool IsClipEmpty() const;
+    void ChangeClip();
+    void LogAmmo() const;
+
+private:
+    FAmmoData CurrentAmmo;
 };
