@@ -9,6 +9,7 @@
 
 class UPlayerHealthComponent;
 class AShooterBaseWeapon;
+class UAnimMontage;
 
 UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
 class SHOOTER_API UShooterWeaponComponent : public UActorComponent
@@ -29,6 +30,8 @@ protected:
     FName WeaponEquipSocketName = "WeaponSocket";
     UPROPERTY(EditDefaultsOnly, Category = "Weapon")
     FName WeaponArmorySocketName = "ArmorySocket";
+    UPROPERTY(EditDefaultsOnly, Category = "Animation")
+    UAnimMontage* EquipAnimMontage;
 
     virtual void BeginPlay() override;
     virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
@@ -42,9 +45,16 @@ private:
     ACharacter* WeaponOwner = nullptr;
 
     int32 CurrentWeaponIndex = 0;
+    bool EquipAnimInProgress = false;
 
     void CreateWeapon();
     void AttachWeaponSocket(AShooterBaseWeapon* Weapon, USceneComponent* SceneComponent, const FName& SocketName);
     void EquipWeapon(int32 WeaponIndex);
+    void PlayAnimMontage(UAnimMontage* AnimMontage);
+    void InitAnimations();
+    void OnEquipFinished(USkeletalMeshComponent* MeshComponent);
+    bool CanFire() const;
+    bool CanEquip() const;
+    
     void WeaponDestroying();
 };
