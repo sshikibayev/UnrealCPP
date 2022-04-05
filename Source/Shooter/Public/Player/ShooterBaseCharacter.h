@@ -13,6 +13,7 @@
 class UShooterHealthComponent;
 class UTextRenderComponent;
 class UPlayerHealthComponent;
+class UShooterWeaponComponent;
 
 UCLASS()
 class SHOOTER_API AShooterBaseCharacter : public ACharacter

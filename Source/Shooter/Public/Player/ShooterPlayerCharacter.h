@@ -8,6 +8,7 @@
 
 class UCameraComponent;
 class USpringArmComponent;
+class UInputComponent;
 
 UCLASS()
 class SHOOTER_API AShooterPlayerCharacter : public AShooterBaseCharacter
@@ -44,4 +45,7 @@ public:
     bool IsSprinting = false;
     void OnStartRunning();
     void OnStopRunning();
+
+private:
+    void KeyBinding(UInputComponent* PlayerInputComponent);
 };

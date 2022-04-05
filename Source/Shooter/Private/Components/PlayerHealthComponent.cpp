@@ -26,9 +26,9 @@ void UPlayerHealthComponent::BeginPlay()
 }
 
 void UPlayerHealthComponent::OnTakeAnyDamage(
-    AActor* DamageActor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser)
+    AActor* DamageActor, const float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser)
 {
-    if (Damage >= 0.0f || !IsDead() || GetWorld())
+    if (Damage >= 0.0f && !IsDead() && GetWorld())
     {
         SetHealth(Health - Damage);
 

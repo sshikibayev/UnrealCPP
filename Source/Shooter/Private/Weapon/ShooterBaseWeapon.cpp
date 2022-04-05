@@ -20,27 +20,6 @@ void AShooterBaseWeapon::BeginPlay()
     check(WeaponMesh);
 }
 
-void AShooterBaseWeapon::Fire()
-{
-    check(GetWorld())
-    MakeShot();
-}
-
-void AShooterBaseWeapon::MakeShot()
-{
-    SetPlayerViewPoint();
-    SetTraceData();
-    FHitResult HitResult;
-    MakeHit(HitResult);
-    if (HitResult.bBlockingHit)
-    {
-        MakeDamage(HitResult);
-        DrawDebugLine(GetWorld(), GetMuzzleWorldLocation(), HitResult.ImpactPoint, FColor::Red, false, 3.0f, 0, 3.0f);
-        DrawDebugSphere(GetWorld(), HitResult.ImpactPoint, 10.0f, 24, FColor::Red, false, 5.0f);
-    }
-    DrawDebugLine(GetWorld(), GetMuzzleWorldLocation(), TraceData.TraceEnd, FColor::Red, false, 3.0f, 0, 3.0f);
-}
-
 void AShooterBaseWeapon::SetPlayerViewPoint()
 {
     if (GetPlayerController())
@@ -61,7 +40,7 @@ APlayerController* AShooterBaseWeapon::GetPlayerController() const
     return Cast<ACharacter>(GetOwner())->GetController<APlayerController>();
 }
 
-void AShooterBaseWeapon::MakeHit(FHitResult& HitResult) const
+void AShooterBaseWeapon::DrawTraceHit(FHitResult& HitResult) const
 {
     check(GetWorld())
     FCollisionQueryParams CollisionParams;
@@ -69,16 +48,23 @@ void AShooterBaseWeapon::MakeHit(FHitResult& HitResult) const
     GetWorld()->LineTraceSingleByChannel(HitResult, TraceData.TraceStart, TraceData.TraceEnd, ECollisionChannel::ECC_Visibility);
 }
 
-void AShooterBaseWeapon::MakeDamage(const FHitResult& HitResult)
-{
-    const auto HitTarget = HitResult.GetActor();
-    if (HitTarget)
-    {
-        HitTarget->TakeDamage(DamageAmount, FDamageEvent(), GetPlayerController(), this);
-    }
-}
-
 FVector AShooterBaseWeapon::GetMuzzleWorldLocation() const
 {
     return WeaponMesh->GetSocketLocation(MuzzleSocketName);
+}
+
+void AShooterBaseWeapon::StartFire()
+{
+    check(GetWorld())
+}
+
+void AShooterBaseWeapon::StopFire()
+{
+    check(GetWorld())
+}
+
+void AShooterBaseWeapon::DoShot()
+{
+    SetPlayerViewPoint();
+    SetTraceData();
 }

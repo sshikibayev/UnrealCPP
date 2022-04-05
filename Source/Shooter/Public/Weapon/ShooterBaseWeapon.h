@@ -29,29 +29,27 @@ class SHOOTER_API AShooterBaseWeapon : public AActor
 
 public:
     AShooterBaseWeapon();
-    virtual void Fire();
+
+    virtual void StartFire();
+    virtual void StopFire();
 
 protected:
-    UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Components")
     USkeletalMeshComponent* WeaponMesh;
 
-    UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
     FName MuzzleSocketName = "MuzzleSocket";
 
-    UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
     float TraceMaxDistance = 1500.0f;
-
-    UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-    float DamageAmount = 10.0f;
-
+    
     virtual void BeginPlay() override;
+    virtual void DoShot();
+    virtual void SetTraceData();
 
-    void MakeShot();
     FTraceData TraceData;
-    void SetTraceData();
     void SetPlayerViewPoint();
     APlayerController* GetPlayerController() const;
-    void MakeHit(FHitResult& HitResult) const;
-    void MakeDamage(const FHitResult& HitResult);
+    void DrawTraceHit(FHitResult& HitResult) const;
     FVector GetMuzzleWorldLocation() const;
 };

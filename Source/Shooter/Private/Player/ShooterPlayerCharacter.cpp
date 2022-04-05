@@ -31,21 +31,13 @@ void AShooterPlayerCharacter::Tick(float DeltaTime)
     Super::Tick(DeltaTime);
 }
 
-
 void AShooterPlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
     Super::SetupPlayerInputComponent(PlayerInputComponent);
-    check(PlayerInputComponent);
+    check(InputComponent);
     check(WeaponComponent);
 
-    PlayerInputComponent->BindAxis("MoveForwardBackWard", this, &AShooterPlayerCharacter::MoveForwardBackward);
-    PlayerInputComponent->BindAxis("MoveRightLeft", this, &AShooterPlayerCharacter::MoveRightLeft);
-    PlayerInputComponent->BindAxis("LookUpDown", this, &AShooterPlayerCharacter::AddControllerPitchInput);
-    PlayerInputComponent->BindAxis("TurnAround", this, &AShooterPlayerCharacter::AddControllerYawInput);
-    PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &AShooterPlayerCharacter::Jump);
-    PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &AShooterPlayerCharacter::OnStartRunning);
-    PlayerInputComponent->BindAction("Sprint", IE_Released, this, &AShooterPlayerCharacter::OnStopRunning);
-    PlayerInputComponent->BindAction("Fire", IE_Pressed, WeaponComponent, &UShooterWeaponComponent::Fire);
+    KeyBinding(PlayerInputComponent);
 }
 
 void AShooterPlayerCharacter::MoveForwardBackward(const float Scale)
@@ -78,4 +70,18 @@ void AShooterPlayerCharacter::OnStopRunning()
 bool AShooterPlayerCharacter::FIsSprinting() const
 {
     return IsSprinting && IsMovingForward && !GetVelocity().IsZero();
+}
+
+void AShooterPlayerCharacter::KeyBinding(UInputComponent* PlayerInputComponent)
+{
+    PlayerInputComponent->BindAxis("MoveForwardBackWard", this, &AShooterPlayerCharacter::MoveForwardBackward);
+    PlayerInputComponent->BindAxis("MoveRightLeft", this, &AShooterPlayerCharacter::MoveRightLeft);
+    PlayerInputComponent->BindAxis("LookUpDown", this, &AShooterPlayerCharacter::AddControllerPitchInput);
+    PlayerInputComponent->BindAxis("TurnAround", this, &AShooterPlayerCharacter::AddControllerYawInput);
+    PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &AShooterPlayerCharacter::Jump);
+    PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &AShooterPlayerCharacter::OnStartRunning);
+    PlayerInputComponent->BindAction("Sprint", IE_Released, this, &AShooterPlayerCharacter::OnStopRunning);
+    PlayerInputComponent->BindAction("Fire", IE_Pressed, WeaponComponent, &UShooterWeaponComponent::StartFire);
+    PlayerInputComponent->BindAction("Fire", IE_Released, WeaponComponent, &UShooterWeaponComponent::StopFire);
+    PlayerInputComponent->BindAction("WeaponSwitch", IE_Pressed, WeaponComponent, &UShooterWeaponComponent::SwitchWeapon);
 }

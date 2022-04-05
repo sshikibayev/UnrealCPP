@@ -12,33 +12,82 @@ void UShooterWeaponComponent::BeginPlay()
 {
     Super::BeginPlay();
 
-    SpawnWeapon();
+    WeaponOwner = Cast<ACharacter>(GetOwner());
+    check(WeaponOwner);
+    CreateWeapon();
+    EquipWeapon(CurrentWeaponIndex);
 }
 
-void UShooterWeaponComponent::SpawnWeapon()
+void UShooterWeaponComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
-    if (GetWorld())
-    {
-        CreateWeapon();
-    }
+    WeaponDestroying();
+    Super::EndPlay(EndPlayReason);
 }
 
 void UShooterWeaponComponent::CreateWeapon()
 {
-    ACharacter* Character = Cast<ACharacter>(GetOwner());
-    if (Character)
+    if (WeaponOwner)
     {
-        CurrentWeapon = GetWorld()->SpawnActor<AShooterBaseWeapon>(WeaponClass);
-        if (CurrentWeapon)
+        for (auto WeaponClass : WeaponClasses)
         {
-            const FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, false);
-            CurrentWeapon->AttachToComponent(Character->GetMesh(), AttachmentRules, WeaponAttachPointName);
-            CurrentWeapon->SetOwner(Character);
+            auto Weapon = GetWorld()->SpawnActor<AShooterBaseWeapon>(WeaponClass);
+            Weapon->SetOwner(WeaponOwner);
+            Weapons.Add(Weapon);
+            AttachWeaponSocket(Weapon, WeaponOwner->GetMesh(), WeaponArmorySocketName);
         }
     }
 }
 
-void UShooterWeaponComponent::Fire()
+void UShooterWeaponComponent::EquipWeapon(int32 WeaponIndex)
 {
-    CurrentWeapon->Fire();
+    if (CurrentWeapon)
+    {
+        CurrentWeapon->StopFire();
+        AttachWeaponSocket(CurrentWeapon, WeaponOwner->GetMesh(), WeaponArmorySocketName);
+    }
+
+    CurrentWeapon = Weapons[WeaponIndex];
+    AttachWeaponSocket(CurrentWeapon, WeaponOwner->GetMesh(), WeaponEquipSocketName);
+}
+
+void UShooterWeaponComponent::AttachWeaponSocket(AShooterBaseWeapon* Weapon, USceneComponent* SceneComponent, const FName& SocketName)
+{
+    if (Weapon && SceneComponent)
+    {
+        const FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, false);
+        Weapon->AttachToComponent(SceneComponent, AttachmentRules, SocketName);
+    }
+}
+
+void UShooterWeaponComponent::SwitchWeapon()
+{
+    CurrentWeaponIndex = (CurrentWeaponIndex + 1) % Weapons.Num();
+    EquipWeapon(CurrentWeaponIndex);
+}
+
+void UShooterWeaponComponent::StartFire()
+{
+    if (CurrentWeapon)
+    {
+        CurrentWeapon->StartFire();
+    }
+}
+
+void UShooterWeaponComponent::StopFire()
+{
+    if (CurrentWeapon)
+    {
+        CurrentWeapon->StopFire();
+    }
+}
+
+void UShooterWeaponComponent::WeaponDestroying()
+{
+    CurrentWeapon = nullptr;
+    for (const auto Weapon : Weapons)
+    {
+        Weapon->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+        Weapon->Destroy();
+    }
+    Weapons.Empty();
 }

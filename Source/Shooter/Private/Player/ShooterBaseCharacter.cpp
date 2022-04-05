@@ -20,7 +20,6 @@ AShooterBaseCharacter::AShooterBaseCharacter(const FObjectInitializer& ObjInit)
     HealthTextComponent->SetOwnerNoSee(true);
 
     PlayerHealthComponent = CreateDefaultSubobject<UPlayerHealthComponent>("PlayerHealthComponent");
-
     WeaponComponent = CreateDefaultSubobject<UShooterWeaponComponent>("WeaponComponent");
 }
 
@@ -79,7 +78,9 @@ void AShooterBaseCharacter::OnDeath()
     }
 
     GetCapsuleComponent()->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+    WeaponComponent->StopFire();
 }
+
 
 void AShooterBaseCharacter::OnGroundLanded(const FHitResult& Hit)
 {

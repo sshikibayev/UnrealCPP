@@ -7,6 +7,7 @@
 #include "Components/ActorComponent.h"
 #include "ShooterWeaponComponent.generated.h"
 
+class UPlayerHealthComponent;
 class AShooterBaseWeapon;
 
 UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
@@ -16,20 +17,34 @@ class SHOOTER_API UShooterWeaponComponent : public UActorComponent
 
 public:
     UShooterWeaponComponent();
-    void Fire();
+
+    void StartFire();
+    void StopFire();
+    void SwitchWeapon();
 
 protected:
     UPROPERTY(EditDefaultsOnly, Category = "Weapon")
-    TSubclassOf<AShooterBaseWeapon> WeaponClass;
+    TArray<TSubclassOf<AShooterBaseWeapon>> WeaponClasses;
     UPROPERTY(EditDefaultsOnly, Category = "Weapon")
-    FName WeaponAttachPointName = "WeaponSocket";
+    FName WeaponEquipSocketName = "WeaponSocket";
+    UPROPERTY(EditDefaultsOnly, Category = "Weapon")
+    FName WeaponArmorySocketName = "ArmorySocket";
 
     virtual void BeginPlay() override;
+    virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 
 private:
     UPROPERTY()
     AShooterBaseWeapon* CurrentWeapon = nullptr;
+    UPROPERTY()
+    TArray<AShooterBaseWeapon*> Weapons;
+    UPROPERTY()
+    ACharacter* WeaponOwner = nullptr;
 
-    void SpawnWeapon();
+    int32 CurrentWeaponIndex = 0;
+
     void CreateWeapon();
+    void AttachWeaponSocket(AShooterBaseWeapon* Weapon, USceneComponent* SceneComponent, const FName& SocketName);
+    void EquipWeapon(int32 WeaponIndex);
+    void WeaponDestroying();
 };
