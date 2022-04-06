@@ -2,7 +2,6 @@
 
 
 #include "UI/ShooterHUD.h"
-
 #include "Engine/Canvas.h"
 
 void AShooterHUD::DrawHUD()

@@ -25,14 +25,19 @@ protected:
 
     UPROPERTY(VisibleAnywhere, Category = "Weapon")
     USphereComponent* CollisionComponent;
+    
     UPROPERTY(VisibleAnywhere, Category = "Weapon")
     UProjectileMovementComponent* MovementComponent;
+    
     UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Weapon")
     float DamageRadius = 200.0f;
+    
     UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Weapon")
     float DamageAmount = 100.0f;
+    
     UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Weapon")
     bool DoFullDamage = false;
+    
     UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Weapon")
     float LifeSeconds = 5.0f;
 
@@ -44,4 +49,6 @@ private:
         AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 
     AController* GetController() const;
+
+    void DoRadialDamage();
 };

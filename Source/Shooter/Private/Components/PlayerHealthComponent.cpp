@@ -4,13 +4,11 @@
 #include "Components/PlayerHealthComponent.h"
 #include "ShooterBaseCharacter.h"
 
-// Sets default values for this component's properties
 UPlayerHealthComponent::UPlayerHealthComponent()
 {
     PrimaryComponentTick.bCanEverTick = false;
 }
 
-// Called when the game starts
 void UPlayerHealthComponent::BeginPlay()
 {
     Super::BeginPlay();

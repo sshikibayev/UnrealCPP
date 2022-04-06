@@ -1,5 +1,6 @@
 // Shooter, All Rights Reserved
 
+#include "PlayerHealthComponent.h"
 #include "ShooterPlayerCharacter.h"
 #include "Misc/AutomationTest.h"
 #include "Tests/AutomationCommon.h"
@@ -62,7 +63,6 @@ void FPlayerHealthComponentTest::Define()
 
     AfterEach([this]()
     {
-        // close game map.
         FTestUtils::Exit();
     });
 }

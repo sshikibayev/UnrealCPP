@@ -6,9 +6,6 @@
 #include "GameFramework/HUD.h"
 #include "ShooterHUD.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class SHOOTER_API AShooterHUD : public AHUD
 {

@@ -3,17 +3,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "PlayerHealthComponent.h"
-#include "ShooterWeaponComponent.h"
 #include "Camera/CameraComponent.h"
-#include "Components/TextRenderComponent.h"
 #include "GameFramework/Character.h"
+#include "ShooterCoreTypes.h"
 #include "ShooterBaseCharacter.generated.h"
-
-class UShooterHealthComponent;
-class UTextRenderComponent;
-class UPlayerHealthComponent;
-class UShooterWeaponComponent;
 
 UCLASS()
 class SHOOTER_API AShooterBaseCharacter : public ACharacter
@@ -52,11 +45,9 @@ protected:
 public:
     virtual void Tick(float DeltaTime) override;
 
-    //Movement vars;
     UFUNCTION(BlueprintCallable, Category = "Movements")
     float GetMovementDirection() const;
 
-    //Using for landed damage
     UFUNCTION()
     void OnGroundLanded(const FHitResult& Hit);
 

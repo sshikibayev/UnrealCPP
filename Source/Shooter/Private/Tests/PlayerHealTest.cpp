@@ -1,4 +1,5 @@
-﻿#include "Misc/AutomationTest.h"
+﻿#include "PlayerHealthComponent.h"
+#include "Misc/AutomationTest.h"
 #include "ShooterPlayerCharacter.h"
 #include "Tests/AutomationCommon.h"
 #include "Tests/FTestUtils.h"
@@ -69,7 +70,6 @@ void FPlayerHealTest::Define()
 
     AfterEach([this]()
     {
-        // close game map.
         FTestUtils::Exit();
     });
 }

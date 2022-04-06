@@ -6,10 +6,8 @@
 #include "Animations/ShooterAnimNotify.h"
 #include "ShooterReloadFinishedAnimNotify.generated.h"
 
-
 UCLASS()
 class SHOOTER_API UShooterReloadFinishedAnimNotify : public UShooterAnimNotify
 {
-	GENERATED_BODY()
-	
+    GENERATED_BODY()
 };

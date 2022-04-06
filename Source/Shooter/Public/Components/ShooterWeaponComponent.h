@@ -8,10 +8,6 @@
 #include "Components/ActorComponent.h"
 #include "ShooterWeaponComponent.generated.h"
 
-class UPlayerHealthComponent;
-class AShooterBaseWeapon;
-class UAnimMontage;
-
 UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
 class SHOOTER_API UShooterWeaponComponent : public UActorComponent
 {
@@ -24,6 +20,7 @@ public:
     void StopFire();
     void SwitchWeapon();
     void WeaponReload();
+    
     bool CanFire() const;
     bool CanEquip() const;
     bool CanReload() const;
@@ -31,10 +28,13 @@ public:
 protected:
     UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
     TArray<FWeaponData> WeaponData;
+    
     UPROPERTY(EditDefaultsOnly, Category = "Weapon")
     FName WeaponEquipSocketName = "WeaponSocket";
+    
     UPROPERTY(EditDefaultsOnly, Category = "Weapon")
     FName WeaponArmorySocketName = "ArmorySocket";
+    
     UPROPERTY(EditDefaultsOnly, Category = "Animation")
     UAnimMontage* EquipAnimMontage;
 
@@ -44,21 +44,25 @@ protected:
 private:
     UPROPERTY()
     AShooterBaseWeapon* CurrentWeapon = nullptr;
+    
     UPROPERTY()
     TArray<AShooterBaseWeapon*> Weapons;
+    
     UPROPERTY()
     ACharacter* WeaponOwner = nullptr;
+    
     UPROPERTY()
     UAnimMontage* CurrentReloadAnimMontage = nullptr;
 
     int32 CurrentWeaponIndex = 0;
+    
     bool EquipAnimInProgress = false;
     bool ReloadAnimInProgress = false;
 
     void CreateWeapon();
     void AttachWeaponSocket(AShooterBaseWeapon* Weapon, USceneComponent* SceneComponent, const FName& SocketName);
     void EquipWeapon(int32 WeaponIndex);
-    void PlayAnimMontage(UAnimMontage* AnimMontage);
+    void PlayAnimMontage(UAnimMontage* AnimMontage) const;
     void InitAnimations();
     void OnEquipFinished(USkeletalMeshComponent* MeshComponent);
     void OnReloadFinished(USkeletalMeshComponent* MeshComponent);

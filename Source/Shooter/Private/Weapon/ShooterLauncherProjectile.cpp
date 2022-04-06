@@ -2,7 +2,6 @@
 
 
 #include "Weapon/ShooterLauncherProjectile.h"
-
 #include "DrawDebugHelpers.h"
 #include "GameFramework/DamageType.h"
 #include "Kismet/GameplayStatics.h"
@@ -41,21 +40,24 @@ void AShooterLauncherProjectile::OnProjectileHit(UPrimitiveComponent* HitCompone
     if(GetWorld())
     {
         MovementComponent->StopMovementImmediately();
-        
-        //Do radial damage;
-        UGameplayStatics::ApplyRadialDamage(GetWorld(),
-            DamageAmount,
-            GetActorLocation(),
-            DamageRadius,
-            UDamageType::StaticClass(),
-            {GetOwner()},
-            this,
-            GetController(),
-            DoFullDamage);
-        DrawDebugSphere(GetWorld(), GetActorLocation(), DamageRadius, 24, FColor::Red, false, 5.0f);
-        Destroy();
+        DoRadialDamage();
     }
     
+}
+
+void AShooterLauncherProjectile::DoRadialDamage()
+{
+    UGameplayStatics::ApplyRadialDamage(GetWorld(),
+           DamageAmount,
+           GetActorLocation(),
+           DamageRadius,
+           UDamageType::StaticClass(),
+           {GetOwner()},
+           this,
+           GetController(),
+           DoFullDamage);
+    DrawDebugSphere(GetWorld(), GetActorLocation(), DamageRadius, 24, FColor::Red, false, 5.0f);
+    Destroy();
 }
 
 AController* AShooterLauncherProjectile::GetController() const

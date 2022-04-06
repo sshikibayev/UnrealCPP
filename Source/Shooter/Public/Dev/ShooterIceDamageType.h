@@ -6,9 +6,6 @@
 #include "GameFramework/DamageType.h"
 #include "ShooterIceDamageType.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class SHOOTER_API UShooterIceDamageType : public UDamageType
 {

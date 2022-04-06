@@ -24,15 +24,8 @@ void AShooterRifleWeapon::DoShot()
     {
         SetPlayerViewPoint();
         SetTraceData();
-        Super::DoShot();
-        FHitResult HitResult;
-        DrawTraceHit(HitResult);
-        if (HitResult.bBlockingHit)
-        {
-            DoDamage(HitResult);
-            DrawDebugLine(GetWorld(), GetMuzzleWorldLocation(), HitResult.ImpactPoint, FColor::Red, false, 3.0f, 0, 3.0f);
-            DrawDebugSphere(GetWorld(), HitResult.ImpactPoint, 10.0f, 24, FColor::Red, false, 5.0f);
-        }
+        SetHit();
+
         DrawDebugLine(GetWorld(), GetMuzzleWorldLocation(), TraceData.TraceEnd, FColor::Red, false, 3.0f, 0, 3.0f);
         DecreaseAmmo();
     }
@@ -52,4 +45,15 @@ void AShooterRifleWeapon::SetTraceData()
     TraceData.TraceStart = TraceData.ViewLocation;
     const FVector ShootDirection = FMath::VRandCone(TraceData.ViewRotation.Vector(), FMath::DegreesToRadians(BulletSpread));
     TraceData.TraceEnd = TraceData.TraceStart + ShootDirection * TraceMaxDistance;
+}
+
+void AShooterRifleWeapon::SetHit()
+{
+    FHitResult HitResult;
+    DrawTraceHit(HitResult);
+    if (HitResult.bBlockingHit)
+    {
+        DoDamage(HitResult);
+        DrawDebugSphere(GetWorld(), HitResult.ImpactPoint, 10.0f, 24, FColor::Red, false, 5.0f);
+    }
 }

@@ -1,7 +1,6 @@
 // Shooter, All Rights Reserved
 
 #include "Components/ShooterWeaponComponent.h"
-
 #include "AnimUtils.h"
 #include "ShooterEquipFinishedAnimNotify.h"
 #include "ShooterReloadFinishedAnimNotify.h"
@@ -42,7 +41,7 @@ void UShooterWeaponComponent::InitAnimations()
         EquipFinishedNotify->OnNotified.AddUObject(this, &UShooterWeaponComponent::OnEquipFinished);
     }
 
-    for (auto OneWeaponData : WeaponData)
+    for (const auto OneWeaponData : WeaponData)
     {
         const auto ReloadFinishedNotify = AnimUtils::FindNotifyByClass<UShooterReloadFinishedAnimNotify>(OneWeaponData.ReloadAnimMontage);
         if (ReloadFinishedNotify)
@@ -83,7 +82,7 @@ void UShooterWeaponComponent::CreateWeapon()
     }
 }
 
-void UShooterWeaponComponent::EquipWeapon(int32 WeaponIndex)
+void UShooterWeaponComponent::EquipWeapon(const int32 WeaponIndex)
 {
     if (CurrentWeapon)
     {
@@ -160,7 +159,7 @@ void UShooterWeaponComponent::StopFire()
     }
 }
 
-void UShooterWeaponComponent::PlayAnimMontage(UAnimMontage* AnimMontage)
+void UShooterWeaponComponent::PlayAnimMontage(UAnimMontage* AnimMontage) const
 {
     WeaponOwner->PlayAnimMontage(AnimMontage);
 }

@@ -6,7 +6,6 @@
 #include "ShooterWeaponComponent.h"
 #include "GameFramework/Character.h"
 
-
 AShooterBaseWeapon::AShooterBaseWeapon()
 {
     PrimaryActorTick.bCanEverTick = false;
@@ -72,7 +71,6 @@ void AShooterBaseWeapon::DoShot()
 {
 }
 
-
 void AShooterBaseWeapon::DecreaseAmmo()
 {
     CurrentAmmo.BulletsAmountInClip--;
@@ -113,5 +111,4 @@ void AShooterBaseWeapon::LogAmmo() const
 {
     FString AmmoInfo = "Ammo: " + FString::FromInt(CurrentAmmo.BulletsAmountInClip) + " / ";
     AmmoInfo += CurrentAmmo.Infinite ? "Infinite" : FString::FromInt(CurrentAmmo.Clips);
-    //GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Orange, AmmoInfo);
 }

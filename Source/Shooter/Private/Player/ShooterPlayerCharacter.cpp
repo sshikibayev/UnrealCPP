@@ -2,6 +2,7 @@
 
 
 #include "Player/ShooterPlayerCharacter.h"
+#include "ShooterWeaponComponent.h"
 #include "Components/InputComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 
@@ -10,13 +11,11 @@ AShooterPlayerCharacter::AShooterPlayerCharacter(const FObjectInitializer& ObjIn
 {
     PrimaryActorTick.bCanEverTick = true;
 
-    //Spring arm component creation
     SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>("SpringArmComponent");
     SpringArmComponent->SetupAttachment(GetRootComponent());
     SpringArmComponent->bUsePawnControlRotation = true;
     SpringArmComponent->SocketOffset = FVector(0.0f, 100.0f, 20.0f);
 
-    //Camera component creation
     CameraComponent = CreateDefaultSubobject<UCameraComponent>("CameraComponent");
     CameraComponent->SetupAttachment(SpringArmComponent);
 }
@@ -34,6 +33,7 @@ void AShooterPlayerCharacter::Tick(float DeltaTime)
 void AShooterPlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
     Super::SetupPlayerInputComponent(PlayerInputComponent);
+    
     check(InputComponent);
     check(WeaponComponent);
 

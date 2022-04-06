@@ -2,11 +2,13 @@
 
 
 #include "Player/ShooterBaseCharacter.h"
-
+#include "PlayerHealthComponent.h"
+#include "ShooterWeaponComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Tests/FTestUtils.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Components/ShooterCharacterMovementComp.h"
+#include "Components/TextRenderComponent.h"
 #include "GameFramework/PlayerController.h"
 
 AShooterBaseCharacter::AShooterBaseCharacter(const FObjectInitializer& ObjInit)
@@ -14,7 +16,6 @@ AShooterBaseCharacter::AShooterBaseCharacter(const FObjectInitializer& ObjInit)
 {
     PrimaryActorTick.bCanEverTick = true;
 
-    //Health component creation
     HealthTextComponent = CreateDefaultSubobject<UTextRenderComponent>("HealthTextComponent");
     HealthTextComponent->SetupAttachment(GetRootComponent());
     HealthTextComponent->SetOwnerNoSee(true);
@@ -27,7 +28,6 @@ void AShooterBaseCharacter::BeginPlay()
 {
     Super::BeginPlay();
 
-    //Ignoring in shipping build
     check(HealthTextComponent);
     check(PlayerHealthComponent);
     check(GetCharacterMovement());
@@ -84,7 +84,7 @@ void AShooterBaseCharacter::OnDeath()
 
 void AShooterBaseCharacter::OnGroundLanded(const FHitResult& Hit)
 {
-    const auto FallVelocityZ = -GetVelocity().Z;
+    const float FallVelocityZ = -GetVelocity().Z;
 
     if (FallVelocityZ > LandedDamageVelocity.X)
     {

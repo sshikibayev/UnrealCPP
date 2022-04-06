@@ -6,13 +6,10 @@
 #include "Weapon/ShooterBaseWeapon.h"
 #include "ShooterRifleWeapon.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class SHOOTER_API AShooterRifleWeapon : public AShooterBaseWeapon
 {
-	GENERATED_BODY()
+    GENERATED_BODY()
 
 public:
     virtual void StartFire() override;
@@ -25,11 +22,13 @@ protected:
     float BulletSpread = 1.5f; //max cone's angle 3
     UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
     float DamageAmount = 10.0f;
-    
+
     virtual void DoShot() override;
     void DoDamage(const FHitResult& HitResult);
     virtual void SetTraceData() override;
-    
+
 private:
     FTimerHandle ShotTimerHandle;
+
+    void SetHit();
 };

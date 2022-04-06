@@ -1,8 +1,12 @@
 ﻿#pragma once
+
 #include "ShooterCoreTypes.generated.h"
 
 //Weapon
+class UPlayerHealthComponent;
 class AShooterBaseWeapon;
+class UAnimMontage;
+class USkeletalMeshComponent;
 
 DECLARE_MULTICAST_DELEGATE(FOnClipEmptySignature);
 
@@ -28,10 +32,34 @@ struct FWeaponData
 
     UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
     TSubclassOf<AShooterBaseWeapon> WeaponClass;
+
     UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
     UAnimMontage* ReloadAnimMontage;
+};
+
+USTRUCT()
+struct FTraceData
+{
+    GENERATED_BODY()
+    UPROPERTY()
+    FVector TraceStart;
+    UPROPERTY()
+    FVector TraceEnd;
+    UPROPERTY()
+    FVector ViewLocation;
+    UPROPERTY()
+    FRotator ViewRotation;
 };
 
 //Health
 DECLARE_MULTICAST_DELEGATE(FOnDeath);
 DECLARE_MULTICAST_DELEGATE_OneParam(FOnHealthChanged, float);
+
+//Character
+class UShooterHealthComponent;
+class UTextRenderComponent;
+class UPlayerHealthComponent;
+class UShooterWeaponComponent;
+class UCameraComponent;
+class USpringArmComponent;
+class UInputComponent;

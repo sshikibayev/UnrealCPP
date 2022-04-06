@@ -19,8 +19,8 @@ void AShooterLauncherWeapon::DoShot()
 
         const FVector EndPoint = HitResult.bBlockingHit ? HitResult.ImpactPoint : TraceData.TraceEnd;
         const FVector Direction = (EndPoint - GetMuzzleWorldLocation()).GetSafeNormal();
-
         const FTransform SpawnTransform(FRotator::ZeroRotator, GetMuzzleWorldLocation());
+        
         AShooterLauncherProjectile* Projectile = GetWorld()->SpawnActorDeferred<AShooterLauncherProjectile>(LauncherProjectile, SpawnTransform);
         if (Projectile)
         {

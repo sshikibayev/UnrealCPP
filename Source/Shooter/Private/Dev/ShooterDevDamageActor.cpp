@@ -5,7 +5,6 @@
 
 AShooterDevDamageActor::AShooterDevDamageActor()
 {
-    // Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
     PrimaryActorTick.bCanEverTick = true;
 
     SceneComponent = CreateDefaultSubobject<USceneComponent>("SceneComponent");
@@ -17,7 +16,7 @@ void AShooterDevDamageActor::BeginPlay()
     Super::BeginPlay();
 }
 
-void AShooterDevDamageActor::Tick(float DeltaTime)
+void AShooterDevDamageActor::Tick(const float DeltaTime)
 {
     Super::Tick(DeltaTime);
 

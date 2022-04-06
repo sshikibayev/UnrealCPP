@@ -4,11 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "Player/ShooterBaseCharacter.h"
+#include "ShooterCoreTypes.h"
 #include "ShooterPlayerCharacter.generated.h"
-
-class UCameraComponent;
-class USpringArmComponent;
-class UInputComponent;
 
 UCLASS()
 class SHOOTER_API AShooterPlayerCharacter : public AShooterBaseCharacter
@@ -29,22 +26,18 @@ protected:
 
 public:
     virtual void Tick(float DeltaTime) override;
-
     virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-    //Movement vars;
     UFUNCTION(BlueprintCallable, Category = "Movements")
     virtual bool FIsSprinting() const;
 
-    //Movement controller
     void MoveForwardBackward(float Scale);
-    bool IsMovingForward = false;
     void MoveRightLeft(float Scale);
+    bool IsMovingForward = false;
 
-    //Sprint Control
-    bool IsSprinting = false;
     void OnStartRunning();
     void OnStopRunning();
+    bool IsSprinting = false;
 
 private:
     void KeyBinding(UInputComponent* PlayerInputComponent);

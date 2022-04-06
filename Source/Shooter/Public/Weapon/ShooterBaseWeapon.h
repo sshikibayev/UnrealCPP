@@ -7,22 +7,6 @@
 #include "GameFramework/Actor.h"
 #include "ShooterBaseWeapon.generated.h"
 
-class USkeletalMeshComponent;
-
-USTRUCT()
-struct FTraceData
-{
-    GENERATED_BODY()
-    UPROPERTY()
-    FVector TraceStart;
-    UPROPERTY()
-    FVector TraceEnd;
-    UPROPERTY()
-    FVector ViewLocation;
-    UPROPERTY()
-    FRotator ViewRotation;
-};
-
 UCLASS()
 class SHOOTER_API AShooterBaseWeapon : public AActor
 {

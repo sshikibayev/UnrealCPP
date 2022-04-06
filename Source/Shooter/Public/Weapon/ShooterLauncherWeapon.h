@@ -14,11 +14,10 @@ class SHOOTER_API AShooterLauncherWeapon : public AShooterBaseWeapon
 {
     GENERATED_BODY()
 
-public:
-    virtual void StartFire() override;
-
 protected:
     UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
     TSubclassOf<AShooterLauncherProjectile> LauncherProjectile;
+
+    virtual void StartFire() override;
     virtual void DoShot() override;
 };
