@@ -26,7 +26,7 @@ void AShooterRifleWeapon::DoShot()
         SetTraceData();
         SetHit();
 
-        DrawDebugLine(GetWorld(), GetMuzzleWorldLocation(), TraceData.TraceEnd, FColor::Red, false, 3.0f, 0, 3.0f);
+        DrawDebugLine(GetWorld(), GetMuzzleWorldTransform().GetLocation(), TraceData.TraceEnd, FColor::Red, false, 3.0f, 0, 3.0f);
         DecreaseAmmo();
     }
 }

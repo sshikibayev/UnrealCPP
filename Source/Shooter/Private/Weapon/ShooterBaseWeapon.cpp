@@ -52,9 +52,9 @@ void AShooterBaseWeapon::DrawTraceHit(FHitResult& HitResult) const
     GetWorld()->LineTraceSingleByChannel(HitResult, TraceData.TraceStart, TraceData.TraceEnd, ECollisionChannel::ECC_Visibility);
 }
 
-FVector AShooterBaseWeapon::GetMuzzleWorldLocation() const
+FTransform AShooterBaseWeapon::GetMuzzleWorldTransform() const
 {
-    return WeaponMesh->GetSocketLocation(MuzzleSocketName);
+    return WeaponMesh->GetSocketTransform(MuzzleSocketName);
 }
 
 void AShooterBaseWeapon::StartFire()
@@ -83,6 +83,11 @@ void AShooterBaseWeapon::DecreaseAmmo()
     }
 }
 
+bool AShooterBaseWeapon::CanReload() const
+{
+    return CurrentAmmo.BulletsAmountInClip < DefaultAmmo.BulletsAmountInClip && !IsAmmoEmpty();
+}
+
 bool AShooterBaseWeapon::IsAmmoEmpty() const
 {
     return !CurrentAmmo.Infinite && CurrentAmmo.Clips == 0 && IsClipEmpty();
@@ -100,11 +105,6 @@ void AShooterBaseWeapon::ChangeClip()
         CurrentAmmo.Clips--;
     }
     CurrentAmmo.BulletsAmountInClip = DefaultAmmo.BulletsAmountInClip;
-}
-
-bool AShooterBaseWeapon::CanReload() const
-{
-    return CurrentAmmo.BulletsAmountInClip < DefaultAmmo.BulletsAmountInClip && CurrentAmmo.Clips > 0;
 }
 
 void AShooterBaseWeapon::LogAmmo() const

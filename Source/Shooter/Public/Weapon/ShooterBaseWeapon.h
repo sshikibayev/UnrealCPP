@@ -44,7 +44,7 @@ protected:
     void SetPlayerViewPoint();
     APlayerController* GetPlayerController() const;
     void DrawTraceHit(FHitResult& HitResult) const;
-    FVector GetMuzzleWorldLocation() const;
+    FTransform GetMuzzleWorldTransform() const;
 
     //Ammo section
     void DecreaseAmmo();

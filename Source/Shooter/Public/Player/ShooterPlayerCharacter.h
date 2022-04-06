@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Player/ShooterBaseCharacter.h"
-#include "ShooterCoreTypes.h"
+#include "GameFramework/SpringArmComponent.h"
 #include "ShooterPlayerCharacter.generated.h"
 
 UCLASS()

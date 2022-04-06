@@ -3,10 +3,8 @@
 #include "ShooterCoreTypes.generated.h"
 
 //Weapon
-class UPlayerHealthComponent;
+
 class AShooterBaseWeapon;
-class UAnimMontage;
-class USkeletalMeshComponent;
 
 DECLARE_MULTICAST_DELEGATE(FOnClipEmptySignature);
 
@@ -37,7 +35,7 @@ struct FWeaponData
     UAnimMontage* ReloadAnimMontage;
 };
 
-USTRUCT()
+USTRUCT(BlueprintType)
 struct FTraceData
 {
     GENERATED_BODY()
@@ -54,12 +52,3 @@ struct FTraceData
 //Health
 DECLARE_MULTICAST_DELEGATE(FOnDeath);
 DECLARE_MULTICAST_DELEGATE_OneParam(FOnHealthChanged, float);
-
-//Character
-class UShooterHealthComponent;
-class UTextRenderComponent;
-class UPlayerHealthComponent;
-class UShooterWeaponComponent;
-class UCameraComponent;
-class USpringArmComponent;
-class UInputComponent;

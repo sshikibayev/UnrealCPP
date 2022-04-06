@@ -3,9 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "PlayerHealthComponent.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/Character.h"
-#include "ShooterCoreTypes.h"
+#include "ShooterWeaponComponent.h"
+#include "Components/TextRenderComponent.h"
 #include "ShooterBaseCharacter.generated.h"
 
 UCLASS()

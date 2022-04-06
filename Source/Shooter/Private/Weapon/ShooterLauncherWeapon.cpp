@@ -18,8 +18,8 @@ void AShooterLauncherWeapon::DoShot()
         DrawTraceHit(HitResult);
 
         const FVector EndPoint = HitResult.bBlockingHit ? HitResult.ImpactPoint : TraceData.TraceEnd;
-        const FVector Direction = (EndPoint - GetMuzzleWorldLocation()).GetSafeNormal();
-        const FTransform SpawnTransform(FRotator::ZeroRotator, GetMuzzleWorldLocation());
+        const FVector Direction = (EndPoint - GetMuzzleWorldTransform().GetLocation()).GetSafeNormal();
+        const FTransform SpawnTransform(FRotator::ZeroRotator, GetMuzzleWorldTransform().GetLocation());
         
         AShooterLauncherProjectile* Projectile = GetWorld()->SpawnActorDeferred<AShooterLauncherProjectile>(LauncherProjectile, SpawnTransform);
         if (Projectile)
