@@ -17,8 +17,8 @@ public:
 
     FOnClipEmptySignature OnClipEmpty;
 
-    virtual void StartFire();
-    virtual void StopFire();
+    virtual void StartFire(){};
+    virtual void StopFire(){};
 
     void ChangeClip();
     bool CanReload() const;
@@ -37,7 +37,7 @@ protected:
     FAmmoData DefaultAmmo{15, 10, false};
 
     virtual void BeginPlay() override;
-    virtual void DoShot();
+    virtual void DoShot(){};
     virtual void SetTraceData();
 
     FTraceData TraceData;

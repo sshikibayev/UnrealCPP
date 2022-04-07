@@ -57,20 +57,6 @@ FTransform AShooterBaseWeapon::GetMuzzleWorldTransform() const
     return WeaponMesh->GetSocketTransform(MuzzleSocketName);
 }
 
-void AShooterBaseWeapon::StartFire()
-{
-    check(GetWorld())
-}
-
-void AShooterBaseWeapon::StopFire()
-{
-    check(GetWorld())
-}
-
-void AShooterBaseWeapon::DoShot()
-{
-}
-
 void AShooterBaseWeapon::DecreaseAmmo()
 {
     CurrentAmmo.BulletsAmountInClip--;
